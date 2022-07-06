@@ -7,7 +7,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>ESCALAFÓN | DRE PUNO</title>
+  <link rel="shortcut icon" href="https://escalafon-ayni.minedu.gob.pe/minedu.ico">
+  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -16,234 +18,185 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
 </head>
-<body class="hold-transition sidebar-mini">
+<body class="hold-transition layout-top-nav">
 <div class="wrapper">
-
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-white navbar-light">
-    <!-- Left navbar links -->
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Home</a>
-      </li>
-      <li class="nav-item d-none d-sm-inline-block">
-        <a href="#" class="nav-link">Contact</a>
-      </li>
-    </ul>
+  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
+    <div class="container">
+      <a href="../plantilla/index3.html" class="navbar-brand">
+        <img src="../plantilla/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
 
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
+      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../plantilla/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../plantilla/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../plantilla/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
-  </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="../plantilla/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
-    </a>
-
-    <!-- Sidebar -->
-    <div class="sidebar">
-      <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="../plantilla/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
-        </div>
-        <div class="info">
-          <a href="#" class="d-block">Alan Fernandez</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline"> 
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Sidebar Menu -->
-      <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Starter Pages
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="#" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Active Page</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Inactive Page</p>
-                </a>
-              </li>
-            </ul>
+      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
+        <!-- Left navbar links -->
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a href="index3.html" class="nav-link">Home</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
-              <p>
-                Simple Link
-                <span class="right badge badge-danger">New</span>
-              </p>
-            </a>
+            <a href="#" class="nav-link">Contact</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Dropdown</a>
+            <ul aria-labelledby="dropdownSubMenu1" class="dropdown-menu border-0 shadow">
+              <li><a href="#" class="dropdown-item">Some action </a></li>
+              <li><a href="#" class="dropdown-item">Some other action</a></li>
+
+              <li class="dropdown-divider"></li>
+
+              <!-- Level two dropdown-->
+              <li class="dropdown-submenu dropdown-hover">
+                <a id="dropdownSubMenu2" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">Hover for action</a>
+                <ul aria-labelledby="dropdownSubMenu2" class="dropdown-menu border-0 shadow">
+                  <li>
+                    <a tabindex="-1" href="#" class="dropdown-item">level 2</a>
+                  </li>
+
+                  <!-- Level three dropdown-->
+                  <li class="dropdown-submenu">
+                    <a id="dropdownSubMenu3" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="dropdown-item dropdown-toggle">level 2</a>
+                    <ul aria-labelledby="dropdownSubMenu3" class="dropdown-menu border-0 shadow">
+                      <li><a href="#" class="dropdown-item">3rd level</a></li>
+                      <li><a href="#" class="dropdown-item">3rd level</a></li>
+                    </ul>
+                  </li>
+                  <!-- End Level three -->
+
+                  <li><a href="#" class="dropdown-item">level 2</a></li>
+                  <li><a href="#" class="dropdown-item">level 2</a></li>
+                </ul>
+              </li>
+              <!-- End Level two -->
+            </ul>
           </li>
         </ul>
-      </nav>
-      <!-- /.sidebar-menu -->
-    </div>
-    <!-- /.sidebar -->
-  </aside>
 
+        <!-- SEARCH FORM -->
+        <form class="form-inline ml-0 ml-md-3">
+          <div class="input-group input-group-sm">
+            <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-navbar" type="submit">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right navbar links -->
+      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="fas fa-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../plantilla/dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Call me whenever you can...</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../plantilla/dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">I got your message bro</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="../plantilla/dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
+                  </h3>
+                  <p class="text-sm">The subject goes here</p>
+                  <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
+                </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="fas fa-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="fas fa-th-large"></i>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- /.navbar -->
+<!-- CONTENIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO================================================================ -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row mb-2">
-          <div class="col-sm-6">
+          <div class="col-sm-4">
             <img src="https://upload.wikimedia.org/wikipedia/commons/2/21/Logo_del_Ministerio_de_Educaci%C3%B3n_del_Per%C3%BA_-_MINEDU.png" alt="" style="width: 300px; height: 70px;" class="img-fluid">
           </div><!-- /.col -->
-          <div class="col-sm-6">
-            <h1>ESCALAFÓN DRE - PUNO</h1>
+          <div class="col-sm-8">
+            <h1>ESCALAFÓN - Dirección Regional de Educación Puno</h1>
           </div><!-- /.col -->
         </div><!-- /.row -->
       </div><!-- /.container-fluid -->
@@ -252,7 +205,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- Main content -->
     <div class="content">
-      <div class="container-fluid">
+      <div class="container">
         <div class="row">
           <!-- CARRUSEL -->
           <div class="col-lg-9">
@@ -268,13 +221,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </ol>
               <div class="carousel-inner">
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../recursos/img/descripcion.png" alt="PRIMEROOO">
+                  <img class="d-block w-100" src="../recursos/img/descripcion.png" alt="PRIMEROOO" style="height: 400px; width: 600px">
                 </div>
                 <div class="carousel-item active">
-                  <img class="d-block w-100" src="https://i2.wp.com/www.repositorioeducacion.com/wp-content/uploads/2021/01/Escalafon-institutos.jpg?fit=975%2C546&ssl=1" alt="SEGUNDOOO">
+                  <img class="d-block w-100" src="https://i2.wp.com/www.repositorioeducacion.com/wp-content/uploads/2021/01/Escalafon-institutos.jpg?fit=975%2C546&ssl=1" alt="SEGUNDOOO" style="height: 400px; width: 600px">
                 </div>
                 <div class="carousel-item">
-                  <img class="d-block w-100" src="../recursos/img/requisitos.png" alt="TERCEROOO">
+                  <img class="d-block w-100" src="../recursos/img/requisitos.png" alt="TERCEROOO" style="height: 400px; width: 600px">
                 </div>
               </div>
               <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
@@ -299,19 +252,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-3">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">COMINICADOS</h3>
               </div>
 
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
+                <strong><i class="fas fa-book mr-1"></i>ITEM 1</strong>
                   <p class="text-muted">
                     B.S. in Computer Science from the University of Tennessee at Knoxville
                   </p>
                   <hr>
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
+                    <strong><i class="fas fa-map-marker-alt mr-1"></i>ITEM 2</strong>
                     <p class="text-muted">Malibu, California</p>
                       <hr>
-                      <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
+                      <strong><i class="fas fa-pencil-alt mr-1"></i> ITEM 3</strong>
                       <p class="text-muted">
                       <span class="tag tag-danger">UI Design</span>
                       <span class="tag tag-success">Coding</span>
@@ -382,23 +335,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="card-header">
                   <h4 class="card-title w-100">
                   <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">
-                  Collapsible Group Item #1
+                  Para personal Nombrado
                   </a>
                   </h4>
                   </div>
                   <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3
-                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                  laborum
-                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                  nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer
-                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                  labore sustainable VHS.
+                    <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing"><h5>Formato para personal Nombrado</h5></a>
                   </div>
                   </div>
                   </div>
@@ -406,23 +349,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="card-header">
                   <h4 class="card-title w-100">
                   <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false">
-                  Collapsible Group Danger
+                  Para personal Contratado
                   </a>
                   </h4>
                   </div>
                   <div id="collapseTwo" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3
-                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                  laborum
-                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                  nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer
-                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                  labore sustainable VHS.
+                    <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing"><h5>Formato para personal Contratado</h5></a>
                   </div>
                   </div>
                   </div>
@@ -430,23 +363,20 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <div class="card-header">
                   <h4 class="card-title w-100">
                   <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false">
-                  Collapsible Group Success
+                  Formato para la presentación de nueva documentación
                   </a>
                   </h4>
                   </div>
                   <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                  Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid.
-                  3
-                  wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt
-                  laborum
-                  eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee
-                  nulla
-                  assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred
-                  nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft
-                  beer
-                  farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus
-                  labore sustainable VHS.
+                    <ol class="list-unstyled mb-0">
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf">Formato N° 01 - Boleta Personal</a></li>
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf">Formato N° 02 - Declaración Jurada</a></li>
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
+                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
+                    </ol>
                   </div>
                   </div>
                   </div>
@@ -463,29 +393,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <div class="col-lg-3">
             <div class="card card-primary">
               <div class="card-header">
-                <h3 class="card-title">About Me</h3>
+                <h3 class="card-title">NOS ENCONTRAMOS EN</h3>
               </div>
 
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i> Education</strong>
-                  <p class="text-muted">
-                    B.S. in Computer Science from the University of Tennessee at Knoxville
-                  </p>
-                  <hr>
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-                    <p class="text-muted">Malibu, California</p>
-                      <hr>
-                      <strong><i class="fas fa-pencil-alt mr-1"></i> Skills</strong>
-                      <p class="text-muted">
-                      <span class="tag tag-danger">UI Design</span>
-                      <span class="tag tag-success">Coding</span>
-                      <span class="tag tag-info">Javascript</span>
-                      <span class="tag tag-warning">PHP</span>
-                      <span class="tag tag-primary">Node.js</span>
-                    </p>
-                  <hr>
-                  <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                <!-- UBICACION -->
+                <strong><i class="fas fa-map-marker-alt mr-1"></i>Dirección</strong>
+                <p class="text-muted">Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso</p>
+                <hr>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1567.7043810777395!2d-70.01074918453399!3d-15.861455905793738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d6a296aefc16d%3A0xbe20f3b1dcddbd21!2sDirecci%C3%B3n%20Regional%20de%20Educaci%C3%B3n%20Puno!5e0!3m2!1ses!2spe!4v1644341088001!5m2!1ses!2spe" width="100%" height="300" style="border:0;" class="position-sticky" allowfullscreen="" loading="lazy"></iframe>
+
               </div>
 
             </div>
@@ -502,10 +419,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Control Sidebar -->
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
-    <div class="p-3">
-      <h5>Title</h5>
-      <p>Sidebar content</p>
-    </div>
   </aside>
   <!-- /.control-sidebar -->
 
@@ -529,5 +442,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="../plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../plantilla/dist/js/adminlte.min.js"></script>
+<!-- AdminLTE for demo purposes -->
+<script src="../plantilla/dist/js/demo.js"></script>
 </body>
 </html>
