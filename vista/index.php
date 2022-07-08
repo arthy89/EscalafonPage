@@ -36,10 +36,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link">Inicio</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contacto</a>
+            <a href="contacto.php" class="nav-link">Contacto</a>
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Opciones</a>

@@ -38,10 +38,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Left navbar links -->
         <ul class="navbar-nav">
           <li class="nav-item">
-            <a href="index3.html" class="nav-link">Inicio</a>
+            <a href="#" class="nav-link">Inicio</a>
           </li>
           <li class="nav-item">
-            <a href="#" class="nav-link">Contacto</a>
+            <a href="contacto.php" class="nav-link">Contacto</a>
           </li>
           <li class="nav-item dropdown">
             <a id="dropdownSubMenu1" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link dropdown-toggle">Opciones</a>
@@ -263,14 +263,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- comunicado 1 -->
                 <div class="row">
                   <div class="col-sm-9">
-                    <strong><i class="fas fa-pen mr-1"></i>Comunicado</strong>
+                    <strong><i class="fas fa-edit mr-1"></i>Comunicado</strong>
                     <p class="text-muted">
                       B.S. in Computer Science from the University of Tennessee at Knoxville
                     </p>
                     <hr>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                   <hr>
@@ -279,14 +279,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- comunicado 2 -->
                 <div class="row">
                   <div class="col-sm-9">
-                    <strong><i class="fas fa-pen mr-1"></i>Anuncio </strong>
+                    <strong><i class="fas fa-edit mr-1"></i>Anuncio </strong>
                     <p class="text-muted">
                       B.S. in Computer Science from the University of Tennessee at Knoxville
                     </p>
                     <hr>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
                     <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                   <hr>
@@ -295,14 +295,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <!-- comunicado 3 -->
                 <div class="row">
                   <div class="col-sm-9">
-                    <strong><i class="fas fa-pen mr-1"></i>Noticia</strong>
+                    <strong><i class="fas fa-edit mr-1"></i>Noticia</strong>
                     <p class="text-muted">
                       B.S. in Computer Science from the University of Tennessee at Knoxville
                     </p>
 
                   </div>
                   <div class="col-sm-3">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
                       <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                 </div>
@@ -343,24 +343,73 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       <li>Sustentar los años de servicios para el otorgamiento de pensiones.</li>
                     </ul>
                     <p><strong>Resumen: </strong> La documentación contenida en el legajo personal constituye la única fuente oficial de información para todos los procesos de evaluación, de la trayectoria docente pública y profesional dentro de la CPD y para el reconocimiento de beneficios, asignaciones, subsidios y otros derechos que le pudiera corresponder de acuerdo a lo que establece la Ley N° 30512.</p>
+                    <hr>
+                    <!-- Edicion de CONTENEDOR PRINCIPAL -->
+                    <div class="row">
+                      <div class="col-sm-1">
+                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      </div>
+                    </div>
+                    <!--CIERRA EDICION -->
                   </div>
                 <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                  <a href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf">RVM N° 092-2020-MINEDU</a>
-                  <br>
+                  <div class="row">
+                    <div class="col-lg-10">
+                      <a href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf">RVM N° 092-2020-MINEDU</a>
+                    </div>
+                    <!-- Edicion de CONTENEDOR PRINCIPAL -->
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <!--CIERRA EDICION -->
+                  </div>
                   <hr>
-                  <a href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf">RVM N° 016-2021-MINEDU</a>
+                  <div class="row">
+                    <div class="col-lg-10">
+                      <a href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf">RVM N° 016-2021-MINEDU</a>
+                    </div>
+                    <!-- Edicion de CONTENEDOR PRINCIPAL -->
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <!--CIERRA EDICION -->
+                  </div>
                   <hr>
-                  <p>
-                    <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema Integrado de Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa Descentralizada.
-                  </p>
-                  <ul>
-                    <li>Ley N.° 30512, Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente</li>
-                    <li>Ley N.° 28044, Ley General de Educación</li>
-                    <li>Ley N.° 29733, Ley de Protección de Datos Personales</li>
-                    <li>Ley N.° 25323, Ley del Sistema Nacional de Archivos</li>
-                    <li>Ley N.° 27806, Ley de Transparencia y Acceso a la Información Pública</li>
-                    <li>Ley N.° 27815, Código de Ética de la Función Pública</li>
-                  </ul>
+                  <div class="row">
+                    <div class="col-lg-10">
+                      <p>
+                        <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema Integrado de Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa Descentralizada.
+                      </p>
+                      <ul>
+                        <li>Ley N.° 30512, Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente</li>
+                        <li>Ley N.° 28044, Ley General de Educación</li>
+                        <li>Ley N.° 29733, Ley de Protección de Datos Personales</li>
+                        <li>Ley N.° 25323, Ley del Sistema Nacional de Archivos</li>
+                        <li>Ley N.° 27806, Ley de Transparencia y Acceso a la Información Pública</li>
+                        <li>Ley N.° 27815, Código de Ética de la Función Pública</li>
+                      </ul>
+                    </div>
+                    <!-- Edicion de seccion -->
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <!--CIERRA EDICION -->
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <button type="button" class="btn btn-block btn-success"><i class="fas fa-plus mr-2"></i>Añadir nueva sección</button>
+                    </div>
+                  </div>
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
                   <div id="accordion">
@@ -374,7 +423,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                    <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing"><h5>Formato para personal Nombrado</h5></a>
+                    <div class="row">
+                      <div class="col-lg-10">
+                        <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing"><h5>Formato para personal Nombrado</h5></a>
+                      </div>
+                      <!-- Edicion de seccion -->
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    </div>
+                    <div class="col-sm-1">
+                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    <!--CIERRA EDICION -->
+                    </div>
                   </div>
                   </div>
                   </div>
@@ -388,7 +449,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div id="collapseTwo" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                    <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing"><h5>Formato para personal Contratado</h5></a>
+                    <div class="row">
+                      <div class="col-lg-10">
+                      <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing"><h5>Formato para personal Contratado</h5></a>
+                      </div>
+                      <!-- Edicion de seccion -->
+                      <div class="col-sm-1">
+                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      </div>
+                      <div class="col-sm-1">
+                        <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                      <!--CIERRA EDICION -->
+                    </div>
                   </div>
                   </div>
                   </div>
@@ -402,14 +475,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   </div>
                   <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
                   <div class="card-body">
-                    <ol class="list-unstyled mb-0">
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf">Formato N° 01 - Boleta Personal</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf">Formato N° 02 - Declaración Jurada</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
-                    </ol>
+                    <div class="row">
+                      <div class="col-lg-10">
+                        <ol class="list-unstyled mb-0">
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf">Formato N° 01 - Boleta Personal</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf">Formato N° 02 - Declaración Jurada</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
+                        </ol>
+                      </div>
+                      <!-- Edicion de seccion -->
+                      <div class="col-sm-1">
+                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      </div>
+                      <div class="col-sm-1">
+                        <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      </div>
+                      <!--CIERRA EDICION -->
+                    </div>
                   </div>
                   </div>
                   </div>
