@@ -17,6 +17,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
+  <!-- icons -->
+  <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/solid.css">
 </head>
 <body class="hold-transition layout-top-nav">
 <div class="wrapper">
@@ -257,25 +259,55 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </div>
 
               <div class="card-body">
-                <strong><i class="fas fa-book mr-1"></i>ITEM 1</strong>
-                  <p class="text-muted">
-                    B.S. in Computer Science from the University of Tennessee at Knoxville
-                  </p>
-                  <hr>
-                    <strong><i class="fas fa-map-marker-alt mr-1"></i>ITEM 2</strong>
-                    <p class="text-muted">Malibu, California</p>
-                      <hr>
-                      <strong><i class="fas fa-pencil-alt mr-1"></i> ITEM 3</strong>
-                      <p class="text-muted">
-                      <span class="tag tag-danger">UI Design</span>
-                      <span class="tag tag-success">Coding</span>
-                      <span class="tag tag-info">Javascript</span>
-                      <span class="tag tag-warning">PHP</span>
-                      <span class="tag tag-primary">Node.js</span>
+                <!-- contenedores de comunicados -->
+                <!-- comunicado 1 -->
+                <div class="row">
+                  <div class="col-sm-9">
+                    <strong><i class="fas fa-pen mr-1"></i>Comunicado</strong>
+                    <p class="text-muted">
+                      B.S. in Computer Science from the University of Tennessee at Knoxville
                     </p>
+                    <hr>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                    <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  </div>
                   <hr>
-                  <strong><i class="far fa-file-alt mr-1"></i> Notes</strong>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam fermentum enim neque.</p>
+                </div>
+
+                <!-- comunicado 2 -->
+                <div class="row">
+                  <div class="col-sm-9">
+                    <strong><i class="fas fa-pen mr-1"></i>Anuncio </strong>
+                    <p class="text-muted">
+                      B.S. in Computer Science from the University of Tennessee at Knoxville
+                    </p>
+                    <hr>
+                  </div>
+                  <div class="col-sm-3">
+                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                    <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                  <hr>
+                </div>
+
+                <!-- comunicado 3 -->
+                <div class="row">
+                  <div class="col-sm-9">
+                    <strong><i class="fas fa-pen mr-1"></i>Noticia</strong>
+                    <p class="text-muted">
+                      B.S. in Computer Science from the University of Tennessee at Knoxville
+                    </p>
+
+                  </div>
+                  <div class="col-sm-3">
+                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-pen"></i></button>
+                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                  </div>
+                </div>
+                <hr>
+                <button type="button" class="btn btn-block btn-success"><i class="fas fa-plus mr-2"></i>Añadir nuevo anuncio</button>
               </div>
             </div>
           </div>
