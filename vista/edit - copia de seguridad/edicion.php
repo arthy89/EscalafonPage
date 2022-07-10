@@ -270,8 +270,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <hr>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                   <hr>
                 </div>
@@ -286,8 +286,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <hr>
                   </div>
                   <div class="col-sm-3">
-                    <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                    <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
+                    <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                   <hr>
                 </div>
@@ -302,12 +302,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                   </div>
                   <div class="col-sm-3">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
-                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                   </div>
                 </div>
                 <hr>
-                <button type="button" class="btn btn-block btn-success"><i class="fas fa-plus mr-2"></i>Añadir nuevo anuncio</button>
+                <button type="button" class="btn btn-block bg-gradient-success"><i class="fas fa-plus mr-2"></i>Añadir nuevo anuncio</button>
               </div>
             </div>
           </div>
@@ -347,7 +347,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <!-- Edicion de CONTENEDOR PRINCIPAL -->
                     <div class="row">
                       <div class="col-sm-1">
-                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                       </div>
                     </div>
                     <!--CIERRA EDICION -->
@@ -359,10 +359,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <!-- Edicion de CONTENEDOR PRINCIPAL -->
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                     </div>
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </div>
                     <!--CIERRA EDICION -->
                   </div>
@@ -373,10 +373,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <!-- Edicion de CONTENEDOR PRINCIPAL -->
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                     </div>
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </div>
                     <!--CIERRA EDICION -->
                   </div>
@@ -397,17 +397,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                     <!-- Edicion de seccion -->
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                     </div>
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </div>
                     <!--CIERRA EDICION -->
                   </div>
                   <hr>
                   <div class="row">
                     <div class="col-sm-4">
-                      <button type="button" class="btn btn-block btn-success"><i class="fas fa-plus mr-2"></i>Añadir nueva sección</button>
+                      <button type="button" class="btn btn-block bg-gradient-success"><i class="fas fa-plus mr-2"></i>Añadir nueva sección</button>
                     </div>
                   </div>
                 </div>
@@ -429,10 +429,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <!-- Edicion de seccion -->
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                     </div>
                     <div class="col-sm-1">
-                      <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                      <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                     </div>
                     <!--CIERRA EDICION -->
                     </div>
@@ -455,10 +455,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <!-- Edicion de seccion -->
                       <div class="col-sm-1">
-                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                       </div>
                       <div class="col-sm-1">
-                        <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                       </div>
                       <!--CIERRA EDICION -->
                     </div>
@@ -488,10 +488,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                       </div>
                       <!-- Edicion de seccion -->
                       <div class="col-sm-1">
-                        <button type="button" class="btn btn-block btn-primary btn-sm"><i class="fas fa-edit"></i></button>
+                        <button type="button" class="btn btn-block bg-gradient-primary btn-sm"><i class="fas fa-edit"></i></button>
                       </div>
                       <div class="col-sm-1">
-                        <button type="button" class="btn btn-block btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                        <button type="button" class="btn btn-block bg-gradient-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
                       </div>
                       <!--CIERRA EDICION -->
                     </div>
@@ -547,7 +547,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Escalafón Dirección Regional de Educación Puno - Oficial
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">Escalafón</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021-2022 <a href="#">Escalafón</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->

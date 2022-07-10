@@ -240,7 +240,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           </div>
                         </div>
                       </div>
-
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="#" class="btn btn-sm bg-danger">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                          <a href="#" class="btn btn-sm btn-primary">
+                            <i class="fas fa-user"></i> Editar Perfil
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <!--  -->
@@ -270,13 +279,27 @@ scratch. This page gets rid of all links and provides the needed markup only.
                           </div>
                         </div>
                       </div>
+                      <div class="card-footer">
+                        <div class="text-right">
+                          <a href="#" class="btn btn-sm bg-danger">
+                            <i class="fas fa-trash"></i>
+                          </a>
+                          <a href="#" class="btn btn-sm btn-primary">
+                            <i class="fas fa-user"></i> Editar Perfil
+                          </a>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <!--  -->
                 </div>
               </div>
               <!-- /.card-body -->
-
+              <div class="card-footer text-center">
+                <a href="#" class="btn btn-sm bg-teal">
+                  <i class="fas fa-plus"></i> Añadir nuevo contacto
+                </a>
+              </div>
               <!-- /.card-footer -->
             </div>
             <!-- /.card -->

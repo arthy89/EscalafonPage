@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
   </nav>
   <!-- /.navbar -->
-<!-- CONTENIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO================================================================ -->
+  <!-- CONTENIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO================================================================ -->
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -332,57 +332,61 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 </div>
                 <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
                   <div id="accordion">
-                  <div class="card card-primary">
-                  <div class="card-header">
-                  <h4 class="card-title w-100">
-                  <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">
-                  Para personal Nombrado
-                  </a>
-                  </h4>
+                    <div class="card card-primary">
+                      <div class="card-header">
+                        <h4 class="card-title w-100">
+                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">
+                          Para personal Nombrado
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
+                        <div class="card-body">
+                          <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing"><h5>Formato para personal Nombrado</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-danger">
+                      <div class="card-header">
+                        <h4 class="card-title w-100">
+                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false">
+                            Para personal Contratado
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseTwo" class="collapse" data-parent="#accordion" style="">
+                        <div class="card-body">
+                          <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing"><h5>Formato para personal Contratado</h5></a>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card card-success">
+                      <div class="card-header">
+                        <h4 class="card-title w-100">
+                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false">
+                            Formato para la presentación de nueva documentación
+                          </a>
+                        </h4>
+                      </div>
+                      <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
+                      <div class="card-body">
+                        <ol class="list-unstyled mb-0">
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf">Formato N° 01 - Boleta Personal</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf">Formato N° 02 - Declaración Jurada</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
+                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
+                        </ol>
+                      </div>
+                    </div>
+                    <!-- card success -->
                   </div>
-                  <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
-                  <div class="card-body">
-                    <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing"><h5>Formato para personal Nombrado</h5></a>
-                  </div>
-                  </div>
-                  </div>
-                  <div class="card card-danger">
-                  <div class="card-header">
-                  <h4 class="card-title w-100">
-                  <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false">
-                  Para personal Contratado
-                  </a>
-                  </h4>
-                  </div>
-                  <div id="collapseTwo" class="collapse" data-parent="#accordion" style="">
-                  <div class="card-body">
-                    <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing"><h5>Formato para personal Contratado</h5></a>
-                  </div>
-                  </div>
-                  </div>
-                  <div class="card card-success">
-                  <div class="card-header">
-                  <h4 class="card-title w-100">
-                  <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false">
-                  Formato para la presentación de nueva documentación
-                  </a>
-                  </h4>
-                  </div>
-                  <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
-                  <div class="card-body">
-                    <ol class="list-unstyled mb-0">
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf">Formato N° 01 - Boleta Personal</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf">Formato N° 02 - Declaración Jurada</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
-                      <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
-                    </ol>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
-                  </div>
+                  <!-- accordition -->
+                </div>
+                <!-- tab pane fade -->
+              </div>
+              <!-- ./card body -->
                 <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                   Pellentesque vestibulum commodo nibh nec blandit. Maecenas neque magna, iaculis tempus turpis ac, ornare sodales tellus. Mauris eget blandit dolor. Quisque tincidunt venenatis vulputate. Morbi euismod molestie tristique. Vestibulum consectetur dolor a vestibulum pharetra. Donec interdum placerat urna nec pharetra. Etiam eget dapibus orci, eget aliquet urna. Nunc at consequat diam. Nunc et felis ut nisl commodo dignissim. In hac habitasse platea dictumst. Praesent imperdiet accumsan ex sit amet facilisis.
                 </div>
@@ -396,16 +400,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <div class="card-header">
                 <h3 class="card-title">NOS ENCONTRAMOS EN</h3>
               </div>
-
               <div class="card-body">
                 <!-- UBICACION -->
                 <strong><i class="fas fa-map-marker-alt mr-1"></i>Dirección</strong>
                 <p class="text-muted">Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso</p>
                 <hr>
                 <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1567.7043810777395!2d-70.01074918453399!3d-15.861455905793738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d6a296aefc16d%3A0xbe20f3b1dcddbd21!2sDirecci%C3%B3n%20Regional%20de%20Educaci%C3%B3n%20Puno!5e0!3m2!1ses!2spe!4v1644341088001!5m2!1ses!2spe" width="100%" height="300" style="border:0;" class="position-sticky" allowfullscreen="" loading="lazy"></iframe>
-
               </div>
-
             </div>
           </div>
           <!-- /.col-md-6 -->
@@ -430,7 +431,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Escalafón Dirección Regional de Educación Puno - Oficial
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2021-2022 <a href="https://adminlte.io">Escalafón</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2021-2022 <a href="#">Escalafón</a>.</strong> All rights reserved.
   </footer>
 </div>
 <!-- ./wrapper -->
