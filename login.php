@@ -1,3 +1,9 @@
+<?php
+    session_start();
+    if(isset($_SESSION['S_IDUSUARIO'])){
+        header('Location: vista/admin.php');
+    }
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -54,7 +60,7 @@
       <p class="login-box-msg">Ingrese sus datos para iniciar sesion</p>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="usuario o correo@electronico.com" id="text_usuario">
+          <input type="text" class="form-control" placeholder="@ Correo electronico" id="text_usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -100,5 +106,9 @@
 <script src="plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="plantilla/dist/js/adminlte.min.js"></script>
+<!-- ALERTAS -->
+<script src="recursos/sweetalert2@11.js"></script>
+<!-- INICIAR SESION -->
+<script src="JS/usuario.js?rev=<?php echo time();?>"></script>
 </body>
 </html>

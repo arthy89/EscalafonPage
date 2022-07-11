@@ -1,3 +1,9 @@
+<?php
+  session_start();
+  if(!isset($_SESSION['S_IDUSUARIO'])){
+      header('Location: ../login.php');
+  }
+?>
 <!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
@@ -49,7 +55,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="../plantilla/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alan Fernandez</a>
+          <a href="#" class="d-block">
+            <?php echo $_SESSION['S_USUARIO']; ?>
+            <?php echo $_SESSION['S_APUSUARIO']; ?>
+          </a>
         </div>
       </div>
 
@@ -91,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- CERRAR SESION -->
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a href="#" class="nav-link" >
+            <a href="../controlador/usuario/destruir_sesion.php" class="nav-link" >
               <i class="nav-icon fa fa-arrow-circle-left"></i>
               <p>Cerrar Sesión</p>
             </a>
@@ -107,7 +116,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper" id="contenido_principal">
+
     <!-- SE JALA EL CONTENIDO CON LA FUNCION -->
+
   </div>
   <!-- /.content-wrapper -->
 

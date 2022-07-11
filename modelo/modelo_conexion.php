@@ -1,20 +1,10 @@
 <?php
-$dsn = 'mysql:dbname=esc_bd;host=localhost';
-$usuario = 'root';
-$contraseña = '';
-
-try {
-    $gbd = new PDO($dsn, $usuario, $contraseña);
-} catch (PDOException $e) {
-    echo 'Fallo de conexion: ' . $e->getMessage();
-}
-
 class conexionBD{
 public function conexionPDO(){
         $host       ='localhost';
         $usuario    ='root';
         $contrasena = '';
-        $dbName     = 'esc_bd';
+        $dbName     = 'bd_escalafon';
     
         try{
             $pdo = new PDO("mysql:host=$host;dbname=$dbName", $usuario,$contrasena);
