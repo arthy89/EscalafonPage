@@ -100,10 +100,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- CERRAR SESION -->
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a href="../controlador/usuario/destruir_sesion.php" class="nav-link" >
-              <i class="nav-icon fa fa-arrow-circle-left"></i>
-              <p>Cerrar Sesión</p>
-            </a>
+            <button onclick='destruir_sesion();' class="btn btn-block bg-gradient-danger btn-sm" >
+              <i class="nav-icon fa fa-arrow-circle-left"></i>Cerrar Sesión</button>
           </li>
           <!-- ./CERRAR SESION-->
           
@@ -152,6 +150,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="../plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../plantilla/dist/js/adminlte.min.js"></script>
+<script src="../JS/cerrar_sesion.js"></script>
+<script src="../recursos/sweetalert2@11.js"></script>
 <script>
   function cargar_contenido(id,vista){
     $("#"+id).load(vista);

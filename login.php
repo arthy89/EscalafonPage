@@ -79,7 +79,7 @@
           </div>
         </div>
         <div class="row">
-          <div class="col-8">
+          <div class="col-5">
             <div class="icheck-primary">
               <input type="checkbox" id="rememberMe" checked="checked">
               <label for="rememberMe">
@@ -88,8 +88,12 @@
             </div>
           </div>
           <!-- /.col -->
+          <div class="col-3">
+            <a href="vista/index.php" class="btn btn-primary btn-block" >Volver</a>
+          </div>
+          <!-- ./col -->
           <div class="col-4">
-            <button type="submit" class="btn btn-primary btn-block" onclick="Iniciar_Sesion()">Ingresar</button>
+            <button type="submit" class="btn btn-success btn-block" onclick="Iniciar_Sesion()">Ingresar</button>
           </div>
           <!-- /.col -->
         </div>
