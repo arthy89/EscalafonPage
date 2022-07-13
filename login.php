@@ -60,7 +60,7 @@
       <p class="login-box-msg">Ingrese sus datos para iniciar sesion</p>
 
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="@ Correo electronico" id="text_usuario">
+          <input type="text" class="form-control" placeholder="Correo electronico" id="text_usuario">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
