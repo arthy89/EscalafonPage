@@ -73,3 +73,190 @@ function Iniciar_Sesion() {
         }
     })
 }
+
+var tbl_usuarios;
+function listar_usuario_simple(){
+  tbl_usuarios = $("#tabla_usuario_simple").DataTable({
+    "ordering": false,
+    "bLengthChange": true,
+    "searching": { "regex": false},
+    "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+    "pageLength": 10,
+    "destroy": true,
+    "async": false,
+    "processing": true,
+    "ajax": {
+      "url": "../controlador/usuario/control_usuario_listar.php",
+      type: 'POST'
+    },
+    "columns": [
+      {"defaultContent": ""},
+      {"data":"usu_nombre"},
+      {"data":"usu_apaterno"},
+      {"data":"usu_amaterno"},
+      {"data":"usu_email"},
+      {"data":"usu_foto",
+        render: function (data, type, row) {
+          return '<img class="img-responsive" style="width: 60px;" src="../'+ data+'">';
+        }
+      },
+      {"data":"usu_detalle"},
+      {"data":"usu_direccion"},
+      {"data":"rol_nombre"},
+      {"defaultContent":"<button class='btn btn-warning'><i class='fa fa-edit'></i></button>"}
+    ],
+
+    "language": idioma_espanol,
+    select: true
+  });
+
+ tbl_usuarios.on('draw.td',function(){
+   var PageInfo=$("#tabla_usuario_simple").DataTable().page.info();
+   tbl_usuarios.column(0,{page:'current'}).nodes().each(function(cell,i){
+    cell.innerHTML=i+1+PageInfo.start;
+   });
+ });
+
+}
+
+//! MODAL
+function modal_abrir(){
+  $("#modal_registro").modal('show');
+  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
+}
+
+function cargar_rol(){
+  $.ajax({
+    url: '../controlador/usuario/control_rol.php',
+    type: 'POST'
+  }).done(function(resp){
+    let data = JSON.parse(resp);
+    let llenardata = "";
+    if(data.length > 0){
+      for (let i = 0; i < data.length; i++) {
+        llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
+      }
+      document.getElementById('usu_rol').innerHTML= llenardata;
+    }else{
+      llenardata+="<option value=''>No se encuentran roles</option>";
+      document.getElementById('usu_rol').innerHTML= llenardata;
+    }
+  })
+}
+
+
+
+function registrar_usuario(){
+  let usuario = document.getElementById("usu_nombre").value;
+  let apaterno = document.getElementById("usu_apaterno").value;
+  let amaterno = document.getElementById("usu_amaterno").value;
+  let email = document.getElementById("usu_email").value;
+  let contra = document.getElementById("usu_contrasena").value;
+  let detalle = document.getElementById("usu_detalle").value;
+  let direccion = document.getElementById("usu_direccion").value;
+  let foto = document.getElementById("usu_foto").value;
+  let rol = document.getElementById("usu_rol").value;
+
+  if(usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
+    email.length == 0 || contra.length == 0 || detalle.length == 0 || 
+    direccion.length == 0){
+      validaInput("usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+    }
+
+  if(validar_emailR(email)){
+
+  }else{
+    return Swal.fire(
+      "Mensaje de advertencia",
+      "Email invalido",
+      "error"
+    );
+  }
+  
+  let extension = foto.split('.').pop();
+  let nomfoto = "";
+  let f = new Date();
+  if(foto.length>0){
+    nomfoto = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+f.getHours()+""+f.getMinutes()+""+f.getMilliseconds()+"."+extension;
+  }
+
+  let formData = new FormData();
+  let fotoobject = $('#usu_foto')[0].files[0]; //todo foto adjuntada
+  formData.append('u',usuario);
+  formData.append('p',apaterno);
+  formData.append('m',amaterno);
+  formData.append('e',email);
+  formData.append('c',contra);
+  formData.append('de',detalle);
+  formData.append('di',direccion);
+  formData.append('fn',nomfoto);
+  formData.append('f',fotoobject);
+  formData.append('r',rol);
+  $.ajax({
+    url: '../controlador/usuario/control_usuario_registrar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
+          // limpiarModalUsu();
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Usuario registrado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_registro").modal('hide');
+            limpiarModalUsu();
+            tbl_usuarios.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El correo registrado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo registrar el usuario",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+}
+
+function validaInput(nombre,paterno,materno,email,contrasena,detalle,direccion){
+  Boolean(document.getElementById(nombre).value.length > 0) ? $("#"+nombre).removeClass("is-invalid").addClass("is-valid"): $("#"+nombre).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(paterno).value.length > 0) ? $("#"+paterno).removeClass("is-invalid").addClass("is-valid"): $("#"+paterno).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(materno).value.length > 0) ? $("#"+materno).removeClass("is-invalid").addClass("is-valid"): $("#"+materno).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(email).value.length > 0) ? $("#"+email).removeClass("is-invalid").addClass("is-valid"): $("#"+email).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(contrasena).value.length > 0) ? $("#"+contrasena).removeClass("is-invalid").addClass("is-valid"): $("#"+contrasena).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(detalle).value.length > 0) ? $("#"+detalle).removeClass("is-invalid").addClass("is-valid"): $("#"+detalle).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(direccion).value.length > 0) ? $("#"+direccion).removeClass("is-invalid").addClass("is-valid"): $("#"+direccion).removeClass("is-valid").addClass("is-invalid");
+}
+
+function validar_emailR(email){
+    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+    return regex.test(email) ? true : false;
+}
+
+function limpiarModalUsu(){
+  document.getElementById("usu_nombre").value = "";
+  document.getElementById("usu_apaterno").value = "";
+  document.getElementById("usu_amaterno").value = "";
+  document.getElementById("usu_email").value = "";
+  document.getElementById("usu_contrasena").value = "";
+  document.getElementById("usu_detalle").value = "";
+  document.getElementById("usu_direccion").value = "";
+  document.getElementById("usu_foto").value = "";
+}

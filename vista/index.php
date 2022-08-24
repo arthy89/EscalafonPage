@@ -5,6 +5,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="es">
 <head>
+  <style>
+    #RVM_092{
+      color:black;
+      transition: 0.3s;
+    }
+
+    #RVM_016{
+      color:black;
+      transition: 0.3s;
+    }
+
+    #RVM_092:hover{
+      background-color:#007bff;
+      color:white;
+    }
+
+    #RVM_016:hover{
+      background-color:#007bff;
+      color:white;
+    }
+
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Escalafón | DRE Puno</title>
@@ -15,6 +37,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="../css/cssmy.css">
@@ -61,7 +84,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Right navbar links -->
       <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
         <a href="https://drepuno.gob.pe" class="navbar-brand">
-          <img src="../plantilla/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+          <img src="../recursos/img/logogrdrep.png" alt="AdminLTE Logo" class="brand-image">
           <span class="brand-text font-weight-light">DRE Puno</span>
         </a>
       </ul>
@@ -144,24 +167,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
                   <p class="text-muted">
                     Capacitación para docentes guía informativa.
                     <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><i>Video de referencia</i></a>
+                    <span class="text-muted float-right" style="font-size: 12px; font-weight: 400;">08 ago - 8:03 PM</span>
                   </p>
                   <hr>
-                <strong><i class="fas fa-map-marker-alt mr-1"></i>Ubicación de beneficiarios</strong>
-                  <p class="text-muted">
+                
+                  <strong><i class="fas fa-map-marker-alt mr-1"></i>Ubicación de beneficiarios</strong>
+                  <p p class="text-muted">
                     Conoce la ubicaciones de los beneficiarios de la nueva... 
                     <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><i>aquí</i></a>
+                    <span class="text-muted float-right" style="font-size: 12px; font-weight: 400;">11 ago - 8:03 PM</span>
                   </p>
                   <hr>
                 <strong><i class="fas fa-pencil-alt mr-1"></i>Resoluciones importantes</strong>
                   <p class="text-muted">
                     Resoluciones de ... que sirven para ...
                     <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><i>Enlace directo</i></a>
+                    <span class="text-muted float-right" style="font-size: 12px; font-weight: 400;">15 ago - 8:13 8:03 PM</span>
                   </p>
                   <hr>
                 <strong><i class="far fa-file-alt mr-1"></i> Recomendaciones</strong>
                   <p class="text-muted">
                     Le recomendamos que considere las actualizaciones de su legajo con los siguientes detalles.  
                     <a href="https://www.youtube.com" target="_blank" rel="noopener noreferrer"><i>Aquí</i></a>
+                    <span class="text-muted float-right" style="font-size: 12px; font-weight: 400;">11 ago - 8:03 PM</span>
                   </p>
               </div>
             </div>
@@ -188,7 +216,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <a class="nav-link" id="custom-tabs-one-messages-tab" data-toggle="pill" href="#custom-tabs-one-messages" role="tab" aria-controls="custom-tabs-one-messages" aria-selected="false">Formatos</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Informe</a>
+                    <a class="nav-link" id="custom-tabs-one-settings-tab" data-toggle="pill" href="#custom-tabs-one-settings" role="tab" aria-controls="custom-tabs-one-settings" aria-selected="false">Informe Escalafonario</a>
                   </li>
                 </ul>
               </div>
@@ -320,10 +348,26 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
                   
                 <div class="tab-pane fade" id="custom-tabs-one-profile" role="tabpanel" aria-labelledby="custom-tabs-one-profile-tab">
-                  <a href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" target="_blank" rel="noopener noreferrer">RVM N° 092-2020-MINEDU</a>
-                  <br>
-                  <hr>
-                  <a href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" target="_blank" rel="noopener noreferrer">RVM N° 016-2021-MINEDU</a>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <a href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" id="RVM_092" target="_blank" rel="noopener noreferrer" class="info-box shadow">
+                        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-number">RVM N° 092-2020-MINEDU</span>
+                          <span class="info-box-text">Descargar</span>
+                        </div>
+                      </a>
+                    </div>
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <a href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer" class="info-box shadow">
+                        <span class="info-box-icon bg-warning"><i class="far fa-copy"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-number">RVM N° 016-2021-MINEDU</span>
+                          <span class="info-box-text">Descargar</span>
+                        </div>
+                      </a>
+                    </div>
+                  </div>
                   <hr>
                   <p>
                     <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema Integrado de Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa Descentralizada.
@@ -337,63 +381,111 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <li>Ley N.° 27815, Código de Ética de la Función Pública</li>
                   </ul>
                 </div>
+
+                <!-- PARTE DE FORMATOS  -->
                 <div class="tab-pane fade" id="custom-tabs-one-messages" role="tabpanel" aria-labelledby="custom-tabs-one-messages-tab">
-                  <div id="accordion">
-                    <div class="card card-primary">
-                      <div class="card-header">
-                        <h4 class="card-title w-100">
-                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseOne" aria-expanded="false">
-                          Para personal Nombrado
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseOne" class="collapse" data-parent="#accordion" style="">
-                        <div class="card-body">
-                          <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing" target="_blank" rel="noopener noreferrer"><h5>Formato para personal Nombrado</h5></a>
+                  <div class="row">
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <div class="info-box bg-gradient-info">
+                        <span class="info-box-icon"><i class="fa fa-folder-open"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text"><h4><strong>Personal Nombrado</strong></h4></span>
+                          <span class="info-box-text">Formato para personal Nombrado</span>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                          </div>
+                          <a href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download mr-2"></i> <strong>Descargar Formato</strong></a>
                         </div>
                       </div>
                     </div>
-                    <div class="card card-danger">
-                      <div class="card-header">
-                        <h4 class="card-title w-100">
-                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false">
-                            Para personal Contratado
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseTwo" class="collapse" data-parent="#accordion" style="">
-                        <div class="card-body">
-                          <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" target="_blank" rel="noopener noreferrer"><h5>Formato para personal Contratado</h5></a>
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <div class="info-box bg-gradient-warning">
+                        <span class="info-box-icon"><i class="far fa-file"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text"><h4><strong>Personal Contratado</strong></h4></span>
+                          <span class="info-box-text">Formato para personal Contratado</span>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                          </div>
+                          
+                          <a href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download mr-2"></i> <strong>Descargar Formato</strong></a>
                         </div>
                       </div>
                     </div>
-                    <div class="card card-success">
-                      <div class="card-header">
-                        <h4 class="card-title w-100">
-                          <a class="d-block w-100 collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false">
-                            Formato para la presentación de nueva documentación
-                          </a>
-                        </h4>
-                      </div>
-                      <div id="collapseThree" class="collapse" data-parent="#accordion" style="">
-                      <div class="card-body">
-                        <ol class="list-unstyled mb-0">
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf" target="_blank" rel="noopener noreferrer">Formato N° 01 - Boleta Personal</a></li>
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf" target="_blank" rel="noopener noreferrer">Formato N° 02 - Declaración Jurada</a></li>
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf" target="_blank" rel="noopener noreferrer">Formato N° 03 - Declaración Jurada de Régimen Pensionario</a></li>
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf">Formato N° 04 - Declaración Jurada Datos Personales - Domicilio Actual</a></li>
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx" target="_blank" rel="noopener noreferrer">Anexo N° 01 - Modelo de solicitud de actualizaciones de Legajo</a></li>
-                          <li><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx" target="_blank" rel="noopener noreferrer">Anexo N° 02 - Modelo de solicitud de aperturade Legajo</a></li>
-                        </ol>
-                      </div>
-                    </div>
-                    <!-- card success -->
                   </div>
-                  <!-- accordition -->
+                  
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-12 col-sm-12 col-12">
+                      <div class="info-box bg-gradient-danger">
+                        <span class="info-box-icon"><i class="fa fa-file-import"></i></span>
+                        <div class="info-box-content">
+                          <span class="info-box-text"><h4><strong>Nueva Documentación</strong></h4></span>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-9 col-9">
+                              <h5>Formatos para la presentación de nueva documentación</h5>
+                            </div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 100%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Formato Nº 01 - Boleta Personal
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a target="_blank" rel="noopener noreferrer" href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Formato Nº 02 - Declaración Jurada
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Formato Nº 03 - Declaración Jurada de Régimen Pensionario
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Formato Nº 04 - Declaración Jurada de Datos Personales - Domicilio Actual
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20Nº%2004.pdf" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Anexo Nº 01 - Modelo de solicitud de actualizaciones de Legajo
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                          <div class="progress">
+                            <div class="progress-bar" style="width: 0%"></div>
+                          </div>
+                          <div class="row">
+                            <div class="col-md-9 col-sm-6 col-6">
+                              Anexo Nº 02 Modelo de solicitud de apertura de legajo
+                            </div>
+                            <div class="col-md-3 col-sm-6 col-6"><a href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx" target="_blank" rel="noopener noreferrer" type="button" class="btn btn-block bg-gradient-success shadow"><i class="fas fa-download"></i><strong> Descargar</strong></a></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
-                <!-- tab pane fade -->
-              </div>
-              <!-- ./card body -->
+
                 <div class="tab-pane fade" id="custom-tabs-one-settings" role="tabpanel" aria-labelledby="custom-tabs-one-settings-tab">
                   <h5><b>EL INFORME ESCALAFONARIO</b></h5>
                   <p>

@@ -1,9 +1,10 @@
+
 <!-- Content Header (Page header) -->
 <div class="content-header">
   <div class="container">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Contacto</h1>
+        <h1>Edición de los Usuarios</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
@@ -21,95 +22,102 @@
   <div class="container">
     <!-- Default box -->
     <div class="card card-solid">
+      <div class="card-header">
+        <h5 class="card-title"><strong>Listado de Usuarios</strong></h5>
+        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i> Nuevo Usuario</button>
+      </div>
       <div class="card-body pb-0">
         <div class="row">
-          <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-            <div class="card bg-light d-flex flex-fill">
-              <div class="card-header text-muted border-bottom-0">
-                Técnico Administrativo II
-              </div>
-              <div class="card-body pt-0">
-                <div class="row">
-                  <div class="col-7">
-                    <h2 class="lead"><b>Romero Ortiz Elba María</b></h2>
-                    <p class="text-muted text-sm"><b>Detalles: </b> Jefe de Escalafón / DRE Puno / OAD./ Escafón</p>
-                  </div>
-                  <div class="col-5 text-center">
-                    <img src="../plantilla/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-12">
-                    <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso</li>
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Correo: elbaromero@gmail.com</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="text-right">
-                  <a href="#" class="btn btn-sm bg-danger">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-primary">
-                    <i class="fas fa-user"></i> Editar Perfil
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="col-12 table-responsive">
+            <table id="tabla_usuario_simple" class="display">
+              <thead>
+                  <tr>
+                      <th>#</th>
+                      <th>Nombres</th>
+                      <th>Apellido Paterno</th>
+                      <th>Apellido Materno</th>
+                      <th>Email</th>
+                      <th>Foto</th>
+                      <th>Detalles</th>
+                      <th>Dirección</th>
+                      <th>Rol</th>
+                      <th>Acción</th>
+                  </tr>
+              </thead>
+          </table>
           </div>
-          <!--  -->
-
-          <div class="col-12 col-sm-6 col-md-4 d-flex align-items-stretch flex-column">
-            <div class="card bg-light d-flex flex-fill">
-              <div class="card-header text-muted border-bottom-0">
-                Técnico Administrativo II
-              </div>
-              <div class="card-body pt-0">
-                <div class="row">
-                  <div class="col-7">
-                    <h2 class="lead"><b>Fernandez Candia Alan Max</b></h2>
-                    <p class="text-muted text-sm"><b>Detalles: </b> Administrativo de Escalafón / DRE Puno / OAD./ Escafón</p>
-                  </div>
-                  <div class="col-5 text-center">
-                    <img src="../plantilla/dist/img/user1-128x128.jpg" alt="user-avatar" class="img-circle img-fluid">
-                  </div>
-                </div>
-                <hr>
-                <div class="row">
-                  <div class="col-12">
-                    <ul class="ml-4 mb-0 fa-ul text-muted">
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-building"></i></span> Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso</li>
-                      <li class="small"><span class="fa-li"><i class="fas fa-lg fa-envelope"></i></span> Correo: elbaromero@gmail.com</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-              <div class="card-footer">
-                <div class="text-right">
-                  <a href="#" class="btn btn-sm bg-danger">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                  <a href="#" class="btn btn-sm btn-primary">
-                    <i class="fas fa-user"></i> Editar Perfil
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!--  -->
         </div>
       </div>
       <!-- /.card-body -->
-      <div class="card-footer text-center">
-        <a href="#" class="btn btn-sm bg-teal">
-          <i class="fas fa-plus"></i> Añadir nuevo contacto
-        </a>
-      </div>
-      <!-- /.card-footer -->
     </div>
   </div>
   <!-- /.card -->
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="modal_registro" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Nuevo Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-4">
+            <label for="">Nombres</label>
+            <input type="text" id="usu_nombre" class="form-control">
+          </div>
+          <div class="col-4">
+            <label for="">Apellido Paterno</label>
+            <input type="text" id="usu_apaterno" class="form-control">
+          </div>
+          <div class="col-4">
+            <label for="">Apellido Materno</label>
+            <input type="text" id="usu_amaterno" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Email</label>
+            <input type="text" id="usu_email" class="form-control" >
+          </div>
+          <div class="col-6">
+            <label for="">Contraseña</label>
+            <input type="password" id="usu_contrasena" class="form-control">
+          </div>
+          <div class="col-12">
+            <label for="">Detalles</label>
+            <input type="text" id="usu_detalle" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Dirección</label>
+            <input type="text" id="usu_direccion" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Rol</label>
+            <select class="js-example-basic-single" id="usu_rol" style="width: 100%; margin-top: -10px;">
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="">Foto</label>
+            <input type="file" id="usu_foto">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button onclick="registrar_usuario();" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL -->
+
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+listar_usuario_simple();
+cargar_rol();
+</script>

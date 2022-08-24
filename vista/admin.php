@@ -23,6 +23,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
+  <!-- DATA TABLE -->
+  <link rel="stylesheet" type="text/css" href="../recursos/datatable/datatables.min.css"/>
+  <!-- SELECT STYLE -->
+  <link rel="stylesheet" type="text/css" href="../recursos/select2.min.css"/>
   
 </head>
 <body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/edicion.php')">
@@ -82,6 +86,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <i class="nav-icon fa fa-user"></i>
               <p>
                 Contactos
+              </p>
+            </a>
+          </li>
+          <!-- ./contactos -->
+
+          <!-- contactos -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicados.php')">
+              <i class="nav-icon fa fa-bullhorn"></i>
+              <p>
+                Editar Comunicados
               </p>
             </a>
           </li>
@@ -151,11 +166,49 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="../plantilla/dist/js/adminlte.min.js"></script>
 <script src="../JS/cerrar_sesion.js"></script>
+<script src="../JS/usuario.js?rev=<?php echo time();?>"></script>
+<script src="../recursos/select2.min.js"></script>
+<script type="text/javascript" src="../recursos/datatable/datatables.min.js"></script>
 <script src="../recursos/sweetalert2@11.js"></script>
 <script>
   function cargar_contenido(id,vista){
     $("#"+id).load(vista);
   }
+  var idioma_espanol= {
+    select: {
+    rows: "%d fila seleccionada"
+    },
+    "sProcessing":    "Procesando...",
+    "sLengthMenu":    "Mostrar _MENU_ registros",
+    "sZeroRecords":   "No se encontraron resultados",
+    "sEmpty Table":   "Ning&uacute;ndato disponible en esta tabla",
+    "sInfo":          "Registros del(_START_ al _END_) total de _TOTAL_ registros",
+    "sInfoEmpty":     "Registros del(0 al 0)total de0registros",
+    "sInfoFiltered":  "(filtrado de un total de _MAX_ registros)",
+    "sInfoPostFix":   "",
+    "sSearch":        "Buscar:",
+    "sUrl":           "",
+    "sInfoThousands": ",",
+    "sLoadingRecords":"<b>No se encontraron datos</b>",
+    "oPaginate": {
+      "sFirst":     "Primero",
+      "sLast":      "Último",
+      "sNext":      "Siguiente",
+      "sPrevious":  "Anterior",
+    },
+    "oAria": {
+      "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+      "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+    }
+  }
+
+  $(function(){
+    var menues=$(".nav-link");
+       menues.click(function(){
+       menues.removeClass("active");
+        $(this).addClass("active");
+      });
+  });
 </script>
 </body>
 </html>
