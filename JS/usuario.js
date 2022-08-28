@@ -103,7 +103,12 @@ function listar_usuario_simple(){
       {"data":"usu_detalle"},
       {"data":"usu_direccion"},
       {"data":"rol_nombre"},
-      {"defaultContent":"<button class='btn btn-warning'><i class='fa fa-edit'></i></button>"}
+      {"data":null,
+        render: function (data, type, row) {
+          return "<button id='editar' class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"
+        }
+      },
+      // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
     ],
 
     "language": idioma_espanol,
@@ -116,8 +121,28 @@ function listar_usuario_simple(){
     cell.innerHTML=i+1+PageInfo.start;
    });
  });
-
 }
+
+$("#editar").click(function(e){
+  alert('ga');
+})
+// $('#tabla_usuario_simple').on('click','.editar',function(){
+//   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
+//   if(tbl_usuarios.row(this).child.isShow()){
+//     var data = tbl_usuarios.row(this).data();
+//   }
+//   $("#modal_editar_registro").modal('show');
+//   document.getElementById('usu_id_edit').value =data[0];
+//   document.getElementById('usu_nombre_edit').value =data[1];
+//   document.getElementById('usu_apaterno_edit').value =data[2];
+//   document.getElementById('usu_amaterno_edit').value =data[3];
+//   document.getElementById('usu_email_edit').value =data[4];
+//   document.getElementById('usu_contrasena_edit').value =data[5];
+//   document.getElementById('usu_detalle_edit').value =data[6];
+//   document.getElementById('usu_direccion_edit').value =data[7];
+//   document.getElementById('usu_rol_edit').value =data[8];
+//   document.getElementById('usu_foto_edit').value =data[9];
+// })
 
 //! MODAL
 function modal_abrir(){

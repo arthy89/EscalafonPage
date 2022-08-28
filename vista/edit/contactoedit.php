@@ -54,7 +54,7 @@
   <!-- /.card -->
 </div>
 
-<!-- Modal -->
+<!-- Modal Registrar Usuario -->
 <div class="modal fade" id="modal_registro" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -108,6 +108,67 @@
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
         <button onclick="registrar_usuario();" type="button" class="btn btn-primary">Guardar</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL -->
+
+<!-- Modal EDITAR -->
+<div class="modal fade" id="modal_editar_registro" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-4">
+            <label for="">Nombres</label>
+            <input type="text" id="usu_id_edit" class="form-control">
+            <input type="text" id="usu_nombre_edit" class="form-control">
+          </div>
+          <div class="col-4">
+            <label for="">Apellido Paterno</label>
+            <input type="text" id="usu_apaterno_edit" class="form-control">
+          </div>
+          <div class="col-4">
+            <label for="">Apellido Materno</label>
+            <input type="text" id="usu_amaterno_edit" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Email</label>
+            <input type="text" id="usu_email_edit" class="form-control" >
+          </div>
+          <div class="col-6">
+            <label for="">Contraseña</label>
+            <input type="password" id="usu_contrasena_edit" class="form-control">
+          </div>
+          <div class="col-12">
+            <label for="">Detalles</label>
+            <input type="text" id="usu_detalle_edit" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Dirección</label>
+            <input type="text" id="usu_direccion_edit" class="form-control">
+          </div>
+          <div class="col-6">
+            <label for="">Rol</label>
+            <select class="js-example-basic-single" id="usu_rol_edit" style="width: 100%; margin-top: -10px;">
+            </select>
+          </div>
+          <div class="col-12">
+            <label for="">Foto</label>
+            <input type="file" id="usu_foto_edit">
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button onclick="registrar_usuario();" type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>
