@@ -24,12 +24,13 @@
     <div class="card card-solid">
       <div class="card-header">
         <h5 class="card-title"><strong>Listado de Usuarios</strong></h5>
+        <p id="p">Click aqui</p>
         <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i> Nuevo Usuario</button>
       </div>
       <div class="card-body pb-0">
         <div class="row">
           <div class="col-12 table-responsive">
-            <table id="tabla_usuario_simple" class="display">
+            <table id="tabla_usuario_simple" class="display" width="100%">
               <thead>
                   <tr>
                       <th>#</th>
@@ -175,10 +176,30 @@
 </div>
 <!-- MODAL -->
 
+
+<script>
+$('#tabla_usuario_simple').on('click','.editar',function(){
+  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_usuarios.row(this).child.isShown()){
+    var data = tbl_usuarios.row(this).data();
+  }
+  $("#modal_editar_registro").modal('show');
+  document.getElementById('usu_id_edit').value =data[0];
+  document.getElementById('usu_nombre_edit').value =data[1];
+  document.getElementById('usu_apaterno_edit').value =data[2];
+  document.getElementById('usu_amaterno_edit').value =data[3];
+  document.getElementById('usu_email_edit').value =data[4];
+  document.getElementById('usu_contrasena_edit').value =data[5];
+  document.getElementById('usu_detalle_edit').value =data[6];
+  document.getElementById('usu_direccion_edit').value =data[7];
+  document.getElementById('usu_rol_edit').value =data[8];
+  document.getElementById('usu_foto_edit').value =data[9];
+})
+    </script>
 <script>
 $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
-listar_usuario_simple();
+listar_usuario_ss();
 cargar_rol();
 </script>

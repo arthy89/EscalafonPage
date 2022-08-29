@@ -74,35 +74,78 @@ function Iniciar_Sesion() {
     })
 }
 
+// var tbl_usuarios;
+// function listar_usuario_simple(){
+//   tbl_usuarios = $("#tabla_usuario_simple").DataTable({
+//     "ordering": false,
+//     "bLengthChange": true,
+//     "searching": { "regex": false},
+//     "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
+//     "pageLength": 10,
+//     "destroy": true,
+//     "async": false,
+//     "processing": true,
+//     "ajax": {
+//       "url": "../controlador/usuario/control_usuario_listar.php",
+//       type: 'POST'
+//     },
+//     "columns": [
+//       {"defaultContent": ""},
+//       {"data":"usu_nombre"},
+//       {"data":"usu_apaterno"},
+//       {"data":"usu_amaterno"},
+//       {"data":"usu_email"},
+//       {"data":"usu_foto",
+//         render: function (data, type, row) {
+//           return '<img class="img-responsive" style="width: 60px;" src="../'+ data+'">';
+//         }
+//       },
+//       {"data":"usu_detalle"},
+//       {"data":"usu_direccion"},
+//       {"data":"rol_nombre"},
+//       {"data":null,
+//         render: function (data, type, row) {
+//           return "<button onclick='modal_edit();' id='editar' class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"
+//         }
+//       },
+//       // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
+//     ],
+
+//     "language": idioma_espanol,
+//     select: true
+//   });
+
+//  tbl_usuarios.on('draw.td',function(){
+//    var PageInfo=$("#tabla_usuario_simple").DataTable().page.info();
+//    tbl_usuarios.column(0,{page:'current'}).nodes().each(function(cell,i){
+//     cell.innerHTML=i+1+PageInfo.start;
+//    });
+//  });
+// }
+
 var tbl_usuarios;
-function listar_usuario_simple(){
+function listar_usuario_ss(){
   tbl_usuarios = $("#tabla_usuario_simple").DataTable({
-    "ordering": false,
-    "bLengthChange": true,
-    "searching": { "regex": false},
-    "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
     "pageLength": 10,
     "destroy": true,
-    "async": false,
-    "processing": true,
-    "ajax": {
-      "url": "../controlador/usuario/control_usuario_listar.php",
-      type: 'POST'
-    },
+    "bProcessing": true,
+    "bDeferRender": true,
+    "bServerSide": true,
+    "sAjaxSource": "../controlador/usuario/serverside/serverUsuario.php",
     "columns": [
       {"defaultContent": ""},
-      {"data":"usu_nombre"},
-      {"data":"usu_apaterno"},
-      {"data":"usu_amaterno"},
-      {"data":"usu_email"},
-      {"data":"usu_foto",
+      {"data":1}, //? nombre
+      {"data":2}, //? apaterno
+      {"data":3}, //? amaterno
+      {"data":5}, //? email
+      {"data":6, //? foto
         render: function (data, type, row) {
           return '<img class="img-responsive" style="width: 60px;" src="../'+ data+'">';
         }
       },
-      {"data":"usu_detalle"},
-      {"data":"usu_direccion"},
-      {"data":"rol_nombre"},
+      {"data":7}, //? detalle
+      {"data":8}, //? direccion
+      {"data":10}, //? rol_nombre
       {"data":null,
         render: function (data, type, row) {
           return "<button id='editar' class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"
@@ -123,26 +166,23 @@ function listar_usuario_simple(){
  });
 }
 
-$("#editar").click(function(e){
-  alert('ga');
+$('#tabla_usuario_simple').on('click','.editar',function(){
+  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_usuarios.row(this).child.isShown()){
+    var data = tbl_usuarios.row(this).data();
+  }
+  $("#modal_editar_registro").modal('show');
+  document.getElementById('usu_id_edit').value =data[0];
+  document.getElementById('usu_nombre_edit').value =data[1];
+  document.getElementById('usu_apaterno_edit').value =data[2];
+  document.getElementById('usu_amaterno_edit').value =data[3];
+  document.getElementById('usu_email_edit').value =data[4];
+  document.getElementById('usu_contrasena_edit').value =data[5];
+  document.getElementById('usu_detalle_edit').value =data[6];
+  document.getElementById('usu_direccion_edit').value =data[7];
+  document.getElementById('usu_rol_edit').value =data[8];
+  document.getElementById('usu_foto_edit').value =data[9];
 })
-// $('#tabla_usuario_simple').on('click','.editar',function(){
-//   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-//   if(tbl_usuarios.row(this).child.isShow()){
-//     var data = tbl_usuarios.row(this).data();
-//   }
-//   $("#modal_editar_registro").modal('show');
-//   document.getElementById('usu_id_edit').value =data[0];
-//   document.getElementById('usu_nombre_edit').value =data[1];
-//   document.getElementById('usu_apaterno_edit').value =data[2];
-//   document.getElementById('usu_amaterno_edit').value =data[3];
-//   document.getElementById('usu_email_edit').value =data[4];
-//   document.getElementById('usu_contrasena_edit').value =data[5];
-//   document.getElementById('usu_detalle_edit').value =data[6];
-//   document.getElementById('usu_direccion_edit').value =data[7];
-//   document.getElementById('usu_rol_edit').value =data[8];
-//   document.getElementById('usu_foto_edit').value =data[9];
-// })
 
 //! MODAL
 function modal_abrir(){
