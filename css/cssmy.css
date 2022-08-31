@@ -4,3 +4,19 @@
     color: white;
     border-radius: 5px 5px 0px 0px;
 }
+
+.arch input {
+    display: none;
+}
+
+.arch label#archivo {
+    display: block;
+    text-align: center;
+    padding: 8px 21px;
+    color: white;
+    font-weight: 400;
+    border: 1px solid #28a745;
+    border-radius: 6px;
+    background-color: #28a745;
+    cursor: pointer;
+}

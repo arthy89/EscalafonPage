@@ -53,21 +53,22 @@
             conexionBD::cerrar_conexion();
         }
 
-        public function RegistrarUsuario($usuario,$apaterno,$amaterno,$email,$rol,
-        $contra,$detalle,$direccion,$ruta){
+        public function RegistrarUsuario($usulog,$usuario,$apaterno,$amaterno,$email,$rol,
+    $contra,$detalle,$direccion,$ruta){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_REGISTRAR_USUARIO(?,?,?,?,?,?,?,?,?)"; //procedimiento almacenado 
+            $sql = "CALL SP_REGISTRAR_USUARIO(?,?,?,?,?,?,?,?,?,?)"; //procedimiento almacenado 
             $query = $c->prepare($sql);
-            $query->bindParam(1,$usuario);
-            $query->bindParam(2,$apaterno);
-            $query->bindParam(3,$amaterno);
-            $query->bindParam(4,$email);
-            $query->bindParam(5,$rol);
-            $query->bindParam(6,$contra);
-            $query->bindParam(7,$detalle);
-            $query->bindParam(8,$direccion);
-            $query->bindParam(9,$ruta);
+            $query->bindParam(1,$usulog);
+            $query->bindParam(2,$usuario);
+            $query->bindParam(3,$apaterno);
+            $query->bindParam(4,$amaterno);
+            $query->bindParam(5,$email);
+            $query->bindParam(6,$rol);
+            $query->bindParam(7,$contra);
+            $query->bindParam(8,$detalle);
+            $query->bindParam(9,$direccion);
+            $query->bindParam(10,$ruta);
             $resultado = $query->execute();
 
             if($row = $query->fetchColumn()){
@@ -80,6 +81,48 @@
             // }else{
             //     return 0;
             // }
+            conexionBD::cerrar_conexion();
+        }
+
+        public function ModificarUsuario($id,$usuario,$apaterno,$amaterno,$email,$detalle,$direccion,$rol){
+            $c = conexionBD::conexionPDO();
+
+            $sql = "CALL SP_MODIFICAR_USUARIO(?,?,?,?,?,?,?,?)"; //procedimiento almacenado 
+            $query = $c->prepare($sql);
+            $query->bindParam(1,$id);
+            $query->bindParam(2,$usuario);
+            $query->bindParam(3,$apaterno);
+            $query->bindParam(4,$amaterno);
+            $query->bindParam(5,$email);
+            $query->bindParam(6,$detalle);
+            $query->bindParam(7,$direccion);
+            $query->bindParam(8,$rol);
+            $resultado = $query->execute();
+
+            if($resultado){
+                return 1;
+            }else{
+                return 0;
+            }
+
+            conexionBD::cerrar_conexion();
+        }
+
+        public function Modificar_Foto($id,$ruta){
+            $c = conexionBD::conexionPDO();
+
+            $sql = "CALL SP_MODIFICAR_FOTO(?,?)"; //procedimiento almacenado 
+            $query = $c->prepare($sql);
+            $query->bindParam(1,$id);
+            $query->bindParam(2,$ruta);
+            $resultado = $query->execute();
+
+            if($resultado){
+                return 1;
+            }else{
+                return 0;
+            }
+
             conexionBD::cerrar_conexion();
         }
     }

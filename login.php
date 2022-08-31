@@ -114,5 +114,6 @@
 <script src="recursos/sweetalert2@11.js"></script>
 <!-- INICIAR SESION -->
 <script src="JS/usuario.js?rev=<?php echo time();?>"></script>
+<script src="JS/contra_mos.js?rev=<?php echo time();?>"></script>
 </body>
 </html>

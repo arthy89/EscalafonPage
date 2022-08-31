@@ -2,6 +2,7 @@
     require '../../modelo/modelo_usuario.php';
     $ruta = "";
     $MU = new Modelo_Usuario();
+    $usulog = htmlspecialchars($_POST['ul'],ENT_QUOTES, 'UTF-8');
     $usuario = htmlspecialchars($_POST['u'],ENT_QUOTES, 'UTF-8');
     $apaterno = htmlspecialchars($_POST['p'],ENT_QUOTES, 'UTF-8');
     $amaterno = htmlspecialchars($_POST['m'],ENT_QUOTES, 'UTF-8');
@@ -17,10 +18,8 @@
     }else{
         $ruta='controlador/usuario/foto/'.$nomfoto;
     }
-
     
-
-    $consulta = $MU->RegistrarUsuario($usuario,$apaterno,$amaterno,$email,$rol,
+    $consulta = $MU->RegistrarUsuario($usulog,$usuario,$apaterno,$amaterno,$email,$rol,
     $contra,$detalle,$direccion,$ruta);
     echo $consulta;
     if($consulta==1){

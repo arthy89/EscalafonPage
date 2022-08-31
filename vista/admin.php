@@ -27,6 +27,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" type="text/css" href="../recursos/datatable/datatables.min.css"/>
   <!-- SELECT STYLE -->
   <link rel="stylesheet" type="text/css" href="../recursos/select2.min.css"/>
+  <!-- INPUT FILE STYLE  -->
+  <link rel="stylesheet" href="../css/cssmy.css">
   
 </head>
 <body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/edicion.php')">

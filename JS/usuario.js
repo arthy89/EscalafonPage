@@ -32,6 +32,7 @@ function Iniciar_Sesion() {
                 fusuario: data[0][8],
                 detalleusu: data[0][9],
                 rol: data[0][10],
+                ulog: data[0][11],
               },
             }).done(function (r) {
               Swal.fire({
@@ -140,7 +141,7 @@ function listar_usuario_ss(){
       {"data":5}, //? email
       {"data":6, //? foto
         render: function (data, type, row) {
-          return '<img class="img-responsive" style="width: 60px;" src="../'+ data+'">';
+          return '<img id="imgedit" class="img-responsive" style="width: 60px;" src="../'+ data+'">';
         }
       },
       {"data":7}, //? detalle
@@ -148,7 +149,7 @@ function listar_usuario_ss(){
       {"data":10}, //? rol_nombre
       {"data":null,
         render: function (data, type, row) {
-          return "<button id='editar' class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"
+          return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='editar_foto btn btn-primary btn-sm'><i class='fa fa-image'></i></button>&nbsp;<button id='editarx' class='editar_contra btn btn-info btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>"
         }
       },
       // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
@@ -202,9 +203,11 @@ function cargar_rol(){
         llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
       }
       document.getElementById('usu_rol').innerHTML= llenardata;
+      document.getElementById('usu_rol_edit').innerHTML= llenardata;
     }else{
       llenardata+="<option value=''>No se encuentran roles</option>";
       document.getElementById('usu_rol').innerHTML= llenardata;
+      document.getElementById('usu_rol_edit').innerHTML= llenardata;
     }
   })
 }
@@ -212,6 +215,7 @@ function cargar_rol(){
 
 
 function registrar_usuario(){
+  let usulog = document.getElementById("usu_log").value;
   let usuario = document.getElementById("usu_nombre").value;
   let apaterno = document.getElementById("usu_apaterno").value;
   let amaterno = document.getElementById("usu_amaterno").value;
@@ -222,10 +226,10 @@ function registrar_usuario(){
   let foto = document.getElementById("usu_foto").value;
   let rol = document.getElementById("usu_rol").value;
 
-  if(usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
+  if(usulog.length == 0 || usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
     email.length == 0 || contra.length == 0 || detalle.length == 0 || 
     direccion.length == 0){
-      validaInput("usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
+      validaInput("usu_log","usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
       return Swal.fire(
         "Mensaje de Advertencia",
         "Campos incompletos",
@@ -251,6 +255,7 @@ function registrar_usuario(){
 
   let formData = new FormData();
   let fotoobject = $('#usu_foto')[0].files[0]; //todo foto adjuntada
+  formData.append('ul',usulog);
   formData.append('u',usuario);
   formData.append('p',apaterno);
   formData.append('m',amaterno);
@@ -270,7 +275,7 @@ function registrar_usuario(){
     success: function(resp) {
       if(resp>0){
         if(resp==1){
-          validaInput("usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
+          validaInput("usu_log", "usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
           // limpiarModalUsu();
           Swal.fire(
           "Mensaje de Confirmación",
@@ -300,12 +305,17 @@ function registrar_usuario(){
   return false;
 }
 
-function validaInput(nombre,paterno,materno,email,contrasena,detalle,direccion){
+function validaInput(usuario,nombre,paterno,materno,email,contrasena,detalle,direccion){
+  Boolean(document.getElementById(usuario).value.length > 0) ? $("#"+usuario).removeClass("is-invalid").addClass("is-valid"): $("#"+usuario).removeClass("is-valid").addClass("is-invalid");
   Boolean(document.getElementById(nombre).value.length > 0) ? $("#"+nombre).removeClass("is-invalid").addClass("is-valid"): $("#"+nombre).removeClass("is-valid").addClass("is-invalid");
   Boolean(document.getElementById(paterno).value.length > 0) ? $("#"+paterno).removeClass("is-invalid").addClass("is-valid"): $("#"+paterno).removeClass("is-valid").addClass("is-invalid");
   Boolean(document.getElementById(materno).value.length > 0) ? $("#"+materno).removeClass("is-invalid").addClass("is-valid"): $("#"+materno).removeClass("is-valid").addClass("is-invalid");
   Boolean(document.getElementById(email).value.length > 0) ? $("#"+email).removeClass("is-invalid").addClass("is-valid"): $("#"+email).removeClass("is-valid").addClass("is-invalid");
+
+  if(contrasena !=""){
   Boolean(document.getElementById(contrasena).value.length > 0) ? $("#"+contrasena).removeClass("is-invalid").addClass("is-valid"): $("#"+contrasena).removeClass("is-valid").addClass("is-invalid");
+  }
+  
   Boolean(document.getElementById(detalle).value.length > 0) ? $("#"+detalle).removeClass("is-invalid").addClass("is-valid"): $("#"+detalle).removeClass("is-valid").addClass("is-invalid");
   Boolean(document.getElementById(direccion).value.length > 0) ? $("#"+direccion).removeClass("is-invalid").addClass("is-valid"): $("#"+direccion).removeClass("is-valid").addClass("is-invalid");
 }
@@ -316,6 +326,7 @@ function validar_emailR(email){
 }
 
 function limpiarModalUsu(){
+  document.getElementById("usu_log").value = "";
   document.getElementById("usu_nombre").value = "";
   document.getElementById("usu_apaterno").value = "";
   document.getElementById("usu_amaterno").value = "";
@@ -324,4 +335,132 @@ function limpiarModalUsu(){
   document.getElementById("usu_detalle").value = "";
   document.getElementById("usu_direccion").value = "";
   document.getElementById("usu_foto").value = "";
+}
+
+function Modificar_Usuario(){
+  let id = document.getElementById("usu_id_edit").value;
+  let usuario = document.getElementById("usu_nombre_edit").value;
+  let apaterno = document.getElementById("usu_apaterno_edit").value;
+  let amaterno = document.getElementById("usu_amaterno_edit").value;
+  let email = document.getElementById("usu_email_edit").value;
+  let detalle = document.getElementById("usu_detalle_edit").value;
+  let direccion = document.getElementById("usu_direccion_edit").value;
+  let rol = document.getElementById("usu_rol_edit").value;
+
+  if(usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
+    email.length == 0 || detalle.length == 0 || 
+    direccion.length == 0){
+      validaInput("usu_nombre_edit", "usu_apaterno_edit", "usu_amaterno_edit", "usu_email_edit", "","usu_detalle_edit", "usu_direccion_edit");
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+    }
+
+  if(validar_emailR(email)){
+
+  }else{
+    return Swal.fire(
+      "Mensaje de advertencia",
+      "Email invalido",
+      "error"
+    );
+  }
+  $.ajax({
+    url: '../controlador/usuario/control_modificar_usuario.php',
+    type: 'POST',
+    data:{
+      id:id,
+      usuario:usuario,
+      apaterno:apaterno,
+      amaterno:amaterno,
+      email:email,
+      detalle:detalle,
+      direccion:direccion,
+      rol:rol
+
+    }
+  }).done(function(resp){
+      if(resp>0){
+        if(resp==1){
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Usuario Actualizado Exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_registro").modal('hide');
+            limpiarModalUsu();
+            tbl_usuarios.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El correo registrado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo actualizar el usuario",
+        "error"
+        );
+      }
+  })
+}
+
+function Modificar_Foto(){
+  let id = document.getElementById("usu_id_foto").value;
+  let foto = document.getElementById("usu_foto_nueva").value;
+  let fotoactual = document.getElementById("usu_foto_actual").value;
+
+  if(id.length == 0 || foto.length == 0){
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+    }
+  
+  let extension = foto.split('.').pop();
+  let nomfoto = "";
+  let f = new Date();
+  if(foto.length>0){
+    nomfoto = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+f.getHours()+""+f.getMinutes()+""+f.getMilliseconds()+"."+extension;
+  }
+
+  let formData = new FormData();
+  let fotoobject = $('#usu_foto_nueva')[0].files[0]; //todo foto adjuntada
+  
+  formData.append('id',id);
+  formData.append('fn',nomfoto);
+  formData.append('fotoactual',fotoactual);
+  formData.append('f',fotoobject);
+  $.ajax({
+    url: '../controlador/usuario/control_usuario_modificar_foto.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Foto actualizada exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_foto").modal('hide');
+            tbl_usuarios.ajax.reload();
+            document.getElementById('usu_foto_nueva').value ="";
+            document.getElementById('foto_name_nueva').value ="";
+          });
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo actualizar la foto",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
 }

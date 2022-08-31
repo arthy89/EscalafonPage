@@ -9,6 +9,7 @@
     $fusuario = htmlspecialchars($_POST['fusuario'],ENT_QUOTES, 'UTF-8');
     $detalleusu = htmlspecialchars($_POST['detalleusu'],ENT_QUOTES, 'UTF-8');
     $rol = htmlspecialchars($_POST['rol'],ENT_QUOTES, 'UTF-8');
+    $ulog = htmlspecialchars($_POST['ulog'],ENT_QUOTES, 'UTF-8');
 
     session_start();
     $_SESSION['S_IDUSUARIO'] = $idusuario;
@@ -20,4 +21,5 @@
     $_SESSION['S_FUSUARIO'] = $fusuario;
     $_SESSION['S_DETALLEUSU'] = $detalleusu;
     $_SESSION['S_ROL'] = $rol;    
+    $_SESSION['S_ULOG'] = $ulog;    
 ?>
