@@ -234,6 +234,66 @@
 </div>
 <!-- MODAL EDITAR FOTO-->
 
+<!-- Modal EDITAR CONTRA-->
+<div class="modal fade" id="modal_editar_contra" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña de Usuario</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="row" hidden>
+          <div class="col-4">
+            <label for="">Usuario ID</label>
+            <input type="text" id="usu_id_contra" class="form-control">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-6">
+            <label for="">Nombre de Usuario</label>
+            <input type="text" id="usu_nombre_contra" class="form-control" disabled>
+          </div>
+          <div class="col-6">
+            <label for="">Nombre del Personal</label>
+            <input type="text" id="usu_nombre_per" class="form-control" disabled>
+          </div>
+          <div class="col-12">
+            <label for="">Contraseña Nueva</label>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Inserte la contraseña nueva" id="usu_contrasena_nueva">
+              <div class="input-group-append" id="ojo_n" style="opacity: 0.7;">
+                <div class="input-group-text">
+                  <span class="fas fa-eye" id="ojoico_n" style="opacity: 0.2;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-12">
+            <label for="">Repetir Contraseña Nueva</label>
+            <div class="input-group mb-3">
+              <input type="password" class="form-control" placeholder="Repita la contraseña nueva" id="usu_contra_repe">
+              <div class="input-group-append" id="ojo_repe" style="opacity: 0.7;">
+                <div class="input-group-text">
+                  <span class="fas fa-eye" id="ojoico_repe" style="opacity: 0.2;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        <button onclick="Modificar_Contra();" type="button" class="btn btn-primary">Guardar Cambios</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- MODAL EDITAR CONTRA-->
+
+<!-- mostrar contra de registro -->
 <script>
   var ojo = document.getElementById('ojo');
   var ojoico = document.getElementById("ojoico");
@@ -247,6 +307,42 @@
         input_contra.type = 'password';
         ojo.style.opacity = 0.7;
         ojoico.style.opacity = 0.2;
+    }
+})
+</script>
+
+<!-- mostrar contra nueva -->
+<script>
+  var ojo_n = document.getElementById('ojo_n');
+  var ojoico_n = document.getElementById("ojoico_n");
+  var input_contra_n = document.getElementById('usu_contrasena_nueva');
+  ojo_n.addEventListener('click', function(){
+    if (input_contra_n.type == 'password'){
+        input_contra_n.type = 'text';
+        ojo_n.style.opacity = 1;
+        ojoico_n.style.opacity = 0.8;
+    }else{
+        input_contra_n.type = 'password';
+        ojo_n.style.opacity = 0.7;
+        ojoico_n.style.opacity = 0.2;
+    }
+})
+</script>
+
+<!-- mostrar contra repe -->
+<script>
+  var ojo_repe = document.getElementById('ojo_repe');
+  var ojoico_repe = document.getElementById("ojoico_repe");
+  var input_contra_repe = document.getElementById('usu_contra_repe');
+  ojo_repe.addEventListener('click', function(){
+    if (input_contra_repe.type == 'password'){
+        input_contra_repe.type = 'text';
+        ojo_repe.style.opacity = 1;
+        ojoico_repe.style.opacity = 0.8;
+    }else{
+        input_contra_repe.type = 'password';
+        ojo_repe.style.opacity = 0.7;
+        ojoico_repe.style.opacity = 0.2;
     }
 })
 </script>
@@ -295,6 +391,22 @@ $('#tabla_usuario_simple').on('click','.editar_foto',function(){
   document.getElementById('usu_id_foto').value =data[0];
   document.getElementById('usu_nombre_foto').value =data[1];
   document.getElementById('usu_foto_actual').value =data[6];
+})
+</script>
+
+<!-- datos para contrasena nueva -->
+<script>
+$('#tabla_usuario_simple').on('click','.editar_contra',function(){
+  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_usuarios.row(this).child.isShown()){
+    var data = tbl_usuarios.row(this).data();
+  }
+  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
+  $("#modal_editar_contra").modal('show');
+  // ('usu_id','usu_nombre','usu_apaterno','usu_amaterno','usu_contrasena','usu_email','usu_foto','usu_detalle','usu_direccion','rol_id','rol_nombre','usu_log')
+  document.getElementById('usu_id_contra').value =data[0];
+  document.getElementById('usu_nombre_per').value =data[1];
+  document.getElementById('usu_nombre_contra').value =data[11];
 })
 </script>
 

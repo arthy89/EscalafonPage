@@ -320,6 +320,11 @@ function validaInput(usuario,nombre,paterno,materno,email,contrasena,detalle,dir
   Boolean(document.getElementById(direccion).value.length > 0) ? $("#"+direccion).removeClass("is-invalid").addClass("is-valid"): $("#"+direccion).removeClass("is-valid").addClass("is-invalid");
 }
 
+function validaInputContra(contra_n,contra_r){
+  Boolean(document.getElementById(contra_n).value.length > 0) ? $("#"+contra_n).removeClass("is-invalid").addClass("is-valid"): $("#"+contra_n).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(contra_r).value.length > 0) ? $("#"+contra_r).removeClass("is-invalid").addClass("is-valid"): $("#"+contra_r).removeClass("is-valid").addClass("is-invalid");
+}
+
 function validar_emailR(email){
     var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
     return regex.test(email) ? true : false;
@@ -429,7 +434,7 @@ function Modificar_Foto(){
   }
 
   let formData = new FormData();
-  let fotoobject = $('#usu_foto_nueva')[0].files[0]; //todo foto adjuntada
+  let fotoobject = $('#usu_foto_nueva')[0].files[0]; //? foto adjuntada
   
   formData.append('id',id);
   formData.append('fn',nomfoto);
@@ -463,4 +468,53 @@ function Modificar_Foto(){
     }
   });
   return false;
+}
+
+function Modificar_Contra(){
+  let id = document.getElementById("usu_id_contra").value;
+  let contra_n = document.getElementById("usu_contrasena_nueva").value;
+  let contra_r = document.getElementById("usu_contra_repe").value; 
+
+  if(id.length == 0 || contra_n.length == 0 || contra_r.length == 0 ){
+    validaInputContra("usu_contrasena_nueva", "usu_contra_repe");
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+    }
+    
+  if(contra_n != contra_r){
+    return Swal.fire(
+        "Mensaje de Advertencia",
+        "Las contraseñas no coinciden",
+        "error");
+  }
+  $.ajax({
+    url: '../controlador/usuario/control_usuario_modificar_contra.php',
+    type: "POST",
+    data:{
+            id:id,
+            contranueva:contra_n,
+        }
+      }).done(function(resp) {
+      if(resp>0){
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Contraseña actualizada correctamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_contra").modal('hide');
+            tbl_usuarios.ajax.reload();
+            document.getElementById('usu_id_contra').value ="";
+            document.getElementById('usu_contrasena_nueva').value ="";
+            document.getElementById('usu_contra_repe').value ="";
+          });
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo actualizar la contraseña",
+        "error"
+        );
+      }
+    })
 }

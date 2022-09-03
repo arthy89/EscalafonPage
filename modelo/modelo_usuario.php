@@ -125,5 +125,23 @@
 
             conexionBD::cerrar_conexion();
         }
+
+        public function Modificar_Contra($id,$contra_n){
+            $c = conexionBD::conexionPDO();
+
+            $sql = "CALL SP_MODIFICAR_CONTRA(?,?)"; //procedimiento almacenado 
+            $query = $c->prepare($sql);
+            $query->bindParam(1,$id);
+            $query->bindParam(2,$contra_n);
+            $resultado = $query->execute();
+
+            if($resultado){
+                return 1;
+            }else{
+                return 0;
+            }
+
+            conexionBD::cerrar_conexion();
+        }
     }
 ?>
