@@ -1,176 +1,50 @@
-function Iniciar_Sesion() {
-    let usu = document.getElementById("text_usuario").value;
-    let pass = document.getElementById("text_contrasena").value;
-    if (usu.lenght == 0 || pass.length == 0) {
-       return Swal.fire(
-         "Campos incompletos",
-         "Debe llenar los campos requeridos",
-         "warning"
-       );
-    }
-    $.ajax({
-        url: 'controlador/usuario/iniciar_sesion.php',
-        type: 'POST',
-        data: {
-            u: usu,
-            p: pass
-        }
-    }).done(function(resp){
-        let data = JSON.parse(resp);
-        if (data.length > 0) {
-            
-            $.ajax({
-              url: "controlador/usuario/crear_sesion.php",
-              type: "POST",
-              data: {
-                idusuario: data[0][0],
-                eusuario: data[0][1],
-                usuario: data[0][3],
-                apusuario: data[0][4],
-                amusuario: data[0][5],
-                dusuario: data[0][7],
-                fusuario: data[0][8],
-                detalleusu: data[0][9],
-                rol: data[0][10],
-                ulog: data[0][11],
-              },
-            }).done(function (r) {
-              Swal.fire({
-                icon: "success",
-                title: "Acceso Correcto",
-                text: "Bienvenido " + data[0][10] + " " + data[0][3],
-                timer: 2000,
-                allowOutsideClick: false,
-                heightAuto: false,
-                didOpen: () => {
-                  Swal.showLoading();
-                  const b = Swal.getHtmlContainer().querySelector("b");
-                  timerInterval = setInterval(() => {
-                    b.textContent = Swal.getTimerLeft();
-                  }, 100);
-                },
-                willClose: () => {
-                  clearInterval(timerInterval);
-                },
-              }).then((result) => {
-                if (result.dismiss === Swal.DismissReason.timer) {
-                  location.reload();
-                }
-              });
-            });
-
-
-            Swal.fire(
-              "Sesión exitosa",
-              "Bienvenido al sistema de Escalafón",
-              "success"
-            );
-        } else {
-            Swal.fire(
-              "Error de sesión",
-              "Usuario o clave incorrectos",
-              "error"
-            );
-        }
-    })
-}
-
-// var tbl_usuarios;
-// function listar_usuario_simple(){
-//   tbl_usuarios = $("#tabla_usuario_simple").DataTable({
-//     "ordering": false,
-//     "bLengthChange": true,
-//     "searching": { "regex": false},
-//     "lengthMenu": [[10, 25, 50, 100, -1], [10, 25, 50, 100, "All"]],
-//     "pageLength": 10,
-//     "destroy": true,
-//     "async": false,
-//     "processing": true,
-//     "ajax": {
-//       "url": "../controlador/usuario/control_usuario_listar.php",
-//       type: 'POST'
-//     },
-//     "columns": [
-//       {"defaultContent": ""},
-//       {"data":"usu_nombre"},
-//       {"data":"usu_apaterno"},
-//       {"data":"usu_amaterno"},
-//       {"data":"usu_email"},
-//       {"data":"usu_foto",
-//         render: function (data, type, row) {
-//           return '<img class="img-responsive" style="width: 60px;" src="../'+ data+'">';
-//         }
-//       },
-//       {"data":"usu_detalle"},
-//       {"data":"usu_direccion"},
-//       {"data":"rol_nombre"},
-//       {"data":null,
-//         render: function (data, type, row) {
-//           return "<button onclick='modal_edit();' id='editar' class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"
-//         }
-//       },
-//       // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
-//     ],
-
-//     "language": idioma_espanol,
-//     select: true
-//   });
-
-//  tbl_usuarios.on('draw.td',function(){
-//    var PageInfo=$("#tabla_usuario_simple").DataTable().page.info();
-//    tbl_usuarios.column(0,{page:'current'}).nodes().each(function(cell,i){
-//     cell.innerHTML=i+1+PageInfo.start;
-//    });
-//  });
-// }
-
-var tbl_usuarios;
+//('com_id','com_title','com_cont','com_link','com_tlink','com_f','com_h','ico_id','usu_id','ico_name','ico_svg','usu_nombre','usu_apaterno'));
+var tbl_comunicados;
 function listar_usuario_ss(){
-  tbl_usuarios = $("#tabla_usuario_simple").DataTable({
+  tbl_comunicados = $("#tabla_comunicado_simple").DataTable({
     "pageLength": 10,
     "destroy": true,
     "bProcessing": true,
     "bDeferRender": true,
     "bServerSide": true,
-    "sAjaxSource": "../controlador/usuario/serverside/serverUsuario.php",
+    "sAjaxSource": "../controlador/usuario/serverside/serverComunicado.php",
     "columns": [
       {"defaultContent": ""},
-      {"data":1}, //? nombre
-      {"data":2}, //? apaterno
-      {"data":3}, //? amaterno
-      {"data":5}, //? email
-      {"data":6, //? foto
+      {"data":10, 
         render: function (data, type, row) {
-          return '<img id="imgedit" class="img-responsive" style="width: 60px;" src="../'+ data+'">';
+          return '<i class="fas fa-lg fa-'+ data+'"></i>';
         }
-      },
-      {"data":7}, //? detalle
-      {"data":8}, //? direccion
-      {"data":10}, //? rol_nombre
+      }, //? icono
+      {"data":1}, //? titulo
+      {"data":2}, //? Contenido
+      {"data":4}, //? Título de Link
+      {"data":3}, //? Link
+      {"data":5}, //? Fecha
+      {"data":6}, //? Hora
+      {"data":11}, //? Usuario
       {"data":null,
         render: function (data, type, row) {
-          return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='editar_foto btn btn-primary btn-sm'><i class='fa fa-image'></i></button>&nbsp;<button id='editarx' class='editar_contra btn btn-info btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>"
+          return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>"
         }
       },
-      // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
     ],
 
     "language": idioma_espanol,
     select: true
   });
 
- tbl_usuarios.on('draw.td',function(){
-   var PageInfo=$("#tabla_usuario_simple").DataTable().page.info();
-   tbl_usuarios.column(0,{page:'current'}).nodes().each(function(cell,i){
+ tbl_comunicados.on('draw.td',function(){
+   var PageInfo=$("#tabla_comunicado_simple").DataTable().page.info();
+   tbl_comunicados.column(0,{page:'current'}).nodes().each(function(cell,i){
     cell.innerHTML=i+1+PageInfo.start;
    });
  });
 }
 
-$('#tabla_usuario_simple').on('click','.editar',function(){
-  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-  if(tbl_usuarios.row(this).child.isShown()){
-    var data = tbl_usuarios.row(this).data();
+$('#tabla_comunicado_simple').on('click','.editar',function(){
+  var data = tbl_comunicados.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_comunicados.row(this).child.isShown()){
+    var data = tbl_comunicados.row(this).data();
   }
   $("#modal_editar_registro").modal('show');
   document.getElementById('usu_id_edit').value =data[0];
@@ -284,7 +158,7 @@ function registrar_usuario(){
           ).then((value)=>{
             $("#modal_registro").modal('hide');
             limpiarModalUsu();
-            tbl_usuarios.ajax.reload();
+            tbl_comunicados.ajax.reload();
           });
         }else{
           Swal.fire(
@@ -395,7 +269,7 @@ function Modificar_Usuario(){
           ).then((value)=>{
             $("#modal_editar_registro").modal('hide');
             limpiarModalUsu();
-            tbl_usuarios.ajax.reload();
+            tbl_comunicados.ajax.reload();
           });
         }else{
           Swal.fire(
@@ -454,7 +328,7 @@ function Modificar_Foto(){
           "success"
           ).then((value)=>{
             $("#modal_editar_foto").modal('hide');
-            tbl_usuarios.ajax.reload();
+            tbl_comunicados.ajax.reload();
             document.getElementById('usu_foto_nueva').value ="";
             document.getElementById('foto_name_nueva').value ="";
           });
@@ -504,7 +378,7 @@ function Modificar_Contra(){
           "success"
           ).then((value)=>{
             $("#modal_editar_contra").modal('hide');
-            tbl_usuarios.ajax.reload();
+            tbl_comunicados.ajax.reload();
             document.getElementById('usu_id_contra').value ="";
             document.getElementById('usu_contrasena_nueva').value ="";
             document.getElementById('usu_contra_repe').value ="";
@@ -533,7 +407,7 @@ function Eliminar_Usuario(id){
                   "Usuario eliminado exitosamente",
                   "success"
                   ).then((value)=>{
-                    tbl_usuarios.ajax.reload();
+                    tbl_comunicados.ajax.reload();
                 });
 
         }else{

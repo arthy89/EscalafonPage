@@ -1,6 +1,6 @@
 function destruir_sesion(){
     Swal.fire({
-        title: '¿Esta Seguro de Salir?',
+        title: '¿Está seguro de salir?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

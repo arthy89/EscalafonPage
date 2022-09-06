@@ -29,18 +29,18 @@
       <div class="card-body pb-0">
         <div class="row">
           <div class="col-12 table-responsive">
-            <table id="tabla_usuario_simple" class="display" width="100%">
+            <table id="tabla_comunicado_simple" class="display" width="100%">
               <thead>
                   <tr>
                       <th>#</th>
-                      <th>Nombres</th>
-                      <th>Apellido Paterno</th>
-                      <th>Apellido Materno</th>
-                      <th>Email</th>
-                      <th>Foto</th>
-                      <th>Detalles</th>
-                      <th>Dirección</th>
-                      <th>Rol</th>
+                      <th>Ícono</th>
+                      <th>Título</th>
+                      <th>Contenido</th>
+                      <th>Título de Link</th>
+                      <th>Link</th>
+                      <th>Fecha</th>
+                      <th>Hora</th>
+                      <th>Usuario</th>
                       <th>Acción</th>
                   </tr>
               </thead>
@@ -352,8 +352,8 @@
 </div>
 <!-- MODAL ELIMINAR USUARIO-->
 
-<script src="../JS/usuario.js?rev=<?php echo time();?>"></script>
 
+<script src="../JS/comunicado.js?rev=<?php echo time();?>"></script>
 
 <!-- mostrar contra de registro -->
 <script>
@@ -422,7 +422,7 @@
 </script>
 
 <script>
-$('#tabla_usuario_simple').on('click','.editar',function(){
+$('#tabla_comunicado_simple').on('click','.editar',function(){
   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
   if(tbl_usuarios.row(this).child.isShown()){
     var data = tbl_usuarios.row(this).data();
@@ -442,7 +442,7 @@ $('#tabla_usuario_simple').on('click','.editar',function(){
 </script>
 
 <script>
-$('#tabla_usuario_simple').on('click','.editar_foto',function(){
+$('#tabla_comunicado_simple').on('click','.editar_foto',function(){
   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
   if(tbl_usuarios.row(this).child.isShown()){
     var data = tbl_usuarios.row(this).data();
@@ -458,7 +458,7 @@ $('#tabla_usuario_simple').on('click','.editar_foto',function(){
 
 <!-- datos para contrasena nueva -->
 <script>
-$('#tabla_usuario_simple').on('click','.editar_contra',function(){
+$('#tabla_comunicado_simple').on('click','.editar_contra',function(){
   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
   if(tbl_usuarios.row(this).child.isShown()){
     var data = tbl_usuarios.row(this).data();
@@ -474,7 +474,7 @@ $('#tabla_usuario_simple').on('click','.editar_contra',function(){
 
 <!-- PARA ELIMINAR USUARIO -->
 <script>
-$('#tabla_usuario_simple').on('click','.borrar',function(){
+$('#tabla_comunicado_simple').on('click','.borrar',function(){
   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
   if(tbl_usuarios.row(this).child.isShown()){
     var data = tbl_usuarios.row(this).data();

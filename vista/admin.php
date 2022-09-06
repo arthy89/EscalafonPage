@@ -87,7 +87,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/contactoedit.php')">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                Contactos
+                Editar Contactos
               </p>
             </a>
           </li>
@@ -95,7 +95,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- contactos -->
           <li class="nav-item">
-            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicados.php')">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/contactosver.php')">
+              <i class="nav-icon fa fa-users"></i>
+              <p>
+                Ver Contactos
+              </p>
+            </a>
+          </li>
+          <!-- ./contactos -->
+
+          <!-- contactos -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
               <i class="nav-icon fa fa-bullhorn"></i>
               <p>
                 Editar Comunicados
@@ -168,7 +179,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="../plantilla/dist/js/adminlte.min.js"></script>
 <script src="../JS/cerrar_sesion.js"></script>
-<script src="../JS/usuario.js?rev=<?php echo time();?>"></script>
 <script src="../recursos/select2.min.js"></script>
 <script type="text/javascript" src="../recursos/datatable/datatables.min.js"></script>
 <script src="../recursos/sweetalert2@11.js"></script>

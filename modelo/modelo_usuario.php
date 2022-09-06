@@ -143,5 +143,22 @@
 
             conexionBD::cerrar_conexion();
         }
+
+        public function Eliminar_Usuario($id){
+            $c = conexionBD::conexionPDO();
+
+            $sql = "CALL SP_ELIMINAR_USUARIO(?)"; //procedimiento almacenado 
+            $query = $c->prepare($sql);
+            $query->bindParam(1,$id);
+            $resultado = $query->execute();
+
+            if($resultado){
+                return 1;
+            }else{
+                return 0;
+            }
+
+            conexionBD::cerrar_conexion();
+        }
     }
 ?>
