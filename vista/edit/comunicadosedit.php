@@ -109,7 +109,7 @@
           </div>
           <div class="col-6">
             <label for="">Rol</label>
-            <select class="js-example-basic-single" id="usu_rol" style="width: 100%; margin-top: -10px;">
+            <select class="js-example-basic-single" id="com_ico" style="width: 100%; margin-top: -10px;">
             </select>
           </div>
           <div class="col-6 arch">
@@ -132,52 +132,63 @@
 </div>
 <!-- MODAL -->
 
-<!-- Modal EDITAR -->
-<div class="modal fade" id="modal_editar_registro" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<!-- Modal EDITAR COMINICADO-->
+<div class="modal fade" id="modal_editar_comunicado" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Comunicado</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="row" hidden>
-          <div class="col-4">
-            <label for="">Usuario ID</label>
-            <input type="text" id="usu_id_edit" class="form-control">
-          </div>
-        </div>
         <div class="row">
-          <div class="col-4">
-            <label for="">Nombres</label>
-            <input type="text" id="usu_nombre_edit" class="form-control">
+          <div class="col-2">
+            <label for="">Orden</label>
+            <input type="text" id="com_id_edit" class="form-control">
           </div>
           <div class="col-4">
-            <label for="">Apellido Paterno</label>
-            <input type="text" id="usu_apaterno_edit" class="form-control">
-          </div>
-          <div class="col-4">
-            <label for="">Apellido Materno</label>
-            <input type="text" id="usu_amaterno_edit" class="form-control">
-          </div>
-          <div class="col-12">
-            <label for="">Email</label>
-            <input type="text" id="usu_email_edit" class="form-control" >
-          </div>
-          <div class="col-12">
-            <label for="">Detalles</label>
-            <input type="text" id="usu_detalle_edit" class="form-control">
-          </div>
-          <div class="col-6">
-            <label for="">Dirección</label>
-            <input type="text" id="usu_direccion_edit" class="form-control">
-          </div>
-          <div class="col-6">
-            <label for="">Rol</label>
-            <select class="js-example-basic-single" id="usu_rol_edit" style="width: 100%; margin-top: -10px;">
+            <label for="">Ícono</label>
+            <select class="js-example-basic-single" id="com_ico_edit" style="width: 100%; margin-top: -10px;">
             </select>
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Título</label>
+              <input type="text" id="com_titulo_edit" class="form-control">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="">Contenido</label>
+              <textarea type="text" id="com_contenido_edit" class="form-control"></textarea>
+            </div>
+            
+          </div>
+          <div class="col-6">
+            <div class="form-group">
+              <label for="">Título del enlace</label>
+              <input type="text" id="com_tenlace_edit" class="form-control" >
+            </div>
+          </div>
+          <div class="col-6">
+            <label for="">Enlace</label>
+            <input type="text" id="com_enlace_edit" class="form-control">
+          </div>
+          <div class="col-4">
+            <div class="form-group">
+              <label for="">Usuario</label>
+              <input type="text" id="com_usu_edit" class="form-control" disabled>
+            </div>
+          </div>
+          <div class="col-4">
+            <label for="">Fecha</label>
+            <input type="text" id="com_fecha_edit" class="form-control">
+          </div>
+          <div class="col-4">
+            <label for="">Hora</label>
+            <input type="text" id="com_hora_edit" class="form-control">
           </div>
         </div>
       </div>
@@ -190,317 +201,14 @@
 </div>
 <!-- MODAL -->
 
-<!-- Modal EDITAR FOTO-->
-<div class="modal fade" id="modal_editar_foto" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Foto de Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row" hidden>
-          <div class="col-4">
-            <label for="">Usuario ID</label>
-            <input type="text" id="usu_id_foto" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-4">
-            <label for="">Nombre de Usuario</label>
-            <input type="text" id="usu_nombre_foto" class="form-control" disabled>
-          </div>
-          <div class="col-4 arch">
-            <label for="">Foto</label>
-            <label for="usu_foto_nueva" id="archivo"><span class="fas fa-image mr-1"></span> Nueva  Foto</label>
-            <input type="file" id="usu_foto_nueva">
-          </div>
-          <div class="col-4">
-            <label for="">Nombre de la foto</label>
-            <input type="text" id="foto_name_nueva" class="form-control" disabled>
-            
-            <input type="text" id="usu_foto_actual" hidden>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Modificar_Foto();" type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- MODAL EDITAR FOTO-->
-
-<!-- Modal EDITAR CONTRA-->
-<div class="modal fade" id="modal_editar_contra" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña de Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row" hidden>
-          <div class="col-4">
-            <label for="">Usuario ID</label>
-            <input type="text" id="usu_id_contra" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <label for="">Nombre de Usuario</label>
-            <input type="text" id="usu_nombre_contra" class="form-control" disabled>
-          </div>
-          <div class="col-6">
-            <label for="">Nombre del Personal</label>
-            <input type="text" id="usu_nombre_per" class="form-control" disabled>
-          </div>
-          <div class="col-12">
-            <label for="">Contraseña Nueva</label>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Inserte la contraseña nueva" id="usu_contrasena_nueva">
-              <div class="input-group-append" id="ojo_n" style="opacity: 0.7;">
-                <div class="input-group-text">
-                  <span class="fas fa-eye" id="ojoico_n" style="opacity: 0.2;"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <label for="">Repetir Contraseña Nueva</label>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Repita la contraseña nueva" id="usu_contra_repe">
-              <div class="input-group-append" id="ojo_repe" style="opacity: 0.7;">
-                <div class="input-group-text">
-                  <span class="fas fa-eye" id="ojoico_repe" style="opacity: 0.2;"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Modificar_Contra();" type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- MODAL EDITAR CONTRA-->
-
-<!-- MODAL ELIMINAR USUARIO-->
-<div class="modal fade" id="modal_editar_contra" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Cambiar Contraseña de Usuario</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <div class="row" hidden>
-          <div class="col-4">
-            <label for="">Usuario ID</label>
-            <input type="text" id="usu_id_contra" class="form-control">
-          </div>
-        </div>
-        <div class="row">
-          <div class="col-6">
-            <label for="">Nombre de Usuario</label>
-            <input type="text" id="usu_nombre_contra" class="form-control" disabled>
-          </div>
-          <div class="col-6">
-            <label for="">Nombre del Personal</label>
-            <input type="text" id="usu_nombre_per" class="form-control" disabled>
-          </div>
-          <div class="col-12">
-            <label for="">Contraseña Nueva</label>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Inserte la contraseña nueva" id="usu_contrasena_nueva">
-              <div class="input-group-append" id="ojo_n" style="opacity: 0.7;">
-                <div class="input-group-text">
-                  <span class="fas fa-eye" id="ojoico_n" style="opacity: 0.2;"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-12">
-            <label for="">Repetir Contraseña Nueva</label>
-            <div class="input-group mb-3">
-              <input type="password" class="form-control" placeholder="Repita la contraseña nueva" id="usu_contra_repe">
-              <div class="input-group-append" id="ojo_repe" style="opacity: 0.7;">
-                <div class="input-group-text">
-                  <span class="fas fa-eye" id="ojoico_repe" style="opacity: 0.2;"></span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Modificar_Contra();" type="button" class="btn btn-primary">Guardar Cambios</button>
-      </div>
-    </div>
-  </div>
-</div>
-<!-- MODAL ELIMINAR USUARIO-->
-
-
 <script src="../JS/comunicado.js?rev=<?php echo time();?>"></script>
-
-<!-- mostrar contra de registro -->
-<script>
-  var ojo = document.getElementById('ojo');
-  var ojoico = document.getElementById("ojoico");
-  var input_contra = document.getElementById('usu_contrasena');
-  ojo.addEventListener('click', function(){
-    if (input_contra.type == 'password'){
-        input_contra.type = 'text';
-        ojo.style.opacity = 1;
-        ojoico.style.opacity = 0.8;
-    }else{
-        input_contra.type = 'password';
-        ojo.style.opacity = 0.7;
-        ojoico.style.opacity = 0.2;
-    }
-})
-</script>
-
-<!-- mostrar contra nueva -->
-<script>
-  var ojo_n = document.getElementById('ojo_n');
-  var ojoico_n = document.getElementById("ojoico_n");
-  var input_contra_n = document.getElementById('usu_contrasena_nueva');
-  ojo_n.addEventListener('click', function(){
-    if (input_contra_n.type == 'password'){
-        input_contra_n.type = 'text';
-        ojo_n.style.opacity = 1;
-        ojoico_n.style.opacity = 0.8;
-    }else{
-        input_contra_n.type = 'password';
-        ojo_n.style.opacity = 0.7;
-        ojoico_n.style.opacity = 0.2;
-    }
-})
-</script>
-
-<!-- mostrar contra repe -->
-<script>
-  var ojo_repe = document.getElementById('ojo_repe');
-  var ojoico_repe = document.getElementById("ojoico_repe");
-  var input_contra_repe = document.getElementById('usu_contra_repe');
-  ojo_repe.addEventListener('click', function(){
-    if (input_contra_repe.type == 'password'){
-        input_contra_repe.type = 'text';
-        ojo_repe.style.opacity = 1;
-        ojoico_repe.style.opacity = 0.8;
-    }else{
-        input_contra_repe.type = 'password';
-        ojo_repe.style.opacity = 0.7;
-        ojoico_repe.style.opacity = 0.2;
-    }
-})
-</script>
-
-<script type="text/javascript">
-  var archivo = document.querySelector("#usu_foto");
-  archivo.addEventListener('change',() => {
-    document.querySelector('#foto_name').value = archivo.files[0].name;
-  })
-
-  var archivo_nuevo = document.querySelector("#usu_foto_nueva");
-  archivo_nuevo.addEventListener('change',() => {
-    document.querySelector('#foto_name_nueva').value = archivo_nuevo.files[0].name;
-  })
-</script>
-
-<script>
-$('#tabla_comunicado_simple').on('click','.editar',function(){
-  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-  if(tbl_usuarios.row(this).child.isShown()){
-    var data = tbl_usuarios.row(this).data();
-  }
-  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
-  $("#modal_editar_registro").modal('show');
-  // ('usu_id','usu_nombre','usu_apaterno','usu_amaterno','usu_contrasena','usu_email','usu_foto','usu_detalle','usu_direccion','rol_id','rol_nombre')
-  document.getElementById('usu_id_edit').value =data[0];
-  document.getElementById('usu_nombre_edit').value =data[1];
-  document.getElementById('usu_apaterno_edit').value =data[2];
-  document.getElementById('usu_amaterno_edit').value =data[3];
-  document.getElementById('usu_email_edit').value =data[5];
-  document.getElementById('usu_detalle_edit').value =data[7];
-  document.getElementById('usu_direccion_edit').value =data[8];
-  $('#usu_rol_edit').select2().val(data[9]).trigger('change.select2');
-})
-</script>
-
-<script>
-$('#tabla_comunicado_simple').on('click','.editar_foto',function(){
-  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-  if(tbl_usuarios.row(this).child.isShown()){
-    var data = tbl_usuarios.row(this).data();
-  }
-  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
-  $("#modal_editar_foto").modal('show');
-  // ('usu_id','usu_nombre','usu_apaterno','usu_amaterno','usu_contrasena','usu_email','usu_foto','usu_detalle','usu_direccion','rol_id','rol_nombre')
-  document.getElementById('usu_id_foto').value =data[0];
-  document.getElementById('usu_nombre_foto').value =data[1];
-  document.getElementById('usu_foto_actual').value =data[6];
-})
-</script>
-
-<!-- datos para contrasena nueva -->
-<script>
-$('#tabla_comunicado_simple').on('click','.editar_contra',function(){
-  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-  if(tbl_usuarios.row(this).child.isShown()){
-    var data = tbl_usuarios.row(this).data();
-  }
-  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
-  $("#modal_editar_contra").modal('show');
-  // ('usu_id','usu_nombre','usu_apaterno','usu_amaterno','usu_contrasena','usu_email','usu_foto','usu_detalle','usu_direccion','rol_id','rol_nombre','usu_log')
-  document.getElementById('usu_id_contra').value =data[0];
-  document.getElementById('usu_nombre_per').value =data[1];
-  document.getElementById('usu_nombre_contra').value =data[11];
-})
-</script>
-
-<!-- PARA ELIMINAR USUARIO -->
-<script>
-$('#tabla_comunicado_simple').on('click','.borrar',function(){
-  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
-  if(tbl_usuarios.row(this).child.isShown()){
-    var data = tbl_usuarios.row(this).data();
-  }
-  Swal.fire({
-        title: '¿Estas seguro de eliminar a '+data[1] +'?',
-        icon: 'warning',
-        showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar',
-        cancelButtonText: 'Cancelar'
-      }).then((result) => {
-        if (result.isConfirmed) {
-            Eliminar_Usuario(data[0]);
-        }
-      })
-})
-</script>
 
 <script>
 $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 listar_usuario_ss();
-cargar_rol();
+cargar_ico();
 
 // ! PARA VALIDAR LA EXTENSION DE LA FOTO
 document.getElementById('usu_foto').addEventListener("change", () => {

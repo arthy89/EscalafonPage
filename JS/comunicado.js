@@ -41,22 +41,22 @@ function listar_usuario_ss(){
  });
 }
 
+// todo: PARA ABRIR LOS MODALES
 $('#tabla_comunicado_simple').on('click','.editar',function(){
   var data = tbl_comunicados.row($(this).parents('tr')).data(); //tamaño escritorio
   if(tbl_comunicados.row(this).child.isShown()){
     var data = tbl_comunicados.row(this).data();
   }
-  $("#modal_editar_registro").modal('show');
-  document.getElementById('usu_id_edit').value =data[0];
-  document.getElementById('usu_nombre_edit').value =data[1];
-  document.getElementById('usu_apaterno_edit').value =data[2];
-  document.getElementById('usu_amaterno_edit').value =data[3];
-  document.getElementById('usu_email_edit').value =data[4];
-  document.getElementById('usu_contrasena_edit').value =data[5];
-  document.getElementById('usu_detalle_edit').value =data[6];
-  document.getElementById('usu_direccion_edit').value =data[7];
-  document.getElementById('usu_rol_edit').value =data[8];
-  document.getElementById('usu_foto_edit').value =data[9];
+  $("#modal_editar_comunicado").modal('show');
+  document.getElementById('com_id_edit').value =data[0];
+  document.getElementById('com_ico_edit').value =data[10];
+  document.getElementById('com_titulo_edit').value =data[1];
+  document.getElementById('com_contenido_edit').value =data[2];
+  document.getElementById('com_tenlace_edit').value =data[4];
+  document.getElementById('com_enlace_edit').value =data[3];
+  document.getElementById('com_usu_edit').value =data[11];
+  document.getElementById('com_fecha_edit').value =data[5];
+  document.getElementById('com_hora_edit').value =data[6];
 })
 
 //! MODAL
@@ -65,9 +65,9 @@ function modal_abrir(){
   $('.form-control').removeClass("is-invalid").removeClass("is-valid");
 }
 
-function cargar_rol(){
+function cargar_ico(){
   $.ajax({
-    url: '../controlador/usuario/control_rol.php',
+    url: '../controlador/usuario/comunicado/control_ico.php',
     type: 'POST'
   }).done(function(resp){
     let data = JSON.parse(resp);
@@ -76,12 +76,12 @@ function cargar_rol(){
       for (let i = 0; i < data.length; i++) {
         llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
       }
-      document.getElementById('usu_rol').innerHTML= llenardata;
-      document.getElementById('usu_rol_edit').innerHTML= llenardata;
+      document.getElementById('com_ico').innerHTML= llenardata;
+      document.getElementById('com_ico_edit').innerHTML= llenardata;
     }else{
       llenardata+="<option value=''>No se encuentran roles</option>";
-      document.getElementById('usu_rol').innerHTML= llenardata;
-      document.getElementById('usu_rol_edit').innerHTML= llenardata;
+      document.getElementById('com_icol').innerHTML= llenardata;
+      document.getElementById('com_ico_edit').innerHTML= llenardata;
     }
   })
 }
