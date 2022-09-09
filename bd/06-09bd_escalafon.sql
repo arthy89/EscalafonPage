@@ -13,7 +13,8 @@
 
  Date: 06/09/2022 08:35:12
 */
-
+CREATE DATABASE bd_escalafon;
+USE bd_escalafon;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 

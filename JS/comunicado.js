@@ -49,7 +49,6 @@ $('#tabla_comunicado_simple').on('click','.editar',function(){
   }
   $("#modal_editar_comunicado").modal('show');
   document.getElementById('com_id_edit').value =data[0];
-  document.getElementById('com_ico_edit').value =data[10];
   document.getElementById('com_titulo_edit').value =data[1];
   document.getElementById('com_contenido_edit').value =data[2];
   document.getElementById('com_tenlace_edit').value =data[4];
@@ -57,13 +56,24 @@ $('#tabla_comunicado_simple').on('click','.editar',function(){
   document.getElementById('com_usu_edit').value =data[11];
   document.getElementById('com_fecha_edit').value =data[5];
   document.getElementById('com_hora_edit').value =data[6];
+  $('#com_ico_edit').select2().val(data[7]).trigger('change.select2');
 })
 
 //! MODAL
 function modal_abrir(){
-  $("#modal_registro").modal('show');
+  $("#modal_registrar_comunicado").modal('show');
   $('.form-control').removeClass("is-invalid").removeClass("is-valid");
 }
+
+function formatText (icon) {
+    return $('<span><i class="fas ' + $(icon.element).data('icon') + '"></i> ' + icon.text + '</span>');
+};
+
+$('.select2-icon').select2({
+    width: "100%",
+    templateSelection: formatText,
+    templateResult: formatText
+});
 
 function cargar_ico(){
   $.ajax({
@@ -74,7 +84,7 @@ function cargar_ico(){
     let llenardata = "";
     if(data.length > 0){
       for (let i = 0; i < data.length; i++) {
-        llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
+        llenardata+="<option data-icon='fa-"+data[i][2]+"' value='"+data[i][0]+"'>"+data[i][2]+"</option>";
       }
       document.getElementById('com_ico').innerHTML= llenardata;
       document.getElementById('com_ico_edit').innerHTML= llenardata;
