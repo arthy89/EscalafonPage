@@ -1,3 +1,42 @@
+// const hoy = new Date();
+
+const fhActual = new Date();
+const dia = fhActual.getDate(),
+      mes_name = fhActual.toLocaleString('default', { month: 'short' }),
+      mes = fhActual.getMonth() + 1,
+      ano = fhActual.getFullYear(),
+      hor = ((fhActual.getHours() < 10) ? "0" : "") + fhActual.getHours(),
+      min = ((fhActual.getMinutes() < 10) ? "0" : "") + fhActual.getMinutes(),
+      name_h = fhActual.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
+
+
+var fecha_act = document.getElementById('fecha_act');
+var hora_act = document.getElementById('hora_act');
+var fecha_edit = document.getElementById('com_fecha_edit');
+var hora_edit = document.getElementById('com_hora_edit');
+var cont = 1;
+var con2 = 1;
+
+fecha_act.addEventListener('click', function(){
+  cont = cont + 1;
+  if (cont % 2 == 0){
+    fecha_act.style.opacity = 0.8;
+  } else {
+    fecha_act.style.opacity = 1;
+  }
+  fecha_edit.value = dia + ' ' + mes_name + ' ' + ano;
+})
+
+hora_act.addEventListener('click', function(){
+  con2 = con2 + 1;
+  if (con2 % 2 == 0){
+    hora_act.style.opacity = 0.8;
+  } else {
+    hora_act.style.opacity = 1;
+  }
+  hora_edit.value =name_h;
+})
+
 //('com_id','com_title','com_cont','com_link','com_tlink','com_f','com_h','ico_id','usu_id','ico_name','ico_svg','usu_nombre','usu_apaterno'));
 var tbl_comunicados;
 function listar_usuario_ss(){
@@ -10,9 +49,9 @@ function listar_usuario_ss(){
     "sAjaxSource": "../controlador/usuario/serverside/serverComunicado.php",
     "columns": [
       {"defaultContent": ""},
-      {"data":10, 
+      {"data":11, 
         render: function (data, type, row) {
-          return '<i class="fas fa-lg fa-'+ data+'"></i>';
+          return '<i class="fas fa-lg '+ data+'"></i>';
         }
       }, //? icono
       {"data":1}, //? titulo
@@ -21,7 +60,7 @@ function listar_usuario_ss(){
       {"data":3}, //? Link
       {"data":5}, //? Fecha
       {"data":6}, //? Hora
-      {"data":11}, //? Usuario
+      {"data":8}, //? Usuario
       {"data":null,
         render: function (data, type, row) {
           return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>"
@@ -53,11 +92,30 @@ $('#tabla_comunicado_simple').on('click','.editar',function(){
   document.getElementById('com_contenido_edit').value =data[2];
   document.getElementById('com_tenlace_edit').value =data[4];
   document.getElementById('com_enlace_edit').value =data[3];
-  document.getElementById('com_usu_edit').value =data[11];
+  document.getElementById('com_usu_edit').value =data[8];
   document.getElementById('com_fecha_edit').value =data[5];
   document.getElementById('com_hora_edit').value =data[6];
-  $('#com_ico_edit').select2().val(data[7]).trigger('change.select2');
+  document.getElementById('com_ico_act_name').value = data[10];
+  document.getElementById('com_ico_act').className = 'fas ' +data[11];
+
+  var icon = document.getElementById('com_ico_edit_val');
+  function onChange(){
+    var icon_svg = icon.value;
+    var icon_name = icon.options[icon.selectedIndex].text;
+    document.getElementById('com_ico_edit_svg').value =icon_svg;
+    document.getElementById('com_ico_edit_name').value =icon_name;
+  }
+  icon.onchange = onChange;
+  onChange();
 })
+
+function verval(){
+  var val1 = document.getElementById('com_ico_edit_svg').value;
+  var val2 = document.getElementById('com_ico_edit_name').value;
+  console.log(val1);
+  console.log(val2);
+}
+  
 
 //! MODAL
 function modal_abrir(){
@@ -74,28 +132,6 @@ $('.select2-icon').select2({
     templateSelection: formatText,
     templateResult: formatText
 });
-
-function cargar_ico(){
-  $.ajax({
-    url: '../controlador/usuario/comunicado/control_ico.php',
-    type: 'POST'
-  }).done(function(resp){
-    let data = JSON.parse(resp);
-    let llenardata = "";
-    if(data.length > 0){
-      for (let i = 0; i < data.length; i++) {
-        llenardata+="<option data-icon='fa-"+data[i][2]+"' value='"+data[i][0]+"'>"+data[i][2]+"</option>";
-      }
-      document.getElementById('com_ico').innerHTML= llenardata;
-      document.getElementById('com_ico_edit').innerHTML= llenardata;
-    }else{
-      llenardata+="<option value=''>No se encuentran roles</option>";
-      document.getElementById('com_icol').innerHTML= llenardata;
-      document.getElementById('com_ico_edit').innerHTML= llenardata;
-    }
-  })
-}
-
 
 
 function registrar_usuario(){

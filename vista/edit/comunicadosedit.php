@@ -134,15 +134,33 @@
         </button>
       </div>
       <div class="modal-body">
-        <div class="row">          
-          <div class="col-2">
-            <label for="">Orden</label>
-            <input type="text" id="com_id_edit" class="form-control">
+        <div class="row">
+          <div class="row">
+            <div class="col-6">
+              <label for="">font ico</label>
+              <input class="form-control" type="text" id="com_ico_edit_svg">
+            </div> 
+            <div class="col-6">
+              <label for="">font name</label>
+              <input class="form-control" type="text" id="com_ico_edit_name">
+            </div> 
           </div>
+          
           <div class="col-4">
+            <label for="">Ícono Actual</label>
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="com_ico_act_name" disabled>
+              <div class="input-group-append">
+                <div class="input-group-text">
+                  <span class="fas fa-eye" id="com_ico_act"></span>
+                </div>
+              </div>
+            </div>
+          </div>    
+          <div class="col-8">
             <div class="form-group">
-              <label for="">XDDDD</label><br>
-              <select class="select2-icon" id="com_ico_editja" name="icon">
+              <label for="">Ícono Nuevo</label><br>
+              <select class="select2-icon" id="com_ico_edit_val" name="icon">
                 <option value="fa-building" data-icon="fa-building">Edificio</option>
                 <option value="fa-tags" data-icon="fa-tags">Etiqueta</option>
                 <option value="fa-address-card" data-icon="fa-address-card">DNI</option>
@@ -199,7 +217,11 @@
               </select>
             </div>
           </div>
-          <div class="col-6">
+          <div class="col-2">
+            <label for="">Orden</label>
+            <input type="text" id="com_id_edit" class="form-control">
+          </div>
+          <div class="col-10">
             <div class="form-group">
               <label for="">Título</label>
               <input type="text" id="com_titulo_edit" class="form-control">
@@ -230,17 +252,31 @@
           </div>
           <div class="col-4">
             <label for="">Fecha</label>
-            <input type="text" id="com_fecha_edit" class="form-control">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="com_fecha_edit" disabled>
+              <div class="input-group-append" id="fecha_act">
+                <div class="input-group-text">
+                  <span class="far fa-calendar" id="com_ico_act"></span>
+                </div>
+              </div>
+            </div>
           </div>
           <div class="col-4">
             <label for="">Hora</label>
-            <input type="text" id="com_hora_edit" class="form-control">
+            <div class="input-group mb-3">
+              <input type="text" class="form-control" id="com_hora_edit" disabled>
+              <div class="input-group-append" id="hora_act">
+                <div class="input-group-text">
+                  <span class="far fa-clock" id="com_ico_act"></span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Modificar_Usuario();" type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button onclick="verval();" type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>
@@ -254,7 +290,7 @@ $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 listar_usuario_ss();
-cargar_ico();
+// cargar_ico();
 
 // ! PARA VALIDAR LA EXTENSION DE LA FOTO
 document.getElementById('usu_foto').addEventListener("change", () => {
