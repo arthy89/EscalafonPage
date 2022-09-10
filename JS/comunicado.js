@@ -1,13 +1,13 @@
-// const hoy = new Date();
+var fhActual = new Date();
+var dia, mes_name, mes, ano, hor, min, name_h; 
+dia = fhActual.getDate();
+mes_name = fhActual.toLocaleString('default', { month: 'short' });
+mes = fhActual.getMonth() + 1;
+ano = fhActual.getFullYear();
+hor = ((fhActual.getHours() < 10) ? "0" : "") + fhActual.getHours();
+min = ((fhActual.getMinutes() < 10) ? "0" : "") + fhActual.getMinutes();
+name_h = fhActual.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
-const fhActual = new Date();
-const dia = fhActual.getDate(),
-      mes_name = fhActual.toLocaleString('default', { month: 'short' }),
-      mes = fhActual.getMonth() + 1,
-      ano = fhActual.getFullYear(),
-      hor = ((fhActual.getHours() < 10) ? "0" : "") + fhActual.getHours(),
-      min = ((fhActual.getMinutes() < 10) ? "0" : "") + fhActual.getMinutes(),
-      name_h = fhActual.toLocaleString('en-US', { hour: 'numeric', minute: 'numeric', hour12: true });
 
 
 var fecha_act = document.getElementById('fecha_act');
