@@ -60,7 +60,7 @@
                     <p class="text-muted text-sm"><b>Detalles: </b> <?php echo $row['usu_detalle']; ?></p>
                   </div>
                   <div class="col-5 text-center">
-                    <img src="../<?php echo $foto; ?>" alt="user-avatar" class="img-circle img-fluid">
+                    <img src="../<?php echo $foto ?>" alt="user-avatar" class="img-circle img-fluid">
                   </div>
                 </div>
                 <hr>

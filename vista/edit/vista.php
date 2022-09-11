@@ -1,5 +1,5 @@
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once '../../modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -8,103 +8,7 @@
   $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
-<html lang="es">
-<head>
-  <style>
-    #RVM_092{
-      color:black;
-      transition: 0.3s;
-    }
-
-    #RVM_016{
-      color:black;
-      transition: 0.3s;
-    }
-
-    #RVM_092:hover{
-      background-color:#007bff;
-      color:white;
-    }
-
-    #RVM_016:hover{
-      background-color:#007bff;
-      color:white;
-    }
-
-  </style>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Escalafón | DRE Puno</title>
-  <link rel="shortcut icon" href="https://escalafon-ayni.minedu.gob.pe/minedu.ico">
-  <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
-
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.min.css">
-  <link rel="stylesheet" href="../plantilla/plugins/fontawesome-free/css/all.css">
-  <!-- Theme style -->
-  <link rel="stylesheet" href="../plantilla/dist/css/adminlte.min.css">
-  <link rel="stylesheet" href="../css/cssmy.css">
-</head>
-<body class="hold-transition layout-top-nav">
-<div class="wrapper">
-  <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand-md navbar-light navbar-white">
-    <div class="container">
-      <a href="index.php" class="navbar-brand">
-        <img src="../plantilla/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-        <span class="brand-text font-weight-light">Escalafón</span>
-      </a>
-
-      <button class="navbar-toggler order-1" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse order-3" id="navbarCollapse">
-        <!-- Left navbar links -->
-        <ul class="navbar-nav">
-          <li class="nav-item">
-            <a href="#" class="nav-link">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a href="contacto.php" class="nav-link">Contacto</a>
-          </li>
-          <!-- iniciar sesion boton -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#" aria-expanded="false">Opciones</i></a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-left" style="left: inherit; right: 0px;">
-              <div class="dropdown-divider"></div>
-              <a href="../login.php">
-                <button type="button" class="btn btn-block btn-outline-success"><i class="fas fa-sign-in-alt mr-2"></i>Iniciar Sesión</button>
-              </a>
-              <div class="dropdown-divider"></div>
-            </div>
-          </li>
-          <!-- ./iniciar sesion botton -->
-        </ul>
-
-      </div>
-
-      <!-- Right navbar links -->
-      <ul class="order-1 order-md-3 navbar-nav navbar-no-expand ml-auto">
-        <a href="https://drepuno.gob.pe" class="navbar-brand">
-          <img src="../recursos/img/logogrdrep.png" alt="AdminLTE Logo" class="brand-image">
-          <span class="brand-text font-weight-light">DRE Puno</span>
-        </a>
-      </ul>
-    </div>
-  </nav>
-  <!-- /.navbar -->
-  <!-- CONTENIDOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO================================================================ -->
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<!-- Content Header (Page header) -->
     <div class="content-header">
       <div class="container">
         <div class="row mb-2">
@@ -539,36 +443,3 @@ scratch. This page gets rid of all links and provides the needed markup only.
       </div><!-- /.container-fluid -->
     </div>
     <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-
-  <!-- Main Footer -->
-  <footer class="main-footer">
-    <!-- To the right -->
-    <div class="float-right d-none d-sm-inline">
-      Escalafón Dirección Regional de Educación Puno - Oficial
-    </div>
-    <!-- Default to the left -->
-    <strong>Copyright &copy; 2021-2022 <a href="#">Escalafón</a>.</strong> All rights reserved.
-  </footer>
-</div>
-<!-- ./wrapper -->
-
-<!-- REQUIRED SCRIPTS -->
-
-<!-- jQuery -->
-<script src="../plantilla/plugins/jquery/jquery.min.js"></script>
-<!-- Bootstrap 4 -->
-<script src="../plantilla/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
-<!-- AdminLTE App -->
-<script src="../plantilla/dist/js/adminlte.min.js"></script>
-<!-- AdminLTE for demo purposes -->
-<script src="../plantilla/dist/js/demo.js"></script>
-</body>
-</html>

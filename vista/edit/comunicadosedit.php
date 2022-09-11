@@ -4,12 +4,12 @@
   <div class="container">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Edición de los Usuarios</h1>
+        <h1>Edición de los Comunicados</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="admin.php">Inicio</a></li>
-          <li class="breadcrumb-item active">Edición contacto</li>
+          <li class="breadcrumb-item active">Edición comunicado</li>
         </ol>
       </div>
     </div>
@@ -23,8 +23,8 @@
     <!-- Default box -->
     <div class="card card-solid">
       <div class="card-header">
-        <h5 class="card-title"><strong>Listado de Usuarios</strong></h5>
-        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i> Nuevo Usuario</button>
+        <h1 class="card-title"><strong>Lista de Comunicados</strong></h1>
+        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i> Nuevo comunicado</button>
       </div>
       <div class="card-body pb-0">
         <div class="row">
@@ -66,7 +66,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="row">
+          <div class="row" hidden>
             <div class="col-6">
               <label for="">font ico</label>
               <input class="form-control" type="text" id="com_ico_svg_new">
@@ -76,22 +76,11 @@
               <input class="form-control" type="text" id="com_ico_name_new">
             </div> 
           </div>
-          
+             
           <div class="col-4">
-            <label for="">Ícono Actual</label>
-            <div class="input-group mb-3">
-              <input type="text" class="form-control" id="com_ico_new_name" disabled>
-              <div class="input-group-append">
-                <div class="input-group-text">
-                  <span class="fas fa-eye" id="com_ico_new"></span>
-                </div>
-              </div>
-            </div>
-          </div>    
-          <div class="col-8">
             <div class="form-group">
-              <label for="">Ícono Nuevo</label><br>
-              <select class="select2-icon2" id="com_ico_new_val" name="icon">
+              <label for="">Ícono</label><br>
+              <select class="select2-icon" id="com_ico_new_val" name="icon">
                 <option value="fa-building" data-icon="fa-building">Edificio</option>
                 <option value="fa-tags" data-icon="fa-tags">Etiqueta</option>
                 <option value="fa-address-card" data-icon="fa-address-card">DNI</option>
@@ -147,8 +136,8 @@
                 <option value="fa-map-marker-alt" data-icon="fa-map-marker-alt">Marca</option>
               </select>
             </div>
-          </div>  
-          <div class="col-10">
+          </div>
+          <div class="col-8">
             <div class="form-group">
               <label for="">Título</label>
               <input type="text" id="com_titulo" class="form-control">
@@ -203,7 +192,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="verval();" type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button onclick="Registrar_Comunicado();" type="button" class="btn btn-primary">Guardar Comunicado</button>
       </div>
     </div>
   </div>
@@ -222,7 +211,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="row">
+          <div class="row" hidden>
             <div class="col-6">
               <label for="">font ico</label>
               <input class="form-control" type="text" id="com_ico_edit_svg">
@@ -304,6 +293,10 @@
               </select>
             </div>
           </div>
+          <div class="col-12" hidden>
+            <label for="">ID COMUNICADO</label>
+            <input type="text" id="com_id_act" class="form-control">
+          </div>
           <div class="col-2">
             <label for="">Orden</label>
             <input type="text" id="com_id_edit" class="form-control">
@@ -363,7 +356,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="verval();" type="button" class="btn btn-primary">Guardar Cambios</button>
+        <button onclick="Modificar_Comunicado();" type="button" class="btn btn-primary">Guardar Cambios</button>
       </div>
     </div>
   </div>

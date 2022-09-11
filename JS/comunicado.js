@@ -14,6 +14,12 @@ var fecha_act = document.getElementById('fecha_act');
 var hora_act = document.getElementById('hora_act');
 var fecha_edit = document.getElementById('com_fecha_edit');
 var hora_edit = document.getElementById('com_hora_edit');
+
+var fecha_act1 = document.getElementById('fecha_act_new');
+var hora_act1 = document.getElementById('hora_act_new');
+var fecha_edit1 = document.getElementById('com_fecha_new');
+var hora_edit1 = document.getElementById('com_hora_new');
+
 var cont = 1;
 var con2 = 1;
 
@@ -37,6 +43,211 @@ hora_act.addEventListener('click', function(){
   hora_edit.value =name_h;
 })
 
+// ! REGISTRAR COMUNIDACO
+function Registrar_Comunicado(){
+  const     titulo    = document.getElementById('com_titulo').value,
+            contenido = document.getElementById('com_contenido').value,
+            tlink     = document.getElementById('com_tenlace').value,
+            link      = document.getElementById('com_enlace').value,
+            // mandar
+            font_ico  = document.getElementById('com_ico_svg_new').value,
+            font_name = document.getElementById('com_ico_name_new').value,
+            fecha     = document.getElementById('com_fecha_new').value,
+            hora      = document.getElementById('com_hora_new').value;
+
+  if(titulo.length == 0 || contenido.length == 0 || tlink.length == 0 || link.length == 0){
+      validaInput("com_titulo","com_contenido", "com_tenlace", "com_enlace");
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+  }
+
+  let formData = new FormData();
+  formData.append('t',titulo);
+  formData.append('c',contenido);
+  formData.append('tl',tlink);
+  formData.append('l',link);
+  formData.append('f',fecha);
+  formData.append('h',hora);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/comunicado/control_comunicado_registrar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("com_titulo","com_contenido", "com_tenlace", "com_enlace");
+          // limpiarModalUsu();
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Comunicado registrado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_registrar_comunicado").modal('hide');
+            limpiarModalCom();
+            tbl_comunicados.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El comunicado registrado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo registrar el comunicado",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+}
+
+function Eliminar_Comunicado(id){
+  $.ajax({
+        url:'../controlador/usuario/comunicado/control_eliminar_comunicado.php',
+        type:'POST',
+        data:{
+            id:id,
+        }
+    }).done(function(resp){
+        if(resp>0){
+                Swal.fire(
+                  "Mensaje de Confirmacion",
+                  "Comunicado eliminado exitosamente",
+                  "success"
+                  ).then((value)=>{
+                    tbl_comunicados.ajax.reload();
+                });
+
+        }else{
+            Swal.fire("Mensaje de Error", "No se pudo eliminar el comunicado","error")
+        }
+    })
+}
+
+function Modificar_Comunicado(){
+  const     titulo    = document.getElementById('com_titulo_edit').value,
+            orden     = document.getElementById('com_id_act').value,
+            ordenew   = document.getElementById('com_id_edit').value,
+            contenido = document.getElementById('com_contenido_edit').value,
+            tlink     = document.getElementById('com_tenlace_edit').value,
+            link      = document.getElementById('com_enlace_edit').value,
+            fecha     = document.getElementById('com_fecha_edit').value,
+            hora      = document.getElementById('com_hora_edit').value,
+            font_ico  = document.getElementById('com_ico_edit_svg').value,
+            font_name = document.getElementById('com_ico_edit_name').value;
+
+  if(orden.length == 0 || titulo.length == 0 || contenido.length == 0 || tlink.length == 0 || link.length == 0){
+      validaInputEdit("com_id_edit","com_titulo_edit","com_contenido_edit", "com_tenlace_edit", "com_enlace_edit");
+      return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+  }
+
+  let formData = new FormData();
+  formData.append('ic',orden);
+  formData.append('in',ordenew);
+  formData.append('t',titulo);
+  formData.append('c',contenido);
+  formData.append('tl',tlink);
+  formData.append('l',link);
+  formData.append('f',fecha);
+  formData.append('h',hora);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/comunicado/control_comunicado_editar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Comunicado editado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_comunicado").modal('hide');
+            limpiarModalCom();
+            tbl_comunicados.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "No se puede editar el comunicado, el ORDEN ingresado no es válido",
+          "error"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo editar el comunicado",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+
+}
+
+$('#tabla_comunicado_simple').on('click','.borrar',function(){
+  var data = tbl_comunicados.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_comunicados.row(this).child.isShown()){
+    var data = tbl_comunicados.row(this).data();
+  }
+  Swal.fire({
+        title: '¿Estás seguro de eliminar el Comunicado '+data[1] +'?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Eliminar_Comunicado(data[0]);
+        }
+      })
+})
+
+function limpiarModalCom(){
+  document.getElementById("com_titulo").value = "";
+  document.getElementById("com_contenido").value = "";
+  document.getElementById("com_tenlace").value = "";
+  document.getElementById("com_enlace").value = "";
+}
+
+// ! VALIDAR INPUT DE NUEVO COMUNICADO
+function validaInput(titulo,contenido,tlink,link){
+  Boolean(document.getElementById(titulo).value.length > 0) ? $("#"+titulo).removeClass("is-invalid").addClass("is-valid"): $("#"+titulo).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(contenido).value.length > 0) ? $("#"+contenido).removeClass("is-invalid").addClass("is-valid"): $("#"+contenido).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(tlink).value.length > 0) ? $("#"+tlink).removeClass("is-invalid").addClass("is-valid"): $("#"+tlink).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(link).value.length > 0) ? $("#"+link).removeClass("is-invalid").addClass("is-valid"): $("#"+link).removeClass("is-valid").addClass("is-invalid");
+}
+// ! VALIDAR INPUT DE NUEVO COMUNICADO EDITAR
+function validaInputEdit(orden,titulo,contenido,tlink,link){
+  Boolean(document.getElementById(orden).value.length > 0) ? $("#"+orden).removeClass("is-invalid").addClass("is-valid"): $("#"+orden).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(titulo).value.length > 0) ? $("#"+titulo).removeClass("is-invalid").addClass("is-valid"): $("#"+titulo).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(contenido).value.length > 0) ? $("#"+contenido).removeClass("is-invalid").addClass("is-valid"): $("#"+contenido).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(tlink).value.length > 0) ? $("#"+tlink).removeClass("is-invalid").addClass("is-valid"): $("#"+tlink).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(link).value.length > 0) ? $("#"+link).removeClass("is-invalid").addClass("is-valid"): $("#"+link).removeClass("is-valid").addClass("is-invalid");
+}
+
 //('com_id','com_title','com_cont','com_link','com_tlink','com_f','com_h','ico_id','usu_id','ico_name','ico_svg','usu_nombre','usu_apaterno'));
 var tbl_comunicados;
 function listar_usuario_ss(){
@@ -57,7 +268,11 @@ function listar_usuario_ss(){
       {"data":1}, //? titulo
       {"data":2}, //? Contenido
       {"data":4}, //? Título de Link
-      {"data":3}, //? Link
+      {"data":3,  //? Link
+        render: function (data, type, row) {
+          return '<div style="text-overflow: ellipsis; width: 130px; white-space: nowrap; overflow:hidden;">'+data+'</div>';
+        }
+      }, 
       {"data":5}, //? Fecha
       {"data":6}, //? Hora
       {"data":8}, //? Usuario
@@ -87,6 +302,7 @@ $('#tabla_comunicado_simple').on('click','.editar',function(){
     var data = tbl_comunicados.row(this).data();
   }
   $("#modal_editar_comunicado").modal('show');
+  document.getElementById('com_id_act').value =data[0];
   document.getElementById('com_id_edit').value =data[0];
   document.getElementById('com_titulo_edit').value =data[1];
   document.getElementById('com_contenido_edit').value =data[2];
@@ -115,12 +331,38 @@ function verval(){
   console.log(val1);
   console.log(val2);
 }
-  
 
 //! MODAL
 function modal_abrir(){
+  // ? abrir el modal
   $("#modal_registrar_comunicado").modal('show');
   $('.form-control').removeClass("is-invalid").removeClass("is-valid");
+
+  //? cargar el icono para la bd 
+  var icon1 = document.getElementById('com_ico_new_val');
+  function onChange(){
+    var icon_svg = icon1.value;
+    var icon_name = icon1.options[icon1.selectedIndex].text;
+    document.getElementById('com_ico_svg_new').value =icon_svg;
+    document.getElementById('com_ico_name_new').value =icon_name;
+  }
+  icon1.onchange = onChange;
+  onChange();
+  //? cargar el icono para la bd 
+
+  //? cargar la fecha y hora
+  fecha_edit1.value = dia + ' ' + mes_name + ' ' + ano;
+  hora_edit1.value =name_h;
+  //? cargar la fecha y hora
+
+  // ? cargar usuario
+  document.getElementById('com_usu').value =usu_names;
+  // ? cargar usuario
+
+  // TODO VARIABLES DEL USUARIO
+  // console.log(id_usuario);
+  // console.log(usu_names);
+  // console.log(usu_apellido);
 }
 
 function formatText (icon) {
@@ -132,332 +374,3 @@ $('.select2-icon').select2({
     templateSelection: formatText,
     templateResult: formatText
 });
-
-
-function registrar_usuario(){
-  let usulog = document.getElementById("usu_log").value;
-  let usuario = document.getElementById("usu_nombre").value;
-  let apaterno = document.getElementById("usu_apaterno").value;
-  let amaterno = document.getElementById("usu_amaterno").value;
-  let email = document.getElementById("usu_email").value;
-  let contra = document.getElementById("usu_contrasena").value;
-  let detalle = document.getElementById("usu_detalle").value;
-  let direccion = document.getElementById("usu_direccion").value;
-  let foto = document.getElementById("usu_foto").value;
-  let rol = document.getElementById("usu_rol").value;
-
-  if(usulog.length == 0 || usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
-    email.length == 0 || contra.length == 0 || detalle.length == 0 || 
-    direccion.length == 0){
-      validaInput("usu_log","usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
-      return Swal.fire(
-        "Mensaje de Advertencia",
-        "Campos incompletos",
-        "warning");
-    }
-
-  if(validar_emailR(email)){
-
-  }else{
-    return Swal.fire(
-      "Mensaje de advertencia",
-      "Email invalido",
-      "error"
-    );
-  }
-  
-  let extension = foto.split('.').pop();
-  let nomfoto = "";
-  let f = new Date();
-  if(foto.length>0){
-    nomfoto = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+f.getHours()+""+f.getMinutes()+""+f.getMilliseconds()+"."+extension;
-  }
-
-  let formData = new FormData();
-  let fotoobject = $('#usu_foto')[0].files[0]; //todo foto adjuntada
-  formData.append('ul',usulog);
-  formData.append('u',usuario);
-  formData.append('p',apaterno);
-  formData.append('m',amaterno);
-  formData.append('e',email);
-  formData.append('c',contra);
-  formData.append('de',detalle);
-  formData.append('di',direccion);
-  formData.append('fn',nomfoto);
-  formData.append('f',fotoobject);
-  formData.append('r',rol);
-  $.ajax({
-    url: '../controlador/usuario/control_usuario_registrar.php',
-    type: "POST",
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function(resp) {
-      if(resp>0){
-        if(resp==1){
-          validaInput("usu_log", "usu_nombre", "usu_apaterno", "usu_amaterno", "usu_email", "usu_contrasena", "usu_detalle", "usu_direccion");
-          // limpiarModalUsu();
-          Swal.fire(
-          "Mensaje de Confirmación",
-          "Usuario registrado exitosamente",
-          "success"
-          ).then((value)=>{
-            $("#modal_registro").modal('hide');
-            limpiarModalUsu();
-            tbl_comunicados.ajax.reload();
-          });
-        }else{
-          Swal.fire(
-          "Mensaje de Advertencia",
-          "El correo registrado ya se encuentra en la BD",
-          "warning"
-          );
-        }
-      }else{
-        Swal.fire(
-        "Mensaje de Error",
-        "No se pudo registrar el usuario",
-        "error"
-        );
-      }
-    }
-  });
-  return false;
-}
-
-function validaInput(usuario,nombre,paterno,materno,email,contrasena,detalle,direccion){
-  Boolean(document.getElementById(usuario).value.length > 0) ? $("#"+usuario).removeClass("is-invalid").addClass("is-valid"): $("#"+usuario).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(nombre).value.length > 0) ? $("#"+nombre).removeClass("is-invalid").addClass("is-valid"): $("#"+nombre).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(paterno).value.length > 0) ? $("#"+paterno).removeClass("is-invalid").addClass("is-valid"): $("#"+paterno).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(materno).value.length > 0) ? $("#"+materno).removeClass("is-invalid").addClass("is-valid"): $("#"+materno).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(email).value.length > 0) ? $("#"+email).removeClass("is-invalid").addClass("is-valid"): $("#"+email).removeClass("is-valid").addClass("is-invalid");
-
-  if(contrasena !=""){
-  Boolean(document.getElementById(contrasena).value.length > 0) ? $("#"+contrasena).removeClass("is-invalid").addClass("is-valid"): $("#"+contrasena).removeClass("is-valid").addClass("is-invalid");
-  }
-  
-  Boolean(document.getElementById(detalle).value.length > 0) ? $("#"+detalle).removeClass("is-invalid").addClass("is-valid"): $("#"+detalle).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(direccion).value.length > 0) ? $("#"+direccion).removeClass("is-invalid").addClass("is-valid"): $("#"+direccion).removeClass("is-valid").addClass("is-invalid");
-}
-
-function validaInputContra(contra_n,contra_r){
-  Boolean(document.getElementById(contra_n).value.length > 0) ? $("#"+contra_n).removeClass("is-invalid").addClass("is-valid"): $("#"+contra_n).removeClass("is-valid").addClass("is-invalid");
-  Boolean(document.getElementById(contra_r).value.length > 0) ? $("#"+contra_r).removeClass("is-invalid").addClass("is-valid"): $("#"+contra_r).removeClass("is-valid").addClass("is-invalid");
-}
-
-function validar_emailR(email){
-    var regex = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
-    return regex.test(email) ? true : false;
-}
-
-function limpiarModalUsu(){
-  document.getElementById("usu_log").value = "";
-  document.getElementById("usu_nombre").value = "";
-  document.getElementById("usu_apaterno").value = "";
-  document.getElementById("usu_amaterno").value = "";
-  document.getElementById("usu_email").value = "";
-  document.getElementById("usu_contrasena").value = "";
-  document.getElementById("usu_detalle").value = "";
-  document.getElementById("usu_direccion").value = "";
-  document.getElementById("usu_foto").value = "";
-}
-
-function Modificar_Usuario(){
-  let id = document.getElementById("usu_id_edit").value;
-  let usuario = document.getElementById("usu_nombre_edit").value;
-  let apaterno = document.getElementById("usu_apaterno_edit").value;
-  let amaterno = document.getElementById("usu_amaterno_edit").value;
-  let email = document.getElementById("usu_email_edit").value;
-  let detalle = document.getElementById("usu_detalle_edit").value;
-  let direccion = document.getElementById("usu_direccion_edit").value;
-  let rol = document.getElementById("usu_rol_edit").value;
-
-  if(usuario.length == 0 || apaterno.length == 0 || amaterno.length == 0 || 
-    email.length == 0 || detalle.length == 0 || 
-    direccion.length == 0){
-      validaInput("usu_nombre_edit", "usu_apaterno_edit", "usu_amaterno_edit", "usu_email_edit", "","usu_detalle_edit", "usu_direccion_edit");
-      return Swal.fire(
-        "Mensaje de Advertencia",
-        "Campos incompletos",
-        "warning");
-    }
-
-  if(validar_emailR(email)){
-
-  }else{
-    return Swal.fire(
-      "Mensaje de advertencia",
-      "Email invalido",
-      "error"
-    );
-  }
-  $.ajax({
-    url: '../controlador/usuario/control_modificar_usuario.php',
-    type: 'POST',
-    data:{
-      id:id,
-      usuario:usuario,
-      apaterno:apaterno,
-      amaterno:amaterno,
-      email:email,
-      detalle:detalle,
-      direccion:direccion,
-      rol:rol
-
-    }
-  }).done(function(resp){
-      if(resp>0){
-        if(resp==1){
-          Swal.fire(
-          "Mensaje de Confirmación",
-          "Usuario Actualizado Exitosamente",
-          "success"
-          ).then((value)=>{
-            $("#modal_editar_registro").modal('hide');
-            limpiarModalUsu();
-            tbl_comunicados.ajax.reload();
-          });
-        }else{
-          Swal.fire(
-          "Mensaje de Advertencia",
-          "El correo registrado ya se encuentra en la BD",
-          "warning"
-          );
-        }
-      }else{
-        Swal.fire(
-        "Mensaje de Error",
-        "No se pudo actualizar el usuario",
-        "error"
-        );
-      }
-  })
-}
-
-function Modificar_Foto(){
-  let id = document.getElementById("usu_id_foto").value;
-  let foto = document.getElementById("usu_foto_nueva").value;
-  let fotoactual = document.getElementById("usu_foto_actual").value;
-
-  if(id.length == 0 || foto.length == 0){
-      return Swal.fire(
-        "Mensaje de Advertencia",
-        "Campos incompletos",
-        "warning");
-    }
-  
-  let extension = foto.split('.').pop();
-  let nomfoto = "";
-  let f = new Date();
-  if(foto.length>0){
-    nomfoto = "IMG"+f.getDate()+""+(f.getMonth()+1)+""+f.getFullYear()+""+f.getHours()+""+f.getMinutes()+""+f.getMilliseconds()+"."+extension;
-  }
-
-  let formData = new FormData();
-  let fotoobject = $('#usu_foto_nueva')[0].files[0]; //? foto adjuntada
-  
-  formData.append('id',id);
-  formData.append('fn',nomfoto);
-  formData.append('fotoactual',fotoactual);
-  formData.append('f',fotoobject);
-  $.ajax({
-    url: '../controlador/usuario/control_usuario_modificar_foto.php',
-    type: "POST",
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function(resp) {
-      if(resp>0){
-          Swal.fire(
-          "Mensaje de Confirmación",
-          "Foto actualizada exitosamente",
-          "success"
-          ).then((value)=>{
-            $("#modal_editar_foto").modal('hide');
-            tbl_comunicados.ajax.reload();
-            document.getElementById('usu_foto_nueva').value ="";
-            document.getElementById('foto_name_nueva').value ="";
-          });
-      }else{
-        Swal.fire(
-        "Mensaje de Error",
-        "No se pudo actualizar la foto",
-        "error"
-        );
-      }
-    }
-  });
-  return false;
-}
-
-function Modificar_Contra(){
-  let id = document.getElementById("usu_id_contra").value;
-  let contra_n = document.getElementById("usu_contrasena_nueva").value;
-  let contra_r = document.getElementById("usu_contra_repe").value; 
-
-  if(id.length == 0 || contra_n.length == 0 || contra_r.length == 0 ){
-    validaInputContra("usu_contrasena_nueva", "usu_contra_repe");
-      return Swal.fire(
-        "Mensaje de Advertencia",
-        "Campos incompletos",
-        "warning");
-    }
-    
-  if(contra_n != contra_r){
-    return Swal.fire(
-        "Mensaje de Advertencia",
-        "Las contraseñas no coinciden",
-        "error");
-  }
-  $.ajax({
-    url: '../controlador/usuario/control_usuario_modificar_contra.php',
-    type: "POST",
-    data:{
-            id:id,
-            contranueva:contra_n,
-        }
-      }).done(function(resp) {
-      if(resp>0){
-          Swal.fire(
-          "Mensaje de Confirmación",
-          "Contraseña actualizada correctamente",
-          "success"
-          ).then((value)=>{
-            $("#modal_editar_contra").modal('hide');
-            tbl_comunicados.ajax.reload();
-            document.getElementById('usu_id_contra').value ="";
-            document.getElementById('usu_contrasena_nueva').value ="";
-            document.getElementById('usu_contra_repe').value ="";
-          });
-      }else{
-        Swal.fire(
-        "Mensaje de Error",
-        "No se pudo actualizar la contraseña",
-        "error"
-        );
-      }
-    })
-}
-
-function Eliminar_Usuario(id){
-    $.ajax({
-        url:'../controlador/usuario/control_eliminar_usuario.php',
-        type:'POST',
-        data:{
-            id:id,
-        }
-    }).done(function(resp){
-        if(resp>0){
-                Swal.fire(
-                  "Mensaje de Confirmacion",
-                  "Usuario eliminado exitosamente",
-                  "success"
-                  ).then((value)=>{
-                    tbl_comunicados.ajax.reload();
-                });
-
-        }else{
-            Swal.fire("Mensaje de Error", "No se pudo eliminar a usuario","error")
-        }
-    })
-}

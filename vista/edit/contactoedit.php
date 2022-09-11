@@ -480,7 +480,7 @@ $('#tabla_usuario_simple').on('click','.borrar',function(){
     var data = tbl_usuarios.row(this).data();
   }
   Swal.fire({
-        title: '¿Estas seguro de eliminar a '+data[1] +'?',
+        title: '¿Estás seguro de eliminar a '+data[1] +'?',
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',

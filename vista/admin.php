@@ -11,6 +11,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
 -->
 <html lang="es">
 <head>
+  <style>
+    #RVM_092{
+      color:black;
+      transition: 0.3s;
+    }
+
+    #RVM_016{
+      color:black;
+      transition: 0.3s;
+    }
+
+    #RVM_092:hover{
+      background-color:#007bff;
+      color:white;
+    }
+
+    #RVM_016:hover{
+      background-color:#007bff;
+      color:white;
+    }
+
+  </style>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Escalafón | Edición</title>
@@ -31,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../css/cssmy.css">
   
 </head>
-<body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/edicion.php')">
+<body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/vista.php')">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -73,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- principal -->
           <li class="nav-item">
-            <a href="#" id="pagina_principal" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/edicion.php')">
+            <a href="#" id="pagina_principal" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/vista.php')">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Página Principal
@@ -118,7 +140,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- VER PAGINA -->
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a href="#" class="nav-link" >
+            <a href="../vista/index.php" class="nav-link" >
               <i class="nav-icon fa fa-eye"></i>
               <p>Ver página</p>
             </a>
@@ -224,3 +246,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 </body>
 </html>
+
+<script type="text/javascript">
+  var id_usuario = '<?php echo $_SESSION['S_IDUSUARIO'] ?>';
+  var usu_names = '<?php echo $_SESSION['S_USUARIO']; ?>';
+  var usu_apellido = '<?php echo $_SESSION['S_APUSUARIO']; ?>';
+</script>
