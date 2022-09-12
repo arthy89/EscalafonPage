@@ -3,7 +3,7 @@ class conexionBD{
 public function conexionPDO(){
         $host       ='localhost';
         $usuario    ='root';
-        $contrasena = '';
+        $contrasena = 'mysql';
         $dbName     = 'bd_escalafon';
     
         try{
