@@ -76,7 +76,7 @@
                         <a href="informe.php" class="nav-item nav-link">Informe</a>
                         <a href="contacto.php" class="nav-item nav-link active">Contactos</a>
                     </div>
-                    <a href="" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Ingresar</a>
+                    <a href="../../login.php" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Ingresar</a>
                 </div>
             </nav>
 
