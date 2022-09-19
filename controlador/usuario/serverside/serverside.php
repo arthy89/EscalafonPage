@@ -19,7 +19,7 @@ class TableDataUsuario extends conexionBD{
             $sOrder = "ORDER BY  ";
             for ( $i=0 ; $i<intval( $_GET['iSortingCols'] ) ; $i++ ) {
                 if ( $_GET[ 'bSortable_'.intval($_GET['iSortCol_'.$i]) ] == "true" ) {
-                    $sortDir = (strcasecmp($_GET['sSortDir_'.$i], 'DESC') == 0) ? 'ASC' : 'DESC';
+                    $sortDir = (strcasecmp($_GET['sSortDir_'.$i], 'DESC') == 0) ? 'ASC' : 'ASC';
                     $sOrder .= "`".$columns[ intval( $_GET['iSortCol_'.$i] ) ]."` ". $sortDir .", ";
                 }
             }

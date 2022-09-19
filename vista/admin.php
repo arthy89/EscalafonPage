@@ -109,21 +109,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/contactoedit.php')">
               <i class="nav-icon fa fa-user"></i>
               <p>
-                Editar Contactos
+                Contactos
               </p>
             </a>
           </li>
           <!-- ./contactos -->
 
           <!-- contactos -->
-          <li class="nav-item">
+          <!-- <li class="nav-item">
             <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/contactosver.php')">
               <i class="nav-icon fa fa-users"></i>
               <p>
                 Ver Contactos
               </p>
             </a>
-          </li>
+          </li> -->
           <!-- ./contactos -->
 
           <!-- contactos -->
@@ -131,11 +131,57 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
               <i class="nav-icon fa fa-bullhorn"></i>
               <p>
-                Editar Comunicados
+                Comunicados
               </p>
             </a>
           </li>
           <!-- ./contactos -->
+
+          <!-- imagenes -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/imgedit.php')">
+              <i class="nav-icon fa fa-images"></i>
+              <p>
+                Imágenes
+              </p>
+            </a>
+          </li>
+          <!-- ./imagenes -->
+
+          <!-- formatos -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+              <i class="nav-icon fa fa-folder-open"></i>
+              <p>
+                Formatos
+              </p>
+            </a>
+          </li>
+          <!-- ./formatos -->
+
+          <!-- Leyes -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+              <i class="nav-icon fa fa-balance-scale"></i>
+              <p>
+                Leyes
+              </p>
+            </a>
+          </li>
+          <!-- ./Leyes -->
+
+          <!-- beneficios -->
+          <li class="nav-item">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+              <i class="nav-icon fa fa-gift"></i>
+              <p>
+                Beneficios
+              </p>
+            </a>
+          </li>
+          <!-- ./beneficios -->
+
+          <!-- DIVISOR -->
 
           <!-- VER PAGINA -->
           <div class="dropdown-divider"></div>

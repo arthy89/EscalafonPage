@@ -81,90 +81,87 @@
         <!-- Navbar & Hero End -->
 
 
-        <!-- INFORME Start -->
-        <div class="container-xxl">
+        <!-- INICIO DE ESCALAFON -->
+        <div class="container-xl">
             <div class="container">
-                <div class="row g-5">
-                    <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Informe</div>
-                        <h2 class="mb-4">EL INFORME ESCALAFONARIO</h2>
-                        <p>Es un documento de carácter interno que contiene información del legajo personal del servidor y ex
-                            servidor y es
-                            expedido por las DRE y UGEL a través del módulo de escalafón del sistema AYNI. Este documento es
-                            relevante para
-                            participar en concursos públicos del MINEDU, gestionar situaciones administrativas y el
-                            reconocimiento de beneficios,
-                            entre otros. El informe Escalafonario constituye el único documento oficial que acredita la
-                            formación académica, la
-                            trayectoria laboral, méritos, deméritos, incentivos, asignaciones, licencias y vacaciones a largo de
-                            la vida profesional
-                            del Docente y Administrativo de educación, que determina y asu vez puede sustentar:</p>
-                        <h5>Nota:</h5>
-                        <p>Los Informes Escalafonarios tendrán una <b>vigencia no mayor de seis (6) meses</b> para trámites en
-                            general, salvo
-                            disposición específica del MINEDU que establezca un plazo diferente.</p>
-                        <a class="btn btn-primary rounded-pill py-3 px-5 mt-2"
-                            href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf"
-                            target="_blank" rel="noopener noreferrer">RVM N° 016-2021-MINEDU</a>
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
+                    style="max-width: 900px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Informe</div>
+                    <h2 class="mb-5">EL INFORME ESCALAFONARIO</h2>
+                    <p>Es un documento de carácter interno que contiene información del legajo personal del servidor y ex servidor y es expedido por las DRE y UGEL a través del módulo de escalafón del sistema AYNI. Este documento es relevante para participar en concursos públicos del MINEDU, gestionar situaciones administrativas y el reconocimiento de beneficios, entre otros. El informe Escalafonario constituye el único documento oficial que acredita la formación académica, la trayectoria laboral, méritos, deméritos, incentivos, asignaciones, licencias y vacaciones a largo de la vida profesional del Docente y Administrativo de educación, que determina y asu vez puede sustentar:</p>
+                </div>
+                <div class="row g-5 align-items-center py-4">
+                    <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
+                        <img class="img-fluid" src="../../plantilla2/img/file.png">
                     </div>
-                    <div class="col-lg-7 py-5">
-                        <div class="row g-5">
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-cubes text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Pago de su remuneración, bonificaciones y asignaciones</h6>
+                    <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                        <div class="row g-3 mb-4">
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-cubes text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Pago de su remuneración, bonificaciones y asignaciones</h6>
                                 </div>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-percent text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Constituye la única fuente oficial de información para todos los procesos
-                                        de evaluación, de la trayectoria docente
-                                        pública y profesional dentro de la CPD</h6>
+
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-percent  text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Constituye la única fuente oficial de información para todos los procesos de evaluación, de la trayectoria docente pública y profesional dentro de la CPD</h6>
                                 </div>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-award text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Participar en procesos de ascenso de escala magisterial.</h6>
+
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-award text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Participar en procesos de ascenso de escala magisterial</h6>
                                 </div>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-smile-beam text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Participar en procesos de acceso a cargos de mayor responsabilidad</h6>
+
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-smile-beam text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Participar en procesos de acceso a cargos de mayor responsabilidad</h6>
                                 </div>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-user-tie text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Reconocimiento de beneficios sociales</h6>
+
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-user text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Reconocimiento de beneficios sociales</h6>
                                 </div>
                             </div>
-                            <div class="col-sm-6 wow fadeIn" data-wow-delay="0.6s">
-                                <div class="d-flex align-items-center mb-3">
-                                    <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                        <i class="fa fa-headset text-white"></i>
-                                    </div>
-                                    <h6 class="mb-0">Pago de pensiones</h6>
+
+                            <div class="col-12 d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
+                                    <i class="fa fa-headset text-white"></i>
+                                </div>
+                                <div class="mb-0">
+                                    <h6>Pago de pensiones</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
+                    style="max-width: 900px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                    <h5 class="mb-1">NOTA</h5>
+                    <p>Los Informes Escalafonarios tendrán una vigencia no mayor de <strong>seis (6) meses</strong>  para trámites en general, salvo disposición específica del MINEDU que establezca un plazo diferente.</p>
+                    <a class="btn btn-primary rounded-pill py-3 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" target="_blank"
+                            rel="noopener noreferrer">Tipo de Informes Escalafonarios</a>
+                </div>
             </div>
         </div>
-        <!-- INFORME End -->
+        <!-- INICIO DE ESCALAFON -->
 
 
         <!-- Footer Start -->
