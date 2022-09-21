@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- formatos -->
           <li class="nav-item">
-            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/formatoedit.php')">
               <i class="nav-icon fa fa-folder-open"></i>
               <p>
                 Formatos
@@ -161,7 +161,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- Leyes -->
           <li class="nav-item">
-            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/leyedit.php')">
               <i class="nav-icon fa fa-balance-scale"></i>
               <p>
                 Leyes
@@ -172,7 +172,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
           <!-- beneficios -->
           <li class="nav-item">
-            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/comunicadosedit.php')">
+            <a href="#" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/beneficioedit.php')">
               <i class="nav-icon fa fa-gift"></i>
               <p>
                 Beneficios

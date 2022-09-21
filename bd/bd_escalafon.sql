@@ -11,11 +11,33 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 20/09/2022 08:38:26
+ Date: 21/09/2022 00:35:15
 */
-
+CREATE DATABASE bd_escalafon;
+USE bd_escalafon;
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for beneficios
+-- ----------------------------
+DROP TABLE IF EXISTS `beneficios`;
+CREATE TABLE `beneficios`  (
+  `bn_id` int NOT NULL,
+  `bn_text` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `usu_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`bn_id`) USING BTREE,
+  INDEX `bufk`(`usu_id` ASC) USING BTREE,
+  CONSTRAINT `bufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of beneficios
+-- ----------------------------
+INSERT INTO `beneficios` VALUES (1, 'Gestionar diversas acciones de personal como: reasignaciones, permutas, destaques, licencias y encargos, así como en procesos disciplinarios.', 2);
+INSERT INTO `beneficios` VALUES (2, 'El otorgamiento de beneficios como: asignación por tiempo de servicios (ATS), compensación por tiempo de servicios (CTS) y subsidio por luto y sepelio.', 1);
+INSERT INTO `beneficios` VALUES (3, 'Acreditar requisitos para los procesos de concursos o de evaluaciones como la institución educativa donde labora, nivel y modalidad educativa, cargo, jornada laboral, grado de instrucción, experiencia y trayectoria profesional para el caso de acceso a cargos de mayor responsabilidad, entre otros, así como el tiempo de servicios oficiales en la última escala, en el último cargo, en la institución educativa u otros.', 1);
+INSERT INTO `beneficios` VALUES (4, 'Sustentar los años de servicios para el otorgamiento de pensiones.', 1);
 
 -- ----------------------------
 -- Table structure for comunicado
@@ -68,6 +90,9 @@ CREATE TABLE `formatos`  (
 -- ----------------------------
 -- Records of formatos
 -- ----------------------------
+INSERT INTO `formatos` VALUES (1, 'Personal Nombrado', 'Formato para personal Nombrado', 'Descargar', 'https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing', 'Firma', 'fa-file-signature', 1);
+INSERT INTO `formatos` VALUES (2, 'Personal Contratado', 'Formato para personal Contratado', 'Descargar', 'https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing', 'Archivo', 'fa-file', 2);
+INSERT INTO `formatos` VALUES (3, 'Nueva documentación', 'Instructivo y anexos', 'Instructivo en Drive', 'usp=sharing', 'Archivo', 'fa-file-alt', 1);
 
 -- ----------------------------
 -- Table structure for icono
@@ -159,6 +184,32 @@ INSERT INTO `imagenes` VALUES (2, 'img2', 'controlador/imgs/descripcion.png', 4)
 INSERT INTO `imagenes` VALUES (3, 'img3', 'controlador/imgs/requisitos.png', 3);
 
 -- ----------------------------
+-- Table structure for mnorma
+-- ----------------------------
+DROP TABLE IF EXISTS `mnorma`;
+CREATE TABLE `mnorma`  (
+  `mn_id` int NOT NULL,
+  `mn_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mn_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mn_ico_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mn_ico_svg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `usu_id` int NULL DEFAULT NULL,
+  PRIMARY KEY (`mn_id`) USING BTREE,
+  INDEX `mnufk`(`usu_id` ASC) USING BTREE,
+  CONSTRAINT `mnufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of mnorma
+-- ----------------------------
+INSERT INTO `mnorma` VALUES (1, 'Ley N.° 30512', 'Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente', 'Cubos', 'fa-cubes', 1);
+INSERT INTO `mnorma` VALUES (2, 'Ley N.° 28044', 'Ley General de Educación', 'Porcentaje', 'fa-percent', 2);
+INSERT INTO `mnorma` VALUES (3, 'Ley N.° 29733', 'Ley de Protección de Datos Personales', 'Premio', 'fa-award', 3);
+INSERT INTO `mnorma` VALUES (4, 'Ley N.° 25323', 'Ley del Sistema Nacional de Archivos', 'Sonrisa', 'fa-smile-beam', 3);
+INSERT INTO `mnorma` VALUES (5, 'Ley N.° 27806', 'Ley de Transparencia y Acceso a la Información Pública', 'Usuario Terno', 'fa-user-tie', 1);
+INSERT INTO `mnorma` VALUES (6, 'Ley N.° 27815', 'Código de Ética de la Función Pública', 'Audífinos', 'fa-headset', 2);
+
+-- ----------------------------
 -- Table structure for rol
 -- ----------------------------
 DROP TABLE IF EXISTS `rol`;
@@ -166,7 +217,7 @@ CREATE TABLE `rol`  (
   `rol_id` int NOT NULL AUTO_INCREMENT,
   `rol_nombre` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`rol_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 4 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 5 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of rol
@@ -206,16 +257,34 @@ INSERT INTO `usuarios` VALUES (3, 'Arhyel Philippe', 'Ramos', 'Flores', '$2y$12$
 INSERT INTO `usuarios` VALUES (4, 'Vero', 'Para prueba', 'En la página Nueva', '$2y$12$FxDZZjW/lgMkCGFbhFtVdOYbfdbLbAbFXTjw/sbKwoTlX46EE9Xnm', 'pu2@mail.com', 'controlador/usuario/foto/IMG992022535221.png', 'CAS 2', 3, 'jr drep', 'persona1');
 
 -- ----------------------------
+-- View structure for view_listar_bene
+-- ----------------------------
+DROP VIEW IF EXISTS `view_listar_bene`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_bene` AS select `beneficios`.`bn_id` AS `bn_id`,`beneficios`.`bn_text` AS `bn_text`,`beneficios`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre` from (`beneficios` join `usuarios` on((`beneficios`.`usu_id` = `usuarios`.`usu_id`)));
+
+-- ----------------------------
 -- View structure for view_listar_comunicado
 -- ----------------------------
 DROP VIEW IF EXISTS `view_listar_comunicado`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_comunicado` AS select `comunicado`.`com_id` AS `com_id`,`comunicado`.`com_title` AS `com_title`,`comunicado`.`com_cont` AS `com_cont`,`comunicado`.`com_link` AS `com_link`,`comunicado`.`com_tlink` AS `com_tlink`,`comunicado`.`com_f` AS `com_f`,`comunicado`.`com_h` AS `com_h`,`comunicado`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno`,`comunicado`.`ico_name` AS `ico_name`,`comunicado`.`ico_svg` AS `ico_svg` from (`comunicado` join `usuarios` on((`comunicado`.`usu_id` = `usuarios`.`usu_id`)));
 
 -- ----------------------------
+-- View structure for view_listar_formato
+-- ----------------------------
+DROP VIEW IF EXISTS `view_listar_formato`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_formato` AS select `formatos`.`for_id` AS `for_id`,`formatos`.`for_title` AS `for_title`,`formatos`.`for_text` AS `for_text`,`formatos`.`for_tlink` AS `for_tlink`,`formatos`.`for_link` AS `for_link`,`formatos`.`for_ico_name` AS `for_ico_name`,`formatos`.`for_ico_svg` AS `for_ico_svg`,`formatos`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre` from (`formatos` join `usuarios` on((`formatos`.`usu_id` = `usuarios`.`usu_id`)));
+
+-- ----------------------------
 -- View structure for view_listar_img
 -- ----------------------------
 DROP VIEW IF EXISTS `view_listar_img`;
 CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_img` AS select `imagenes`.`id_img` AS `id_img`,`imagenes`.`img_name` AS `img_name`,`imagenes`.`img_file` AS `img_file`,`imagenes`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno` from (`imagenes` join `usuarios` on((`imagenes`.`usu_id` = `usuarios`.`usu_id`)));
+
+-- ----------------------------
+-- View structure for view_listar_ley
+-- ----------------------------
+DROP VIEW IF EXISTS `view_listar_ley`;
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_ley` AS select `mnorma`.`mn_id` AS `mn_id`,`mnorma`.`mn_title` AS `mn_title`,`mnorma`.`mn_text` AS `mn_text`,`mnorma`.`mn_ico_name` AS `mn_ico_name`,`mnorma`.`mn_ico_svg` AS `mn_ico_svg`,`mnorma`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre` from (`mnorma` join `usuarios` on((`mnorma`.`usu_id` = `usuarios`.`usu_id`)));
 
 -- ----------------------------
 -- View structure for view_listar_usuario

@@ -4,12 +4,12 @@
   <div class="container">
     <div class="row mb-2">
       <div class="col-sm-6">
-        <h1>Edición de los Formatos</h1>
+        <h1>Edición de las Leyes</h1>
       </div>
       <div class="col-sm-6">
         <ol class="breadcrumb float-sm-right">
           <li class="breadcrumb-item"><a href="admin.php">Inicio</a></li>
-          <li class="breadcrumb-item active">Edición Formatos</li>
+          <li class="breadcrumb-item active">Edición Leyes</li>
         </ol>
       </div>
     </div>
@@ -23,21 +23,19 @@
     <!-- Default box -->
     <div class="card card-solid">
       <div class="card-header">
-        <h1 class="card-title"><strong>Lista de Formatos</strong></h1>
-        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i>Nuevo Formato</button>
+        <h1 class="card-title"><strong>Lista de Leyes</strong></h1>
+        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i>Nueva Ley</button>
       </div>
       <div class="card-body pb-0">
         <div class="row">
           <div class="col-12 table-responsive">
-            <table id="tabla_formato_simple" class="display" width="100%">
+            <table id="tabla_ley_simple" class="display" width="100%">
               <thead>
                   <tr>
                       <th>#</th>
                       <th>Ícono</th>
-                      <th>Título</th>
+                      <th>Ley</th>
                       <th>Texto</th>
-                      <th>Título de Link</th>
-                      <th>Link</th>
                       <th>Usuario</th>
                       <th>Acción</th>
                   </tr>
@@ -54,7 +52,7 @@
 
 
 
-<script src="../JS/formato.js?rev=<?php echo time();?>"></script>
+<script src="../JS/ley.js?rev=<?php echo time();?>"></script>
 
 <script>
 $(document).ready(function() {
