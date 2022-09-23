@@ -42,3 +42,118 @@ function listar_usuario_ss(){
    });
  });
 }
+
+//! MODAL
+function modal_abrir(){
+  $("#modal_registrar_formato").modal('show');
+  $('.form-control').removeClass("is-invalid").removeClass("is-valid");
+
+  //? cargar el icono para la bd 
+  var icon1 = document.getElementById('for_ico_new_val');
+  function onChange(){
+    var icon_svg = icon1.value;
+    var icon_name = icon1.options[icon1.selectedIndex].text;
+    document.getElementById('for_ico_svg_new').value =icon_svg;
+    document.getElementById('for_ico_name_new').value =icon_name;
+  }
+  icon1.onchange = onChange;
+  onChange();
+  //? cargar el icono para la bd
+
+}
+
+// ? PARA CARGAR EL ICONO EN INPUT
+function formatText (icon) {
+    return $('<span><i class="fas ' + $(icon.element).data('icon') + '"></i> ' + icon.text + '</span>');
+};
+
+$('.select2-icon').select2({
+    width: "100%",
+    templateSelection: formatText,
+    templateResult: formatText
+});
+// ? PARA CARGAR EL ICONO EN INPUT
+
+// todo: PARA ABRIR MODAL EDICION
+$('#tabla_formato_simple').on('click','.editar',function(){
+  var data = tbl_formato.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_formato.row(this).child.isShown()){
+    var data = tbl_formato.row(this).data();
+  }
+  $("#modal_editar_formato").modal('show');
+  document.getElementById('for_id_act').value =data[0]
+  document.getElementById('for_titulo_edit').value = data[1];
+  document.getElementById('for_contenido_edit').value = data[2];
+  document.getElementById('for_tlink_edit').value = data[3];
+  document.getElementById('for_link_edit').value = data[4];
+  document.getElementById('for_ico_act_name').value = data[5];
+  document.getElementById('for_ico_act').className = 'fas ' +data[6];
+
+  var icon = document.getElementById('for_ico_edit_val');
+  function onChange(){
+    var icon_svg = icon.value;
+    var icon_name = icon.options[icon.selectedIndex].text;
+    document.getElementById('for_ico_svg_edit').value =icon_svg;
+    document.getElementById('for_ico_name_edit').value =icon_name;
+  }
+  icon.onchange = onChange;
+  onChange();
+})
+
+// todo: PARA ABRIR MODAL BORRAR
+$('#tabla_formato_simple').on('click','.borrar',function(){
+  var data = tbl_formato.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_formato.row(this).child.isShown()){
+    var data = tbl_formato.row(this).data();
+  }
+  Swal.fire({
+        title: '¿Estás seguro de eliminar el Formato '+data[1] +'?',
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, eliminar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            // Eliminar_Comunicado(data[0]);
+        }
+      })
+})
+
+function validaInput(title,text,tlink,link){
+  Boolean(document.getElementById(title).value.length > 0) ? $("#"+title).removeClass("is-invalid").addClass("is-valid"): $("#"+title).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(text).value.length > 0) ? $("#"+text).removeClass("is-invalid").addClass("is-valid"): $("#"+text).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(tlink).value.length > 0) ? $("#"+tlink).removeClass("is-invalid").addClass("is-valid"): $("#"+tlink).removeClass("is-valid").addClass("is-invalid");
+  Boolean(document.getElementById(link).value.length > 0) ? $("#"+link).removeClass("is-invalid").addClass("is-valid"): $("#"+link).removeClass("is-valid").addClass("is-invalid");
+}
+
+// ! PARA REGISTRAR BENEFICIO
+function Registrar_Formato() {
+  const titulo = document.getElementById("for_titulo").value,
+        texto = document.getElementById("for_contenido").value,
+        tlink = document.getElementById("for_tlink").value,
+        link = document.getElementById("for_link").value;
+  if(titulo.length == 0 || texto.length == 0 || tlink.length == 0 || link.length == 0) {
+    validaInput("for_titulo","for_contenido","for_tlink","for_link");
+    return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+  }
+}
+
+// ! PARA EDITAR BENEFICIO
+function Editar_Formato() {
+  const titulo = document.getElementById("for_titulo_edit").value,
+        texto = document.getElementById("for_contenido_edit").value,
+        tlink = document.getElementById("for_tlink_edit").value,
+        link = document.getElementById("for_link_edit").value;
+  if(titulo.length == 0 || texto.length == 0 || tlink.length == 0 || link.length == 0) {
+    validaInput("for_titulo_edit","for_contenido_edit","for_tlink_edit","for_link_edit");
+    return Swal.fire(
+        "Mensaje de Advertencia",
+        "Campos incompletos",
+        "warning");
+  }
+}

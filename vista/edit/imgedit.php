@@ -148,16 +148,15 @@ $(document).ready(function() {
 listar_usuario_ss();
 </script>
 
-
 <script type="text/javascript">
   var archivo = document.querySelector("#usu_foto_nueva");
   archivo.addEventListener('change',() => {
     document.querySelector('#foto_name').value = archivo.files[0].name;
   })
 
-  var archivo_nuevo = document.querySelector("#usu_foto_nueva");
+  var archivo_nuevo = document.querySelector("#usu_foto_new");
   archivo_nuevo.addEventListener('change',() => {
-    document.querySelector('#foto_name_nueva').value = archivo_nuevo.files[0].name;
+    document.querySelector('#foto_name_new').value = archivo_nuevo.files[0].name;
   })
 </script>
 
@@ -176,6 +175,25 @@ listar_usuario_ss();
     );
     document.getElementById('usu_foto_nueva').value ="";
     document.getElementById('foto_name').value ="";
+  }
+});
+</script>
+
+<script>
+  document.getElementById('usu_foto_new').addEventListener("change", () => {
+  var fileName = document.getElementById('usu_foto_new').value;
+  var idxDot = fileName.lastIndexOf(".") + 1;
+  var extFile = fileName.substr(idxDot, fileName.length).toLowerCase();
+  if (extFile == "jpg" || extFile == "png" || extFile == "jpeg"){
+    // todo 
+  }else{
+    Swal.fire(
+      "Mensaje de Advertencia",
+      "Solo se aceptan imágenes. Usted subió un archivo de tipo: "+extFile,
+      "warning"
+    );
+    document.getElementById('usu_foto_new').value ="";
+    document.getElementById('foto_name_new').value ="";
   }
 });
 </script>
