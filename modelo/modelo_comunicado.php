@@ -2,8 +2,7 @@
     require_once 'modelo_conexion.php';
 
     class Modelo_Comunicado extends conexionBD{
-        public function Registrar_Comunicado($titulo,$contenido,$tlink,$link,$fecha,$hora,
-    $font_name,$font_ico,$id_usuario){
+        public function Registrar_Comunicado($titulo,$contenido,$tlink,$link,$fecha,$hora,$font_name,$font_ico,$id_usuario){
             $c = conexionBD::conexionPDO();
 
             $sql = "CALL SP_REGISTRAR_COMUNICADO(?,?,?,?,?,?,?,?,?)"; //procedimiento almacenado 

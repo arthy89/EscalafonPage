@@ -72,6 +72,11 @@ $('.select2-icon').select2({
 });
 // ? PARA CARGAR EL ICONO EN INPUT
 
+function limpiarModalLey() {
+  document.getElementById('ley_titulo').value = "";
+  document.getElementById('ley_contenido').value = "";
+}
+
 // todo: PARA ABRIR MODAL EDICION
 $('#tabla_ley_simple').on('click','.editar',function(){
   var data = tbl_ley.row($(this).parents('tr')).data(); //tamaño escritorio
@@ -112,7 +117,7 @@ $('#tabla_ley_simple').on('click','.borrar',function(){
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-            // Eliminar_Comunicado(data[0]);
+            Eliminar_Ley(data[0]);
         }
       })
 })
@@ -122,10 +127,13 @@ function validaInput(title,text){
   Boolean(document.getElementById(text).value.length > 0) ? $("#"+text).removeClass("is-invalid").addClass("is-valid"): $("#"+text).removeClass("is-valid").addClass("is-invalid");
 }
 
-// ! PARA REGISTRAR BENEFICIO
+// ! PARA REGISTRAR LEY
 function Registrar_Ley() {
   const ley = document.getElementById("ley_titulo").value,
-        texto = document.getElementById("ley_contenido").value;
+        texto = document.getElementById("ley_contenido").value,
+        // mandar
+        font_ico  = document.getElementById('ley_ico_svg_new').value,
+        font_name = document.getElementById('ley_ico_name_new').value;
   if(ley.length == 0 || texto.length == 0) {
     validaInput("ley_titulo","ley_contenido");
     return Swal.fire(
@@ -133,12 +141,59 @@ function Registrar_Ley() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('l',ley);
+  formData.append('tx',texto);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/leyes/control_ley_registrar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("ley_titulo","ley_contenido");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Ley registrada exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_registrar_ley").modal('hide');
+            limpiarModalLey();
+            tbl_ley.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "La ley registrada ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo registrar la nueva ley",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
 }
 
-// ! PARA EDITAR BENEFICIO
+// ! PARA EDITAR LEY
 function Editar_Ley() {
-  const ley = document.getElementById("ley_titulo_edit").value,
+  const id_ley = document.getElementById("ley_id_act").value,
+        ley = document.getElementById("ley_titulo_edit").value,
         texto = document.getElementById("ley_contenido_edit").value;
+        // mandar
+        font_ico  = document.getElementById('ley_ico_svg_edit').value,
+        font_name = document.getElementById('ley_ico_name_edit').value;
   if(ley.length == 0 || texto.length == 0) {
     validaInput("ley_titulo_edit","ley_contenido_edit");
     return Swal.fire(
@@ -146,4 +201,71 @@ function Editar_Ley() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('l',ley);
+  formData.append('tx',texto);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  formData.append('id',id_ley);
+  $.ajax({
+    url: '../controlador/usuario/leyes/control_ley_modificar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("ley_titulo","ley_contenido");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Ley modificada exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_ley").modal('hide');
+            limpiarModalLey();
+            tbl_ley.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "La ley ingresada ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo modificar la nueva ley",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+}
+
+function Eliminar_Ley(id) {
+  $.ajax({
+        url:'../controlador/usuario/leyes/control_ley_eliminar.php',
+        type:'POST',
+        data:{
+            id:id,
+        }
+    }).done(function(resp){
+        if(resp>0){
+                Swal.fire(
+                  "Mensaje de Confirmacion",
+                  "Ley eliminada exitosamente",
+                  "success"
+                  ).then((value)=>{
+                    tbl_ley.ajax.reload();
+                });
+
+        }else{
+            Swal.fire("Mensaje de Error", "No se pudo eliminar la Ley","error")
+        }
+    })
 }

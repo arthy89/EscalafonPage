@@ -281,7 +281,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Editar_Ley();" type="button" class="btn btn-primary">Agregar Ley</button>
+        <button onclick="Editar_Ley();" type="button" class="btn btn-primary">Guardar Ley</button>
       </div>
     </div>
   </div>

@@ -54,7 +54,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Foto de Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Agregar nueva Imagen</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -121,6 +121,7 @@
           <div class="col-4">
             <label for="">Foto seleccionada</label>
             <input type="text" id="foto_name" class="form-control" disabled>
+            <input type="text" id="usu_foto_actual">
           </div>
         </div>
         <div class="row">

@@ -31,6 +31,10 @@ function listar_usuario_ss(){
  });
 }
 
+function limpiarModalBene() {
+  document.getElementById('bene_text').value="";
+}
+
 //! MODAL
 function modal_abrir(){
   $("#modal_registro_bene").modal('show');
@@ -64,7 +68,7 @@ $('#tabla_beneficio_simple').on('click','.borrar',function(){
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-            // Eliminar_Comunicado(data[0]);
+            Eliminar_Bene(data[0]);
         }
       })
 })
@@ -84,11 +88,52 @@ function Registrar_Beneficio() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('t',texto);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/beneficios/control_registrar_beneficio.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("bene_text");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Beneficio registrado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_registro_bene").modal('hide');
+            limpiarModalBene();
+            tbl_bene.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El beneficio ingresado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo registrar el beneficio",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
 }
 
 // ! PARA EDITAR BENEFICIO
 function Editar_Beneficio() {
-  const texto_e = document.getElementById("bene_text_edit").value;
+  const texto_e = document.getElementById("bene_text_edit").value,
+        b_id = document.getElementById("bene_id").value;
   if(texto_e.length == 0) {
     validaInput("bene_text_edit");
     return Swal.fire(
@@ -96,4 +141,68 @@ function Editar_Beneficio() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('t',texto_e);
+  formData.append('iu',id_usuario);
+  formData.append('id',b_id);
+  $.ajax({
+    url: '../controlador/usuario/beneficios/control_modificar_beneficio.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("bene_text");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Beneficio modificado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_bene_editar").modal('hide');
+            limpiarModalBene();
+            tbl_bene.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El beneficio modificado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo modificar el beneficio",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+}
+
+function Eliminar_Bene(id) {
+  $.ajax({
+        url:'../controlador/usuario/beneficios/control_eliminar_beneficio.php',
+        type:'POST',
+        data:{
+            id:id,
+        }
+    }).done(function(resp){
+        if(resp>0){
+                Swal.fire(
+                  "Mensaje de Confirmacion",
+                  "Beneficio eliminado exitosamente",
+                  "success"
+                  ).then((value)=>{
+                    tbl_bene.ajax.reload();
+                });
+
+        }else{
+            Swal.fire("Mensaje de Error", "No se pudo eliminar el Beneficio","error")
+        }
+    })
 }

@@ -74,6 +74,13 @@ $('.select2-icon').select2({
 });
 // ? PARA CARGAR EL ICONO EN INPUT
 
+function limpiarModalFor() {
+  document.getElementById('for_titulo').value = "";
+  document.getElementById('for_contenido').value = "";
+  document.getElementById('for_tlink').value = "";
+  document.getElementById('for_link').value = "";
+}
+
 // todo: PARA ABRIR MODAL EDICION
 $('#tabla_formato_simple').on('click','.editar',function(){
   var data = tbl_formato.row($(this).parents('tr')).data(); //tamaño escritorio
@@ -116,7 +123,7 @@ $('#tabla_formato_simple').on('click','.borrar',function(){
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
-            // Eliminar_Comunicado(data[0]);
+            Eliminar_Formato(data[0]);
         }
       })
 })
@@ -128,12 +135,16 @@ function validaInput(title,text,tlink,link){
   Boolean(document.getElementById(link).value.length > 0) ? $("#"+link).removeClass("is-invalid").addClass("is-valid"): $("#"+link).removeClass("is-valid").addClass("is-invalid");
 }
 
-// ! PARA REGISTRAR BENEFICIO
+// ! PARA REGISTRAR FORMATO
 function Registrar_Formato() {
   const titulo = document.getElementById("for_titulo").value,
         texto = document.getElementById("for_contenido").value,
         tlink = document.getElementById("for_tlink").value,
-        link = document.getElementById("for_link").value;
+        link = document.getElementById("for_link").value,
+        // mandar
+        font_ico  = document.getElementById('for_ico_svg_new').value,
+        font_name = document.getElementById('for_ico_name_new').value;
+
   if(titulo.length == 0 || texto.length == 0 || tlink.length == 0 || link.length == 0) {
     validaInput("for_titulo","for_contenido","for_tlink","for_link");
     return Swal.fire(
@@ -141,14 +152,63 @@ function Registrar_Formato() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('t',titulo);
+  formData.append('tx',texto);
+  formData.append('tl',tlink);
+  formData.append('l',link);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/formatos/control_formato_registrar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("for_titulo","for_contenido","for_tlink","for_link");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Formato registrado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_registrar_formato").modal('hide');
+            limpiarModalFor();
+            tbl_formato.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El formato registrado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo registrar el formato",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
 }
 
-// ! PARA EDITAR BENEFICIO
+// ! PARA EDITAR FORMATO
 function Editar_Formato() {
-  const titulo = document.getElementById("for_titulo_edit").value,
+  const id_formato = document.getElementById("for_id_act").value;
+        titulo = document.getElementById("for_titulo_edit").value,
         texto = document.getElementById("for_contenido_edit").value,
         tlink = document.getElementById("for_tlink_edit").value,
-        link = document.getElementById("for_link_edit").value;
+        link = document.getElementById("for_link_edit").value,
+        // mandar
+        font_ico  = document.getElementById('for_ico_svg_edit').value,
+        font_name = document.getElementById('for_ico_name_edit').value;
   if(titulo.length == 0 || texto.length == 0 || tlink.length == 0 || link.length == 0) {
     validaInput("for_titulo_edit","for_contenido_edit","for_tlink_edit","for_link_edit");
     return Swal.fire(
@@ -156,4 +216,73 @@ function Editar_Formato() {
         "Campos incompletos",
         "warning");
   }
+
+  let formData = new FormData();
+  formData.append('id',id_formato);
+  formData.append('t',titulo);
+  formData.append('tx',texto);
+  formData.append('tl',tlink);
+  formData.append('l',link);
+  formData.append('fn',font_name);
+  formData.append('fi',font_ico);
+  formData.append('iu',id_usuario);
+  $.ajax({
+    url: '../controlador/usuario/formatos/control_formato_modificar.php',
+    type: "POST",
+    data: formData,
+    contentType: false,
+    processData: false,
+    success: function(resp) {
+      if(resp>0){
+        if(resp==1){
+          validaInput("for_titulo_edit","for_contenido_edit","for_tlink_edit","for_link_edit");
+          Swal.fire(
+          "Mensaje de Confirmación",
+          "Formato modificado exitosamente",
+          "success"
+          ).then((value)=>{
+            $("#modal_editar_formato").modal('hide');
+            limpiarModalFor();
+            tbl_formato.ajax.reload();
+          });
+        }else{
+          Swal.fire(
+          "Mensaje de Advertencia",
+          "El formato registrado ya se encuentra en la BD",
+          "warning"
+          );
+        }
+      }else{
+        Swal.fire(
+        "Mensaje de Error",
+        "No se pudo modificar el formato",
+        "error"
+        );
+      }
+    }
+  });
+  return false;
+}
+
+function Eliminar_Formato(id) {
+  $.ajax({
+        url:'../controlador/usuario/formatos/control_formato_eliminar.php',
+        type:'POST',
+        data:{
+            id:id,
+        }
+    }).done(function(resp){
+        if(resp>0){
+                Swal.fire(
+                  "Mensaje de Confirmacion",
+                  "Formato eliminado exitosamente",
+                  "success"
+                  ).then((value)=>{
+                    tbl_formato.ajax.reload();
+                });
+
+        }else{
+            Swal.fire("Mensaje de Error", "No se pudo eliminar el formato","error")
+        }
+    })
 }
