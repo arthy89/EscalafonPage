@@ -11,10 +11,9 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 26/09/2022 01:30:33
+ Date: 30/09/2022 11:17:28
 */
-CREATE DATABASE bd_escalafon;
-USE bd_escalafon;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -29,15 +28,15 @@ CREATE TABLE `beneficios`  (
   PRIMARY KEY (`bn_id`) USING BTREE,
   INDEX `bufk`(`usu_id` ASC) USING BTREE,
   CONSTRAINT `bufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of beneficios
 -- ----------------------------
-INSERT INTO `beneficios` VALUES (1, 'Gestionar diversas acciones de personal como: reasignaciones, permutas, destaques, licencias y encargos, así como en procesos disciplinarios.', 2);
+INSERT INTO `beneficios` VALUES (1, 'Editado Gestionar diversas acciones de personal como: reasignaciones, permutas, destaques, licencias y encargos, así como en procesos disciplinarios...', 3);
 INSERT INTO `beneficios` VALUES (2, 'El otorgamiento de beneficios como: asignación por tiempo de servicios (ATS), compensación por tiempo de servicios (CTS) y subsidio por luto y sepelio.', 1);
 INSERT INTO `beneficios` VALUES (3, 'Acreditar requisitos para los procesos de concursos o de evaluaciones como la institución educativa donde labora, nivel y modalidad educativa, cargo, jornada laboral, grado de instrucción, experiencia y trayectoria profesional para el caso de acceso a cargos de mayor responsabilidad, entre otros, así como el tiempo de servicios oficiales en la última escala, en el último cargo, en la institución educativa u otros.', 1);
-INSERT INTO `beneficios` VALUES (4, 'Sustentar los años de servicios para el otorgamiento de pensiones.', 1);
+INSERT INTO `beneficios` VALUES (4, 'EDIT 2 Sustentar los años de servicios para el otorgamiento de pensiones.', 3);
 
 -- ----------------------------
 -- Table structure for comunicado
@@ -63,8 +62,8 @@ CREATE TABLE `comunicado`  (
 -- ----------------------------
 -- Records of comunicado
 -- ----------------------------
-INSERT INTO `comunicado` VALUES (2, 'DNI modificado', 'DNI editado', 'Link Editado Nuevo', 'https://www.youtube.com/watch?v=Cl5Vkd4N03Q&amp;amp;amp;amp;list=RDCl5Vkd4N03Q&amp;amp;amp;amp;start_radio=1', '18 sept 2022', '10:51 PM', 'Edificio', 'fa-building', 2);
-INSERT INTO `comunicado` VALUES (3, 'Ubicación de beneficiarios', 'Conoce la ubicaciones de los beneficiarios de la nueva... ', 'Link', 'https://www.youtube.com/watch?v=K17df81RL9Y', '20 agos 2022', '06:35 AM', 'Edificio', 'fa-building', 2);
+INSERT INTO `comunicado` VALUES (2, 'DNI modificadobjggvg', 'DNI editadonfyfryvrtcr', 'Link Editado Nuevo', 'https://www.youtube.com/watch?v=Cl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;list=RDCl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;start_radio=1', '18 sept 2022', '10:51 PM', 'Edificio', 'fa-building', 3);
+INSERT INTO `comunicado` VALUES (3, 'Ubicación de beneficiarios', 'Conoce la ubicaciones de los beneficiarios de la nueva... ', 'Link', 'https://www.youtube.com/watch?v=K17df81RL9Y', '30 sept 2022', '10:54 AM', 'Edificio', 'fa-building', 3);
 INSERT INTO `comunicado` VALUES (4, 'Capacitación', 'Capacitación para docentes guía informativa.', 'Video de referencia', 'https://www.youtube.com', '10 sept 2022', '11:50 PM', 'Edificio', 'fa-building', 4);
 INSERT INTO `comunicado` VALUES (5, 'Recomendaciones 2', 'Le recomendamos que considere las actualizaciones de su legajo con los siguientes detalles.', 'Enlace', 'https://www.youtube.com', '3 sept 2022', '6:29 PM', 'Cámara', 'fa-camera', 2);
 INSERT INTO `comunicado` VALUES (6, 'Nuevo', 'Xddddddddddd dddddddddd sdfhabskf', 'csakuhdfbka', 'https://www.instagram.com', '12 sept 2022', '11:24 PM', 'Folder abierto', 'fa-folder-open', 2);
@@ -85,14 +84,14 @@ CREATE TABLE `formatos`  (
   PRIMARY KEY (`for_id`) USING BTREE,
   INDEX `fufk`(`usu_id` ASC) USING BTREE,
   CONSTRAINT `fufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of formatos
 -- ----------------------------
-INSERT INTO `formatos` VALUES (1, 'Personal Nombrado', 'Formato para personal Nombrado', 'Descargar', 'https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing', 'Firma', 'fa-file-signature', 1);
+INSERT INTO `formatos` VALUES (1, 'Personal Nombrado', 'Formato para personal Nombrado', 'Descargar', 'https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing', 'Firma', 'fa-file-signature', 3);
 INSERT INTO `formatos` VALUES (2, 'Personal Contratado', 'Formato para personal Contratado', 'Descargar', 'https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing', 'Archivo', 'fa-file', 2);
-INSERT INTO `formatos` VALUES (3, 'Nueva Documentación', 'Instructivo y anexos 2', 'Instructivo en Drive', 'usp=sharing', 'Folder abierto', 'fa-folder-open', 2);
+INSERT INTO `formatos` VALUES (3, 'Nueva Documentación', 'Instructivo y anexos 2', 'Instructivo en Drive', 'drive.com', 'Pergamino', 'fa-scroll', 3);
 
 -- ----------------------------
 -- Table structure for icono
@@ -174,7 +173,7 @@ CREATE TABLE `imagenes`  (
   PRIMARY KEY (`id_img`) USING BTREE,
   INDEX `usufk`(`usu_id` ASC) USING BTREE,
   CONSTRAINT `usufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of imagenes
@@ -197,7 +196,7 @@ CREATE TABLE `mnorma`  (
   PRIMARY KEY (`mn_id`) USING BTREE,
   INDEX `mnufk`(`usu_id` ASC) USING BTREE,
   CONSTRAINT `mnufk` FOREIGN KEY (`usu_id`) REFERENCES `usuarios` (`usu_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of mnorma
@@ -206,8 +205,9 @@ INSERT INTO `mnorma` VALUES (1, 'Ley N.° 30512', 'Ley de Institutos y Escuelas 
 INSERT INTO `mnorma` VALUES (2, 'Ley N.° 28044', 'Ley General de Educación', 'Porcentaje', 'fa-percent', 2);
 INSERT INTO `mnorma` VALUES (3, 'Ley N.° 29733', 'Ley de Protección de Datos Personales', 'Premio', 'fa-award', 3);
 INSERT INTO `mnorma` VALUES (4, 'Ley N.° 25323', 'Ley del Sistema Nacional de Archivos', 'Sonrisa', 'fa-smile-beam', 3);
-INSERT INTO `mnorma` VALUES (5, 'Ley N.° 27806', 'Ley de Transparencia y Acceso a la Información Pública', 'Usuario Terno', 'fa-user-tie', 1);
+INSERT INTO `mnorma` VALUES (5, 'Ley N.° 27806', 'Ley de Transparencia y Acceso a la Información Pública', 'Terno', 'fa-user-tie', 3);
 INSERT INTO `mnorma` VALUES (6, 'Ley N.° 27815', 'Código de Ética de la Función Pública', 'Audífinos', 'fa-headset', 2);
+INSERT INTO `mnorma` VALUES (7, 'Ley 111111', 'Nueva ley para pago temprano', 'Libro', 'fa-book', 3);
 
 -- ----------------------------
 -- Table structure for rol
@@ -300,6 +300,7 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_BENE`(IN ID INT)
 DELETE FROM beneficios
 WHERE bn_id=ID
+;
 ;;
 delimiter ;
 
@@ -311,6 +312,7 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_COMUNICADO`(IN ID INT)
 DELETE FROM comunicado
 WHERE com_id=ID
+;
 ;;
 delimiter ;
 
@@ -322,6 +324,7 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_FORMATO`(IN ID INT)
 DELETE FROM formatos
 WHERE for_id=ID
+;
 ;;
 delimiter ;
 
@@ -333,6 +336,7 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_IMG`(IN ID INT)
 DELETE FROM imagenes
 WHERE id_img=ID
+;
 ;;
 delimiter ;
 
@@ -344,6 +348,7 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_LEY`(IN ID INT)
 DELETE FROM mnorma
 WHERE mn_id=ID
+;
 ;;
 delimiter ;
 
@@ -355,6 +360,21 @@ delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_USUARIO`(IN ID INT)
 DELETE FROM usuarios
 WHERE usu_id=ID
+;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for SP_LISTAR_BENE
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `SP_LISTAR_BENE`;
+delimiter ;;
+CREATE PROCEDURE `SP_LISTAR_BENE`()
+SELECT
+	beneficios.bn_id, 
+	beneficios.bn_text
+FROM
+	beneficios
 ;;
 delimiter ;
 
@@ -375,6 +395,25 @@ SELECT
 	comunicado.ico_svg
 FROM
 	comunicado
+;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for SP_LISTAR_FORMATO
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `SP_LISTAR_FORMATO`;
+delimiter ;;
+CREATE PROCEDURE `SP_LISTAR_FORMATO`()
+SELECT
+	formatos.for_id, 
+	formatos.for_title, 
+	formatos.for_text, 
+	formatos.for_tlink, 
+	formatos.for_link, 
+	formatos.for_ico_svg
+FROM
+	formatos
 ;;
 delimiter ;
 
@@ -385,6 +424,37 @@ DROP PROCEDURE IF EXISTS `SP_LISTAR_ICO`;
 delimiter ;;
 CREATE PROCEDURE `SP_LISTAR_ICO`()
 SELECT * FROM icono
+;
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for SP_LISTAR_IMG
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `SP_LISTAR_IMG`;
+delimiter ;;
+CREATE PROCEDURE `SP_LISTAR_IMG`()
+SELECT
+	imagenes.id_img, 
+	imagenes.img_file
+FROM
+	imagenes
+;;
+delimiter ;
+
+-- ----------------------------
+-- Procedure structure for SP_LISTAR_LEY
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `SP_LISTAR_LEY`;
+delimiter ;;
+CREATE PROCEDURE `SP_LISTAR_LEY`()
+SELECT
+	mnorma.mn_id, 
+	mnorma.mn_title, 
+	mnorma.mn_text, 
+	mnorma.mn_ico_svg
+FROM
+	mnorma
 ;;
 delimiter ;
 
@@ -395,6 +465,7 @@ DROP PROCEDURE IF EXISTS `SP_LISTAR_ROL`;
 delimiter ;;
 CREATE PROCEDURE `SP_LISTAR_ROL`()
 SELECT * FROM rol
+;
 ;;
 delimiter ;
 
@@ -420,6 +491,7 @@ FROM
 	rol
 	ON 
 		usuarios.rol_id = rol.rol_id
+;
 ;;
 delimiter ;
 
@@ -503,6 +575,7 @@ CREATE PROCEDURE `SP_MODIFICAR_CONTRA`(IN ID INT, IN CONTRA VARCHAR(255))
 UPDATE usuarios SET
 usu_contrasena=CONTRA 
 WHERE usu_id=ID
+;
 ;;
 delimiter ;
 
@@ -732,6 +805,7 @@ FROM
 	ON 
 		usuarios.rol_id = rol.rol_id
 WHERE usu_log = BINARY USUARIO
+;
 ;;
 delimiter ;
 

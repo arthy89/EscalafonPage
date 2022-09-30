@@ -1,3 +1,4 @@
+<!-- LISTAR LOS COMUNICADOS -->
 <?php
   require_once '../modelo/modelo_conexion.php';
 
@@ -8,6 +9,7 @@
   $resultado = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
+<!-- LISTAR CONTACTOS -->
 <?php
   require_once '../modelo/modelo_conexion.php';
 
@@ -16,6 +18,50 @@
   $sql = $con->prepare("CALL SP_LISTAR_USUARIO()"); //procedimiento almacenado 
   $sql->execute();
   $resultado_usuario = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- LISTAR IMGS -->
+<?php
+  require_once '../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_IMG()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_img = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- LISTAR LOS BENEFICIOS -->
+<?php
+  require_once '../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_BENE()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_bene = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- LISTAR LAS LEYES -->
+<?php
+  require_once '../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_LEY()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_ley = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
+
+<!-- LISTAR LOS FORMATOS -->
+<?php
+  require_once '../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_FORMATO()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_for = $sql->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -116,8 +162,14 @@
                                 <div class="col-3">
                                     <i class="fa <?php echo $icon ?> fa-2x text-primary mb-3"></i>
                                 </div>
-                                <div class="col-9 align-items-left" >
+                                <div class="col-6 align-items-left" >
                                     <h5 class="mb-3 text-primary"><?php echo $titulo ?></h5>
+                                </div>
+                                <div class="col-3 align-items-center">
+                                    <div class="service-icon" >
+                                        <!-- style="color:#F3F6F8" -->
+                                        <h5 style="color:red">Nuevo</h5>
+                                    </div>
                                 </div>
                             </div>
                             
@@ -142,14 +194,6 @@
         <!-- CARRUSEL DE IMAGENES -->
         <div class="bd-example">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-indicators">
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active"
-                        aria-label="Slide 1" aria-current="true"></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"
-                        class=""></button>
-                    <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"
-                        class=""></button>
-                </div>
                 <div class="carousel-inner">
                     <div class="carousel-item active" data-bs-interval="5000">
                         <img src="../plantilla2/img/descripcion.png" class="d-block w-100" alt="..." height="500" >
@@ -505,15 +549,15 @@
                         informes escalafonarios que se expidan se puedan:</small>
                         <small class="text-white">
                             <ul>
-                                <li>Gestionar diversas acciones de personal como: reasignaciones, permutas, destaques, licencias y encargos, así
-                                    como en procesos disciplinarios.</li>
-                                <li>El otorgamiento de beneficios como: asignación por tiempo de servicios (ATS), compensación por tiempo de
-                                    servicios (CTS) y subsidio por luto y sepelio.</li>
-                                <li>Acreditar requisitos para los procesos de concursos o de evaluaciones como la institución educativa donde
-                                    labora, nivel y modalidad educativa, cargo, jornada laboral, grado de instrucción, experiencia y trayectoria
-                                    profesional para el caso de acceso a cargos de mayor responsabilidad, entre otros, así como el tiempo de
-                                    servicios oficiales en la última escala, en el último cargo, en la institución educativa u otros.</li>
-                                <li>Sustentar los años de servicios para el otorgamiento de pensiones.</li>
+                                <!-- PHP AQUI -->
+                                <?php foreach ($res_bene as $data_bene) { ?>
+                                    <!-- PARA ALMACENAR EN VARIABLE -->
+                                    <?php 
+                                        $text = $data_bene['bn_text'];
+                                    ?>
+
+                                    <li><?php echo $text; ?></li>
+                                <?php } ?>
                             </ul>
                             <p><strong>Resumen: </strong> La documentación contenida en el legajo personal constituye la única fuente oficial de
                                 información para todos los procesos de evaluación, de la trayectoria docente pública y profesional dentro de la CPD
@@ -551,66 +595,27 @@
                         <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema Integrado de
                         Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa Descentralizada.
                     </p>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-cubes text-white"></i>
+
+                    <!-- PHP AQUI -->
+                    <?php foreach ($res_ley as $data_ley) { ?>
+                        <!-- PARA ALMACENAR EN VARIABLE -->
+                        <?php 
+                            $nley = $data_ley['mn_title'];
+                            $text = $data_ley['mn_text'];
+                            $ico = $data_ley['mn_ico_svg'];
+                        ?>
+
+                        <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <i class="fa <?php echo $ico ?> text-white"></i>
+                                </div>
+                                <h6 class="mb-0"><?php echo $nley ?></h6>
                             </div>
-                            <h6 class="mb-0">Ley N.° 30512</h6>
+                            <span><?php echo $text; ?></span>
                         </div>
-                        <span>Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente</span>
-                    </div>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-percent text-white"></i>
-                            </div>
-                            <h6 class="mb-0">Ley N.° 28044</h6>
-                        </div>
-                        <span>Ley General de Educación</span>
-                    </div>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-award text-white"></i>
-                            </div>
-                            <h6 class="mb-0">Ley N.° 29733</h6>
-                        </div>
-                        <span>Ley de Protección de Datos Personales</span>
-                    </div>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-smile-beam text-white"></i>
-                            </div>
-                            <h6 class="mb-0">Ley N.° 25323</h6>
-                        </div>
-                        <span>Ley del Sistema Nacional de Archivos</span>
-                    </div>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-user-tie text-white"></i>
-                            </div>
-                            <h6 class="mb-0">Ley N.° 27806</h6>
-                        </div>
-                        <span>Ley de Transparencia y Acceso a la Información Pública</span>
-                    </div>
-                    <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                        style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                        <div class="d-flex align-items-center mb-3">
-                            <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                                <i class="fa fa-headset text-white"></i>
-                            </div>
-                            <h6 class="mb-0">Ley N.° 27815</h6>
-                        </div>
-                        <span>Código de Ética de la Función Pública</span>
-                    </div>
+
+                    <?php } ?>
                 </div>
             </div>
         </div>
@@ -625,91 +630,37 @@
                     <h2 class="mb-5">FORMATOS QUE CORRESPONDEN AL LEGAJO PERSONAL</h2>
                 </div>
                 <div class="row g-4">
-        
-                    <!-- PERSONAL NOMBRADO -->
-                    <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s" href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing" id="RVM_016" target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file-signature fa-2x"></i>
-        
-                                </div>
-                                <div class="service-icon" style="width: 220px;">
-                                    <h5 class="text-white">Personal Nombrado</h5>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formato para personal Nombrado</h5>
-                                <p class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing">Descargar</p>
-                            </div>
-                        </div>
-                    </a>
+                        
+                    <?php foreach ($res_for as $data_for) { ?>
+                        <!-- PARA ALMACENAR EN VARIABLE -->
+                        <?php 
+                            $title = $data_for['for_title'];
+                            $text = $data_for['for_text'];
+                            $tlink = $data_for['for_tlink'];
+                            $link = $data_for['for_link'];
+                            $ico = $data_for['for_ico_svg'];
+                        ?>
 
-                    <!-- PERSONAL CONTRATADO -->
-                    <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
-                        href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" id="RVM_016"
-                        target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file fa-2x"></i>
-                    
+                        <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s" href="<?php echo $link ?>" id="RVM_016" target="_blank" rel="noopener noreferrer">
+                            <div class="service-item rounded h-100">
+                                <div class="d-flex justify-content-between">
+                                    <div class="service-icon">
+                                        <i class="fa <?php echo $ico ?> fa-2x"></i>
+            
+                                    </div>
+                                    <div class="service-icon" style="width: 250px;">
+                                        <h5 class="text-white"><?php echo $title ?></h5>
+                                    </div>
                                 </div>
-                                <div class="service-icon" style="width: 240px;">
-                                    <h5 class="text-white">Personal Contratado</h5>
+                                <div class="p-5">
+                                    <h5 class="mb-3"><?php echo $text ?></h5>
+                                    <p class="btn btn-primary rounded-pill py-2 px-4 mt-2"
+                                        href="<?php echo $link ?>"><?php echo $tlink ?></p>
                                 </div>
                             </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formato para personal Contratado</h5>
-                                <p class="btn btn-primary rounded-pill py-2 px-4 mt-2" href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing">Descargar</p>
-                            </div>
-                        </div>
-                    </a>
+                        </a>
 
-                    <!-- Nueva Documentación -->
-                    <div class="col-lg-12 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
-                        href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" id="RVM_016"
-                        target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file fa-2x"></i>
-                    
-                                </div>
-                                <div class="service-icon" style="width: 300px;">
-                                    <h5 class="text-white">Nueva Documentación</h5>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formatos para la presentación de nueva documentación</h5>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 01 - Boleta Personal
-                                </a>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 02 - Declaración Jurada
-                                </a>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 03 - Declaración Jurada de Régimen Pensionario
-                                </a>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 04 - Declaración Jurada de Datos Personales - Domicilio Actual
-                                </a>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx" id="RVM_016" target="_blank" rel="noopener noreferrer">Anexo Nº 01 - Modelo de solicitud de actualizaciones de Legajo
-                                </a>
-
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx" id="RVM_016" target="_blank" rel="noopener noreferrer">Anexo Nº 02 Modelo de solicitud de apertura de legajo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                    <?php } ?>
         
                 </div>
             </div>
@@ -889,7 +840,7 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved. 
+                            &copy; <a class="border-bottom" href="#">ESCALAFÓN - DRE PUNO</a>, All Right Reserved. 
 							
 							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
 							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
@@ -897,10 +848,6 @@
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
                             </div>
                         </div>
                     </div>
