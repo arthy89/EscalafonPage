@@ -148,7 +148,11 @@
               <label for="">Contenido</label>
               <textarea type="text" id="com_contenido" class="form-control"></textarea>
             </div>
-            
+          </div>
+          <div class="col-6">
+            <label for="">Estado</label>
+            <select class="js-example-basic-single" id="com_est" style="width: 100%; margin-top: -10px;">
+            </select>
           </div>
           <div class="col-6">
             <div class="form-group">
@@ -370,5 +374,5 @@ $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 listar_usuario_ss();
-// cargar_ico();
+cargar_estado();
 </script>

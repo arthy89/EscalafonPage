@@ -43,6 +43,28 @@ hora_act.addEventListener('click', function(){
   hora_edit.value =name_h;
 })
 
+// ! CARGAR LOS ESTADOS
+function cargar_estado(){
+  $.ajax({
+    url: '../controlador/usuario/comunicado/control_estado.php',
+    type: 'POST'
+  }).done(function(resp){
+    let data = JSON.parse(resp);
+    let llenardata = "";
+    if(data.length > 0){
+      for (let i = 0; i < data.length; i++) {
+        llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
+      }
+      document.getElementById('com_est').innerHTML= llenardata;
+      // document.getElementById('usu_rol_edit').innerHTML= llenardata;
+    }else{
+      llenardata+="<option value=''>No se encuentran estados</option>";
+      document.getElementById('com_est').innerHTML= llenardata;
+      // document.getElementById('usu_rol_edit').innerHTML= llenardata;
+    }
+  })
+}
+
 // ! REGISTRAR COMUNIDACO
 function Registrar_Comunicado(){
   const     titulo    = document.getElementById('com_titulo').value,

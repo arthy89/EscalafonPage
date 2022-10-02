@@ -82,5 +82,21 @@
             conexionBD::cerrar_conexion();
         }
 
+        public function listar_estado(){
+            $c = conexionBD::conexionPDO();
+
+            $sql = "CALL SP_LISTAR_ESTADO()"; //procedimiento almacenado 
+            $arreglo = array();
+            $query = $c->prepare($sql);
+            $query->execute();
+            $resultado = $query->fetchAll();
+            foreach($resultado as $resp){
+                    $arreglo[] = $resp;
+            }
+
+            return $arreglo;
+            conexionBD::cerrar_conexion();
+        }
+
     }
 ?>
