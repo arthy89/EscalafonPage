@@ -11,10 +11,9 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 02/10/2022 21:24:32
+ Date: 03/10/2022 00:11:05
 */
-CREATE DATABASE bd_escalafon;
-USE bd_escalafon;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -66,11 +65,11 @@ CREATE TABLE `comunicado`  (
 -- ----------------------------
 -- Records of comunicado
 -- ----------------------------
-INSERT INTO `comunicado` VALUES (1, 'DNI modificadobjggvg', 'DNI editadonfyfryvrtcr', 'Link Editado Nuevo', 'https://www.youtube.com/watch?v=Cl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;list=RDCl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;start_radio=1', '18 sept 2022', '10:51 PM', 'Edificio', 'fa-building', 3, NULL);
-INSERT INTO `comunicado` VALUES (2, 'Ubicación de beneficiarios', 'Conoce la ubicaciones de los beneficiarios de la nueva... ', 'Link', 'https://www.youtube.com/watch?v=K17df81RL9Y', '30 sept 2022', '10:54 AM', 'Edificio', 'fa-building', 3, NULL);
-INSERT INTO `comunicado` VALUES (3, 'Capacitación', 'Capacitación para docentes guía informativa.', 'Video de referencia', 'https://www.youtube.com', '10 sept 2022', '11:50 PM', 'Edificio', 'fa-building', 4, NULL);
-INSERT INTO `comunicado` VALUES (4, 'Recomendaciones 2', 'Le recomendamos que considere las actualizaciones de su legajo con los siguientes detalles.', 'Enlace', 'https://www.youtube.com', '3 sept 2022', '6:29 PM', 'Cámara', 'fa-camera', 2, NULL);
-INSERT INTO `comunicado` VALUES (5, 'Nuevo', 'Xddddddddddd dddddddddd sdfhabskf', 'csakuhdfbka', 'https://www.instagram.com', '12 sept 2022', '11:24 PM', 'Folder abierto', 'fa-folder-open', 2, NULL);
+INSERT INTO `comunicado` VALUES (1, 'DNI modificadobjggvg', 'DNI editadonfyfryvrtcr', 'Link Editado Nuevo', 'https://www.youtube.com/watch?v=Cl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;amp;amp;list=RDCl5Vkd4N03Q&amp;amp;amp;amp;amp;amp;amp;amp;start_radio=1', '18 sept 2022', '10:51 PM', 'Edificio', 'fa-building', 2, 1);
+INSERT INTO `comunicado` VALUES (2, 'Ubicación de beneficiarios', 'Conoce la ubicaciones de los beneficiarios de la nueva... ', 'Link', 'https://www.youtube.com/watch?v=K17df81RL9Y', '30 sept 2022', '10:54 AM', 'Edificio', 'fa-building', 3, 2);
+INSERT INTO `comunicado` VALUES (3, 'Capacitación', 'Capacitación para docentes guía informativa.', 'Video de referencia', 'https://www.youtube.com', '10 sept 2022', '11:50 PM', 'Edificio', 'fa-building', 4, 2);
+INSERT INTO `comunicado` VALUES (4, 'Recomendaciones 2', 'Le recomendamos que considere las actualizaciones de su legajo con los siguientes detalles.', 'Enlace', 'https://www.youtube.com', '3 sept 2022', '6:29 PM', 'Cámara', 'fa-camera', 2, 1);
+INSERT INTO `comunicado` VALUES (6, 'Prueba de estado', 'Estamos Probando el estado nuevo', 'No hay enlace', 'Sin enlace', '2 oct 2022', '10:26 PM', 'DNI', 'fa-address-card', 2, 1);
 
 -- ----------------------------
 -- Table structure for estado
@@ -81,7 +80,7 @@ CREATE TABLE `estado`  (
   `est_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `est_color` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   PRIMARY KEY (`est_id`) USING BTREE
-) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = Dynamic;
+) ENGINE = InnoDB CHARACTER SET = utf8mb4 COLLATE = utf8mb4_general_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of estado
@@ -123,7 +122,7 @@ CREATE TABLE `icono`  (
   `ico_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   `ico_svg` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ico_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of icono
@@ -199,9 +198,10 @@ CREATE TABLE `imagenes`  (
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
-INSERT INTO `imagenes` VALUES (1, 'img1', 'controlador/imgs/esca.png', 1);
-INSERT INTO `imagenes` VALUES (2, 'img2', 'controlador/imgs/descripcion.png', 4);
+INSERT INTO `imagenes` VALUES (1, 'img2', 'controlador/imgs/descripcion.png', 4);
+INSERT INTO `imagenes` VALUES (2, 'img1', 'controlador/imgs/esca.png', 1);
 INSERT INTO `imagenes` VALUES (3, 'img3', 'controlador/imgs/requisitos.png', 3);
+INSERT INTO `imagenes` VALUES (4, 'asdfsadf', 'controlador/imgs/IMG3102022010665.jpg', 2);
 
 -- ----------------------------
 -- Table structure for mnorma
@@ -287,7 +287,7 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_bene` AS sel
 -- View structure for view_listar_comunicado
 -- ----------------------------
 DROP VIEW IF EXISTS `view_listar_comunicado`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_comunicado` AS select `comunicado`.`com_id` AS `com_id`,`comunicado`.`com_title` AS `com_title`,`comunicado`.`com_cont` AS `com_cont`,`comunicado`.`com_link` AS `com_link`,`comunicado`.`com_tlink` AS `com_tlink`,`comunicado`.`com_f` AS `com_f`,`comunicado`.`com_h` AS `com_h`,`comunicado`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno`,`comunicado`.`ico_name` AS `ico_name`,`comunicado`.`ico_svg` AS `ico_svg` from (`comunicado` join `usuarios` on((`comunicado`.`usu_id` = `usuarios`.`usu_id`)));
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_comunicado` AS select `comunicado`.`com_id` AS `com_id`,`comunicado`.`com_title` AS `com_title`,`comunicado`.`com_cont` AS `com_cont`,`comunicado`.`com_link` AS `com_link`,`comunicado`.`com_tlink` AS `com_tlink`,`comunicado`.`com_f` AS `com_f`,`comunicado`.`com_h` AS `com_h`,`comunicado`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno`,`comunicado`.`ico_name` AS `ico_name`,`comunicado`.`ico_svg` AS `ico_svg`,`comunicado`.`est_id` AS `est_id`,`estado`.`est_name` AS `est_name`,`estado`.`est_color` AS `est_color` from ((`comunicado` join `usuarios` on((`comunicado`.`usu_id` = `usuarios`.`usu_id`))) join `estado` on((`comunicado`.`est_id` = `estado`.`est_id`)));
 
 -- ----------------------------
 -- View structure for view_listar_formato
@@ -396,6 +396,7 @@ SELECT
 	beneficios.bn_text
 FROM
 	beneficios
+;
 ;;
 delimiter ;
 
@@ -413,10 +414,17 @@ SELECT
 	comunicado.com_link, 
 	comunicado.com_f, 
 	comunicado.com_h, 
-	comunicado.ico_svg
+	comunicado.ico_svg, 
+	estado.est_name, 
+	estado.est_color
 FROM
 	comunicado
-;
+	INNER JOIN
+	estado
+	ON 
+		comunicado.est_id = estado.est_id
+ORDER BY
+	comunicado.com_id DESC
 ;;
 delimiter ;
 
@@ -430,6 +438,7 @@ SELECT
 	estado.*
 FROM
 	estado
+;
 ;;
 delimiter ;
 
@@ -448,6 +457,7 @@ SELECT
 	formatos.for_ico_svg
 FROM
 	formatos
+;
 ;;
 delimiter ;
 
@@ -473,6 +483,7 @@ SELECT
 	imagenes.img_file
 FROM
 	imagenes
+;
 ;;
 delimiter ;
 
@@ -489,6 +500,7 @@ SELECT
 	mnorma.mn_ico_svg
 FROM
 	mnorma
+;
 ;;
 delimiter ;
 
@@ -550,7 +562,7 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `SP_MODIFICAR_COMUNICADO`;
 delimiter ;;
-CREATE PROCEDURE `SP_MODIFICAR_COMUNICADO`(IN IDA INT, IN IDN INT, IN TITULO VARCHAR(255), IN CONTENIDO VARCHAR(255), IN TLINK VARCHAR(255), IN LINK VARCHAR(255), IN FECHA VARCHAR(255), IN HORA VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN IDUSU INT)
+CREATE PROCEDURE `SP_MODIFICAR_COMUNICADO`(IN IDA INT, IN IDN INT, IN TITULO VARCHAR(255), IN CONTENIDO VARCHAR(255), IN TLINK VARCHAR(255), IN LINK VARCHAR(255), IN FECHA VARCHAR(255), IN HORA VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN IDUSU INT, IN IDEST INT)
 BEGIN
 
 DECLARE CANTIDAD INT;
@@ -565,7 +577,8 @@ IF (@CANTIDAD = 1  AND IDN = IDA) THEN
 		com_h=HORA,
 		ico_name=FNAME,
 		ico_svg=FICO,
-		usu_id=IDUSU
+		usu_id=IDUSU,
+		est_id=IDEST
 		WHERE com_id=IDA;
 		SELECT 1;
 ELSE
@@ -584,7 +597,8 @@ ELSE
 		com_h=HORA,
 		ico_name=FNAME,
 		ico_svg=FICO,
-		usu_id=IDUSU
+		usu_id=IDUSU,
+		est_id=IDEST
 		WHERE com_id=IDA;
 
 		UPDATE comunicado SET 
@@ -727,14 +741,14 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `SP_REGISTRAR_COMUNICADO`;
 delimiter ;;
-CREATE PROCEDURE `SP_REGISTRAR_COMUNICADO`(IN TITULO VARCHAR(255), IN CONTENIDO VARCHAR(255), IN TLINK VARCHAR(255), IN LINK VARCHAR(255), IN FECHA VARCHAR(255), IN HORA VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN IDUSU INT)
+CREATE PROCEDURE `SP_REGISTRAR_COMUNICADO`(IN TITULO VARCHAR(255), IN CONTENIDO VARCHAR(255), IN TLINK VARCHAR(255), IN LINK VARCHAR(255), IN FECHA VARCHAR(255), IN HORA VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN IDUSU INT, IN IDEST INT)
 BEGIN
 SET @NID := (SELECT MAX(com_id) + 1 FROM comunicado);
 
 INSERT INTO
-comunicado(com_id,com_title,com_cont,com_link,com_tlink,com_f,com_h,ico_name,ico_svg,usu_id)
+comunicado(com_id,com_title,com_cont,com_link,com_tlink,com_f,com_h,ico_name,ico_svg,usu_id,est_id)
 VALUES
-(@NID,TITULO,CONTENIDO,LINK,TLINK,FECHA,HORA,FNAME,FICO,IDUSU);
+(@NID,TITULO,CONTENIDO,LINK,TLINK,FECHA,HORA,FNAME,FICO,IDUSU,IDEST);
 SELECT 1;
 
 END

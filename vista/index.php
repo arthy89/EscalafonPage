@@ -97,6 +97,7 @@
 
     <!-- Template Stylesheet -->
     <link href="../plantilla2/css/style.css" rel="stylesheet">
+    
 </head>
 
 <body>
@@ -155,6 +156,8 @@
                           $link = $row['com_link'];
                           $fecha = $row['com_f'];
                           $hora = $row['com_h'];
+                          $estado = $row['est_name'];
+                          $color = $row['est_color'];
                         ?>
 
                         <div class="testimonial-item rounded p-4" style="background-color:#F3F6F8;">
@@ -168,7 +171,7 @@
                                 <div class="col-3 align-items-center">
                                     <div class="service-icon" >
                                         <!-- style="color:#F3F6F8" -->
-                                        <h5 style="color:red">Nuevo</h5>
+                                        <h5 style="color:<?php echo $color ?>; margin-top:-10px"><?php echo $estado ?></h5>
                                     </div>
                                 </div>
                             </div>
@@ -195,15 +198,39 @@
         <div class="bd-example">
             <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
                 <div class="carousel-inner">
-                    <div class="carousel-item active" data-bs-interval="5000">
-                        <img src="../plantilla2/img/descripcion.png" class="d-block w-100" alt="..." height="500" >
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
+                    <!-- xd -->
+                    
+                    <?php
+                    foreach ($res_img as $imagen){
+                        if ($imagen == reset($res_img)) {
+                            echo '<div class="carousel-item active" data-bs-interval="5000">
+                        <img src="../'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
+                        </div>';
+                        }       
+                    }
+                    ?>
+
+                    <?php 
+                    array_shift($res_img);
+                    foreach ($res_img as $data_img) { ?>
+                        <!-- PARA ALMACENAR EN VARIABLE -->
+                        <?php 
+                            $url = $data_img['img_file'];
+                        ?>
+
+                        <div class="carousel-item" data-bs-interval="5000">
+                            <img src="../<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
+                        </div>
+
+                    <?php } ?>
+                    
+                    
+                    <!-- <div class="carousel-item" data-bs-interval="5000">
                         <img src="../plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
                         <img src="../plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
-                    </div>
+                    </div> -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>

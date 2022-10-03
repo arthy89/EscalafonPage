@@ -2,10 +2,10 @@
     require_once 'modelo_conexion.php';
 
     class Modelo_Comunicado extends conexionBD{
-        public function Registrar_Comunicado($titulo,$contenido,$tlink,$link,$fecha,$hora,$font_name,$font_ico,$id_usuario){
+        public function Registrar_Comunicado($titulo,$contenido,$tlink,$link,$fecha,$hora,$font_name,$font_ico,$id_usuario,$estado){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_REGISTRAR_COMUNICADO(?,?,?,?,?,?,?,?,?)"; //procedimiento almacenado 
+            $sql = "CALL SP_REGISTRAR_COMUNICADO(?,?,?,?,?,?,?,?,?,?)"; //procedimiento almacenado 
             $query = $c->prepare($sql);
             $query->bindParam(1,$titulo);
             $query->bindParam(2,$contenido);
@@ -16,6 +16,7 @@
             $query->bindParam(7,$font_name);
             $query->bindParam(8,$font_ico);
             $query->bindParam(9,$id_usuario);
+            $query->bindParam(10,$estado);
             $resultado = $query->execute();
             //? SOLO SE USA CUANDO NO SE RETORNA UN VALOR EN EL PROCEDURE 
             if($resultado){
@@ -26,10 +27,10 @@
             conexionBD::cerrar_conexion();
         }
 
-        public function Modificar_Comunicado($orden,$ordenew,$titulo,$contenido,$tlink,$link,$fecha,$hora,$font_name,$font_ico,$id_usuario){
+        public function Modificar_Comunicado($orden,$ordenew,$titulo,$contenido,$tlink,$link,$fecha,$hora,$font_name,$font_ico,$id_usuario,$estado){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_MODIFICAR_COMUNICADO(?,?,?,?,?,?,?,?,?,?,?)";
+            $sql = "CALL SP_MODIFICAR_COMUNICADO(?,?,?,?,?,?,?,?,?,?,?,?)";
             $query = $c->prepare($sql);
             $query->bindParam(1,$orden);
             $query->bindParam(2,$ordenew);
@@ -42,6 +43,7 @@
             $query->bindParam(9,$font_name);
             $query->bindParam(10,$font_ico);
             $query->bindParam(11,$id_usuario);
+            $query->bindParam(12,$estado);
             $resultado = $query->execute();
             if($row = $query->fetchColumn()){
                 return $row;

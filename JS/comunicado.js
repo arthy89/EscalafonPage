@@ -56,11 +56,11 @@ function cargar_estado(){
         llenardata+="<option value='"+data[i][0]+"'>"+data[i][1]+"</option>";
       }
       document.getElementById('com_est').innerHTML= llenardata;
-      // document.getElementById('usu_rol_edit').innerHTML= llenardata;
+      document.getElementById('com_est_edit').innerHTML= llenardata;
     }else{
       llenardata+="<option value=''>No se encuentran estados</option>";
       document.getElementById('com_est').innerHTML= llenardata;
-      // document.getElementById('usu_rol_edit').innerHTML= llenardata;
+      document.getElementById('com_est_edit').innerHTML= llenardata;
     }
   })
 }
@@ -75,7 +75,8 @@ function Registrar_Comunicado(){
             font_ico  = document.getElementById('com_ico_svg_new').value,
             font_name = document.getElementById('com_ico_name_new').value,
             fecha     = document.getElementById('com_fecha_new').value,
-            hora      = document.getElementById('com_hora_new').value;
+            hora      = document.getElementById('com_hora_new').value,
+            estado    = document.getElementById('com_est').value;
 
   if(titulo.length == 0 || contenido.length == 0 || tlink.length == 0 || link.length == 0){
       validaInput("com_titulo","com_contenido", "com_tenlace", "com_enlace");
@@ -95,6 +96,7 @@ function Registrar_Comunicado(){
   formData.append('fn',font_name);
   formData.append('fi',font_ico);
   formData.append('iu',id_usuario);
+  formData.append('ie',estado);
   $.ajax({
     url: '../controlador/usuario/comunicado/control_comunicado_registrar.php',
     type: "POST",
@@ -167,7 +169,8 @@ function Modificar_Comunicado(){
             fecha     = document.getElementById('com_fecha_edit').value,
             hora      = document.getElementById('com_hora_edit').value,
             font_ico  = document.getElementById('com_ico_edit_svg').value,
-            font_name = document.getElementById('com_ico_edit_name').value;
+            font_name = document.getElementById('com_ico_edit_name').value,
+            estado = document.getElementById('com_est_edit').value;
 
   if(orden.length == 0 || titulo.length == 0 || contenido.length == 0 || tlink.length == 0 || link.length == 0){
       validaInputEdit("com_id_edit","com_titulo_edit","com_contenido_edit", "com_tenlace_edit", "com_enlace_edit");
@@ -189,6 +192,7 @@ function Modificar_Comunicado(){
   formData.append('fn',font_name);
   formData.append('fi',font_ico);
   formData.append('iu',id_usuario);
+  formData.append('ie',estado);
   $.ajax({
     url: '../controlador/usuario/comunicado/control_comunicado_editar.php',
     type: "POST",
@@ -297,6 +301,15 @@ function listar_usuario_ss(){
       }, 
       {"data":5}, //? Fecha
       {"data":6}, //? Hora
+      {"data":13,
+        render: function (data, type, row) {
+          if(data=='Nuevo'){
+            return '<span class="badge bg-danger">Nuevo</span>';
+          }else{
+            return '<span class="badge bg-secondary">Normal</span>';
+          }
+        }
+      }, //? Estado
       {"data":8}, //? Usuario
       {"data":null,
         render: function (data, type, row) {
@@ -335,6 +348,7 @@ $('#tabla_comunicado_simple').on('click','.editar',function(){
   document.getElementById('com_hora_edit').value =data[6];
   document.getElementById('com_ico_act_name').value = data[10];
   document.getElementById('com_ico_act').className = 'fas ' +data[11];
+  $('#com_est_edit').select2().val(data[12]).trigger('change.select2');
 
   var icon = document.getElementById('com_ico_edit_val');
   function onChange(){

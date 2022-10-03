@@ -40,6 +40,7 @@
                       <th>Link</th>
                       <th>Fecha</th>
                       <th>Hora</th>
+                      <th>Estado</th>
                       <th>Usuario</th>
                       <th>Acción</th>
                   </tr>
@@ -150,11 +151,6 @@
             </div>
           </div>
           <div class="col-6">
-            <label for="">Estado</label>
-            <select class="js-example-basic-single" id="com_est" style="width: 100%; margin-top: -10px;">
-            </select>
-          </div>
-          <div class="col-6">
             <div class="form-group">
               <label for="">Título del enlace</label>
               <input type="text" id="com_tenlace" class="form-control" >
@@ -164,13 +160,18 @@
             <label for="">Enlace</label>
             <input type="text" id="com_enlace" class="form-control">
           </div>
-          <div class="col-4">
+          <div class="col-6">
+            <label for="">Estado</label>
+            <select class="js-example-basic-single" id="com_est" style="width: 100%; margin-top: -10px;" disabled>
+            </select>
+          </div>
+          <div class="col-6">
             <div class="form-group">
               <label for="">Usuario</label>
               <input type="text" id="com_usu" class="form-control" disabled>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <label for="">Fecha</label>
             <div class="input-group mb-3">
               <input type="text" class="form-control" id="com_fecha_new" disabled>
@@ -181,7 +182,7 @@
               </div>
             </div>
           </div>
-          <div class="col-4">
+          <div class="col-6">
             <label for="">Hora</label>
             <div class="input-group mb-3">
               <input type="text" class="form-control" id="com_hora_new" disabled>
@@ -237,7 +238,7 @@
               </div>
             </div>
           </div>    
-          <div class="col-8">
+          <div class="col-4">
             <div class="form-group">
               <label for="">Ícono Nuevo</label><br>
               <select class="select2-icon" id="com_ico_edit_val" name="icon">
@@ -297,15 +298,20 @@
               </select>
             </div>
           </div>
+          <div class="col-4">
+            <label for="">Estado</label>
+            <select class="js-example-basic-single" id="com_est_edit" style="width: 100%; margin-top: -10px;">
+            </select>
+          </div>
           <div class="col-12" hidden>
             <label for="">ID COMUNICADO</label>
             <input type="text" id="com_id_act" class="form-control">
           </div>
-          <div class="col-2">
+          <div class="col-2" hidden>
             <label for="">Orden</label>
             <input type="text" id="com_id_edit" class="form-control">
           </div>
-          <div class="col-10">
+          <div class="col-12">
             <div class="form-group">
               <label for="">Título</label>
               <input type="text" id="com_titulo_edit" class="form-control">
