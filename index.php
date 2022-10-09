@@ -77,7 +77,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="../plantilla2/img/favicon.ico" rel="icon">
+    <link href="plantilla2/img/favicon.ico" rel="icon">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,14 +89,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../plantilla2/lib/animate/animate.min.css" rel="stylesheet">
-    <link href="../plantilla2/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="plantilla2/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="plantilla2/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../plantilla2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="plantilla2/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Template Stylesheet -->
-    <link href="../plantilla2/css/style.css" rel="stylesheet">
+    <link href="plantilla2/css/style.css" rel="stylesheet">
     
 </head>
 
@@ -116,7 +116,7 @@
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="index.php" class="navbar-brand p-0">
                     <h1 class="m-0">Escalafón - DRE Puno</h1>
-                    <!-- <img src="../plantilla2/img/logo.png" alt="Logo"> -->
+                    <!-- <img src="plantilla2/img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
                     <span class="fa fa-bars"></span>
@@ -131,7 +131,7 @@
                         <a href="vista/links/informe.php" class="nav-item nav-link">Informe</a>
                         <a href="vista/links/contacto.php" class="nav-item nav-link">Contactos</a>
                     </div>
-                    <a href="../login.php" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Ingresar</a>
+                    <a href="login.php" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Ingresar</a>
                 </div>
             </nav>
 
@@ -204,7 +204,7 @@
                     foreach ($res_img as $imagen){
                         if ($imagen == reset($res_img)) {
                             echo '<div class="carousel-item active" data-bs-interval="5000">
-                        <img src="../'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
+                        <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
                         </div>';
                         }       
                     }
@@ -219,17 +219,17 @@
                         ?>
 
                         <div class="carousel-item" data-bs-interval="5000">
-                            <img src="../<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
+                            <img src="<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
                         </div>
 
                     <?php } ?>
                     
                     
                     <!-- <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
+                        <img src="plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
                     </div>
                     <div class="carousel-item" data-bs-interval="5000">
-                        <img src="../plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
+                        <img src="plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
                     </div> -->
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
@@ -270,7 +270,7 @@
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-                        <img class="img-fluid" src="../plantilla2/img/about.png">
+                        <img class="img-fluid" src="plantilla2/img/about.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row g-3 mb-4">
@@ -594,7 +594,7 @@
                         
                     </div>
                     <div class="col-md-6 text-center mb-n5 d-none d-md-block">
-                        <img class="img-fluid mt-5" style="max-height: 250px;" src="../plantilla2/img/newsletter.png">
+                        <img class="img-fluid mt-5" style="max-height: 250px;" src="plantilla2/img/newsletter.png">
                     </div>
                 </div>
             </div>
@@ -706,7 +706,7 @@
                 </div>
                 <div class="row g-5 align-items-center py-4">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-                        <img class="img-fluid" src="../plantilla2/img/file.png">
+                        <img class="img-fluid" src="plantilla2/img/file.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row g-3 mb-4">
@@ -799,7 +799,7 @@
                         <div class="team-item">
                             <h5><?php echo $nombre, " ", $apepaterno," ", $apematerno; ?></h5>
                             <p class="mb-4"><?php echo $row_2['rol_nombre']; ?></p>
-                            <img class="img-fluid rounded-circle w-100 mb-4" src="../<?php echo $foto ?>" alt="">
+                            <img class="img-fluid rounded-circle w-100 mb-4" src="<?php echo $foto ?>" alt="">
                             <p class="mb-4">
                                 <b>
                                     Detalles:
@@ -871,13 +871,13 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../plantilla2/lib/wow/wow.min.js"></script>
-    <script src="../plantilla2/lib/easing/easing.min.js"></script>
-    <script src="../plantilla2/lib/waypoints/waypoints.min.js"></script>
-    <script src="../plantilla2/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="plantilla2/lib/wow/wow.min.js"></script>
+    <script src="plantilla2/lib/easing/easing.min.js"></script>
+    <script src="plantilla2/lib/waypoints/waypoints.min.js"></script>
+    <script src="plantilla2/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="../plantilla2/js/main.js"></script>
+    <script src="plantilla2/js/main.js"></script>
 </body>
 
 </html>
