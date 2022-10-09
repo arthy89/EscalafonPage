@@ -36,6 +36,7 @@
                       <th>Ícono</th>
                       <th>Ley</th>
                       <th>Texto</th>
+                      <th>Link</th>
                       <th>Usuario</th>
                       <th>Acción</th>
                   </tr>
@@ -62,7 +63,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="row" >
+          <div class="row" hidden>
             <div class="col-6">
               <label for="">font ico</label>
               <input class="form-control" type="text" id="ley_ico_svg_new">
@@ -135,6 +136,8 @@
                 <option value="fa-download" data-icon="fa-download">Descargar</option>
                 <option value="fa-paperclip" data-icon="fa-paperclip">Clip</option>
                 <option value="fa-dollar-sign" data-icon="fa-dollar-sign">Dolar</option>
+                <option value="fa-file-signature" data-icon="fa-file-signature">Firma</option>
+                <option value="fa-balance-scale" data-icon="fa-balance-scale">Balanza</option>
                 <option value="fa-map-marker-alt" data-icon="fa-map-marker-alt">Marca</option>
               </select>
             </div>
@@ -143,6 +146,12 @@
             <div class="form-group">
               <label for="">Ley</label>
               <input type="text" id="ley_titulo" class="form-control">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="">Link de la Ley</label>
+              <input type="text" id="ley_link" class="form-control">
             </div>
           </div>
           <div class="col-12">
@@ -174,7 +183,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="row" >
+          <div class="row" hidden>
             <div class="col-6">
               <label for="">font ico</label>
               <input class="form-control" type="text" id="ley_ico_svg_edit">
@@ -257,18 +266,26 @@
                 <option value="fa-download" data-icon="fa-download">Descargar</option>
                 <option value="fa-paperclip" data-icon="fa-paperclip">Clip</option>
                 <option value="fa-dollar-sign" data-icon="fa-dollar-sign">Dolar</option>
+                <option value="fa-file-signature" data-icon="fa-file-signature">Firma</option>
+                <option value="fa-balance-scale" data-icon="fa-balance-scale">Balanza</option>
                 <option value="fa-map-marker-alt" data-icon="fa-map-marker-alt">Marca</option>
               </select>
             </div>
           </div>
-          <div class="col-12" >
+          <div class="col-12" hidden>
             <label for="">ID LEY</label>
             <input type="text" id="ley_id_act" class="form-control">
           </div>
-          <div class="col-8">
+          <div class="col-12">
             <div class="form-group">
               <label for="">Ley</label>
               <input type="text" id="ley_titulo_edit" class="form-control">
+            </div>
+          </div>
+          <div class="col-12">
+            <div class="form-group">
+              <label for="">Link de la Ley</label>
+              <input type="text" id="ley_link_edit" class="form-control">
             </div>
           </div>
           <div class="col-12">

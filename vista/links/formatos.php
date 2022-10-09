@@ -1,3 +1,13 @@
+<!-- LISTAR LOS FORMATOS -->
+<?php
+  require_once '../../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_FORMATO()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_for = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,113 +92,44 @@
 
 
         <!-- FORMATOS Start -->
-        <div class="container-xxl">
+        <div class="container-xxl py-6">
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Formatos</div>
                     <h2 class="mb-5">FORMATOS QUE CORRESPONDEN AL LEGAJO PERSONAL</h2>
                 </div>
                 <div class="row g-4">
-        
-                    <!-- PERSONAL NOMBRADO -->
-                    <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
-                        href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing" id="RVM_016"
-                        target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file-signature fa-2x"></i>
-        
+                        
+                    <?php foreach ($res_for as $data_for) { ?>
+                        <!-- PARA ALMACENAR EN VARIABLE -->
+                        <?php 
+                            $title = $data_for['for_title'];
+                            $text = $data_for['for_text'];
+                            $tlink = $data_for['for_tlink'];
+                            $link = $data_for['for_link'];
+                            $ico = $data_for['for_ico_svg'];
+                        ?>
+
+                        <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s" href="<?php echo $link ?>" id="RVM_016" target="_blank" rel="noopener noreferrer">
+                            <div class="service-item rounded h-100">
+                                <div class="d-flex justify-content-between">
+                                    <div class="service-icon">
+                                        <i class="fa <?php echo $ico ?> fa-2x"></i>
+            
+                                    </div>
+                                    <div class="service-icon" style="width: 250px;">
+                                        <h5 class="text-white"><?php echo $title ?></h5>
+                                    </div>
                                 </div>
-                                <div class="service-icon" style="width: 220px;">
-                                    <h5 class="text-white">Personal Nombrado</h5>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formato para personal Nombrado</h5>
-                                <p class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="https://drive.google.com/drive/folders/16xZXJolpB1aRV5LoMzPAAoDqbYq-97Qo?usp=sharing">
-                                    Descargar</p>
-                            </div>
-                        </div>
-                    </a>
-        
-                    <!-- PERSONAL CONTRATADO -->
-                    <a class="col-lg-6 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
-                        href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" id="RVM_016"
-                        target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file fa-2x"></i>
-        
-                                </div>
-                                <div class="service-icon" style="width: 240px;">
-                                    <h5 class="text-white">Personal Contratado</h5>
+                                <div class="p-5">
+                                    <h5 class="mb-3"><?php echo $text ?></h5>
+                                    <p class="btn btn-primary rounded-pill py-2 px-4 mt-2"
+                                        href="<?php echo $link ?>"><?php echo $tlink ?></p>
                                 </div>
                             </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formato para personal Contratado</h5>
-                                <p class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing">
-                                    Descargar</p>
-                            </div>
-                        </div>
-                    </a>
-        
-                    <!-- Nueva Documentación -->
-                    <div class="col-lg-12 col-md-6 wow fadeInUp" data-wow-delay="0.1s"
-                        href="https://drive.google.com/drive/folders/1ekyRWTD1n-7Xtc9cg1v8zaW4GzrwtBDX?usp=sharing" id="RVM_016"
-                        target="_blank" rel="noopener noreferrer">
-                        <div class="service-item rounded h-100">
-                            <div class="d-flex justify-content-between">
-                                <div class="service-icon">
-                                    <i class="fa fa-file fa-2x"></i>
-        
-                                </div>
-                                <div class="service-icon" style="width: 300px;">
-                                    <h5 class="text-white">Nueva Documentación</h5>
-                                </div>
-                            </div>
-                            <div class="p-5">
-                                <h5 class="mb-3">Formatos para la presentación de nueva documentación</h5>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%2001%20BOLETA%20PERSONAL.pdf"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 01 - Boleta Personal
-                                </a>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2002.pdf"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 02 - Declaración Jurada
-                                </a>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2003.pdf"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 03 - Declaración Jurada de
-                                    Régimen Pensionario
-                                </a>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/FORMATO%20N%C2%BA%2004.pdf"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Formato Nº 04 - Declaración Jurada de
-                                    Datos Personales - Domicilio Actual
-                                </a>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2001%20MODELO%20DE%20SOLICITUD%20ACTUALIZACI%C3%93N%20DE%20LEGAJO.docx"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Anexo Nº 01 - Modelo de solicitud de
-                                    actualizaciones de Legajo
-                                </a>
-        
-                                <a class="btn btn-primary rounded-pill py-2 px-4 mt-2"
-                                    href="http://www.drepuno.gob.pe/web/archivos/2020/PERSONAL/ANEXO%20N%2002%20MODELO%20DE%20SOLICITUD%20APERTURA%20DE%20LEGAJO%20PERSONAL.docx"
-                                    id="RVM_016" target="_blank" rel="noopener noreferrer">Anexo Nº 02 Modelo de solicitud de
-                                    apertura de legajo
-                                </a>
-                            </div>
-                        </div>
-                    </div>
+                        </a>
+
+                    <?php } ?>
         
                 </div>
             </div>
@@ -197,49 +138,24 @@
 
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s"
-            style="margin-top: 6rem;">
+        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Encuéntranos En:</h5>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso - Puno</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>(51) 366170 - 357005</p>
+                        <p><i class="fa fa-envelope me-3"></i>yachay@drepuno.gob.pe</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Quick Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit
-                            non vulpu</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Ubícanos aquí</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1567.7043810777395!2d-70.01074918453399!3d-15.861455905793738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d6a296aefc16d%3A0xbe20f3b1dcddbd21!2sDirecci%C3%B3n%20Regional%20de%20Educaci%C3%B3n%20Puno!5e0!3m2!1ses!2spe!4v1644341088001!5m2!1ses!2spe" width="100%" height="300" style="border:0;" class="position-sticky" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -247,19 +163,14 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                                target="_blank">ThemeWagon</a>
+                            &copy; <a class="border-bottom" href="#">ESCALAFÓN - DRE PUNO</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
                             </div>
                         </div>
                     </div>

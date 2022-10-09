@@ -6,7 +6,8 @@
     $font_name  = htmlspecialchars($_POST['fn'],ENT_QUOTES, 'UTF-8');
     $font_ico   = htmlspecialchars($_POST['fi'],ENT_QUOTES, 'UTF-8');
     $id_usuario = htmlspecialchars($_POST['iu'],ENT_QUOTES, 'UTF-8');
+    $link       = htmlspecialchars($_POST['ll'],ENT_QUOTES, 'UTF-8');
     
-    $consulta = $MU->Registrar_Ley($ley,$texto,$font_name,$font_ico,$id_usuario);
+    $consulta = $MU->Registrar_Ley($ley,$texto,$font_name,$font_ico,$id_usuario,$link);
     echo $consulta;
 ?>

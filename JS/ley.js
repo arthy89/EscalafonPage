@@ -21,6 +21,11 @@ function listar_usuario_ss(){
           return '<div style="text-overflow: ellipsis; width: 230px; white-space: nowrap; overflow:hidden;">'+data+'</div>';
         }
       },
+      {"data":7,  //? link
+        render: function (data, type, row) {
+          return '<a href="'+data+'" target="_blank" rel="noopener noreferrer"><div style="text-overflow: ellipsis; width: 230px; white-space: nowrap; overflow:hidden;">'+data+'</div></a>';
+        }
+      },
       {"data":6}, //? Usuario
       {"data":null,
         render: function (data, type, row) {
@@ -75,6 +80,7 @@ $('.select2-icon').select2({
 function limpiarModalLey() {
   document.getElementById('ley_titulo').value = "";
   document.getElementById('ley_contenido').value = "";
+  document.getElementById('ley_link').value = "";
 }
 
 // todo: PARA ABRIR MODAL EDICION
@@ -89,6 +95,7 @@ $('#tabla_ley_simple').on('click','.editar',function(){
   document.getElementById('ley_contenido_edit').value = data[2];
   document.getElementById('ley_ico_act_name').value = data[3];
   document.getElementById('ley_ico_act').className = 'fas ' +data[4];
+  document.getElementById('ley_link_edit').value= data[7];
 
   var icon = document.getElementById('ley_ico_edit_val');
   function onChange(){
@@ -131,6 +138,7 @@ function validaInput(title,text){
 function Registrar_Ley() {
   const ley = document.getElementById("ley_titulo").value,
         texto = document.getElementById("ley_contenido").value,
+        link = document.getElementById("ley_link").value,
         // mandar
         font_ico  = document.getElementById('ley_ico_svg_new').value,
         font_name = document.getElementById('ley_ico_name_new').value;
@@ -148,6 +156,7 @@ function Registrar_Ley() {
   formData.append('fn',font_name);
   formData.append('fi',font_ico);
   formData.append('iu',id_usuario);
+  formData.append('ll',link);
   $.ajax({
     url: '../controlador/usuario/leyes/control_ley_registrar.php',
     type: "POST",
@@ -189,7 +198,8 @@ function Registrar_Ley() {
 // ! PARA EDITAR LEY
 function Editar_Ley() {
   const id_ley = document.getElementById("ley_id_act").value,
-        ley = document.getElementById("ley_titulo_edit").value,
+        ley = document.getElementById("ley_titulo_edit").value,        
+        link = document.getElementById("ley_titulo_edit").value,
         texto = document.getElementById("ley_contenido_edit").value;
         // mandar
         font_ico  = document.getElementById('ley_ico_svg_edit').value,
@@ -208,7 +218,8 @@ function Editar_Ley() {
   formData.append('fn',font_name);
   formData.append('fi',font_ico);
   formData.append('iu',id_usuario);
-  formData.append('id',id_ley);
+  formData.append('id',id_ley);  
+  formData.append('ll',link);
   $.ajax({
     url: '../controlador/usuario/leyes/control_ley_modificar.php',
     type: "POST",

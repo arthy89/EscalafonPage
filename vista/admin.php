@@ -12,7 +12,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <html lang="es">
 <head>
   <style>
-    #RVM_092{
+    .refl{
       color:black;
       transition: 0.3s;
     }
@@ -22,8 +22,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
       transition: 0.3s;
     }
 
-    #RVM_092:hover{
-      background-color:#007bff;
+    .refl:hover{
+      background-color:#17a2b8;
       color:white;
     }
 
@@ -53,7 +53,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../css/cssmy.css">
   
 </head>
-<body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/vista.php')">
+<body class="hold-transition sidebar-mini" onload="cargar_contenido('contenido_principal','edit/inicio.php')">
 <div class="wrapper">
 
   <!-- Navbar -->
@@ -95,7 +95,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- principal -->
           <li class="nav-item">
-            <a href="#" id="pagina_principal" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/vista.php')">
+            <a href="#" id="pagina_principal" class="nav-link" onclick="cargar_contenido('contenido_principal','edit/inicio.php')">
               <i class="nav-icon fa fa-book"></i>
               <p>
                 Página Principal

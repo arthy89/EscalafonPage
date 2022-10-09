@@ -1,3 +1,13 @@
+<!-- LISTAR LOS BENEFICIOS -->
+<?php
+  require_once '../../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_BENE()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_bene = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -88,52 +98,36 @@
                     <div class="col-12 col-md-6">
                         <br>
                         <h3 class="text-white">APERTURA DE LEGAJO PERSONAL</h3>
-                        <small class="text-white">La apertura del legajo personal se encuentra a cargo del equipo de escalafón y
-                            legajos (ESLE), y se realiza de oficio
-                            con la resolución de nombramiento o de contrato que da inicio a la relación laboral. El servidor que
-                            inicia el vínculo
-                            con la IGED y que ha sido notificado con su resolución, debe presentar ante mesa de partes de la DRE
-                            o UGEL de su
-                            jurisdicción, la documentación correspondiente dentro de los diez (10) días hábiles desde la
-                            notificación. En caso de
-                            que la documentación se encuentre incompleta, deteriorada o tenga enmendaduras, la DRE o UGEL
-                            observará dichos
-                            documentos y otorgará un plazo adicional de cinco (5) días hábiles para que el servidor realice la
-                            subsanación
-                            correspondiente. (Ver Instructivo).</small>
+                        <small class="text-white">La apertura del legajo personal se encuentra a cargo del equipo de escalafón y legajos (ESLE), y se realiza de oficio
+                        con la resolución de nombramiento o de contrato que da inicio a la relación laboral. El servidor que inicia el vínculo
+                        con la IGED y que ha sido notificado con su resolución, debe presentar ante mesa de partes de la DRE o UGEL de su
+                        jurisdicción, la documentación correspondiente dentro de los diez (10) días hábiles desde la notificación. En caso de
+                        que la documentación se encuentre incompleta, deteriorada o tenga enmendaduras, la DRE o UGEL observará dichos
+                        documentos y otorgará un plazo adicional de cinco (5) días hábiles para que el servidor realice la subsanación
+                        correspondiente. (Ver Instructivo).</small>
                         <br>
                         <br>
                         <h3 class="text-white">BENEFICIOS DE MANTENER ACTUALIZADO EL LEGAJO PERSONAL:</h3>
-                        <small class="text-white">La actualización del legajo personal facilitará al docente de educación
-                            superior y administrativo que través de los
-                            informes escalafonarios que se expidan se puedan:</small>
+                        <small class="text-white">La actualización del legajo personal facilitará al docente de educación superior y administrativo que través de los
+                        informes escalafonarios que se expidan se puedan:</small>
                         <small class="text-white">
                             <ul>
-                                <li>Gestionar diversas acciones de personal como: reasignaciones, permutas, destaques, licencias
-                                    y encargos, así
-                                    como en procesos disciplinarios.</li>
-                                <li>El otorgamiento de beneficios como: asignación por tiempo de servicios (ATS), compensación
-                                    por tiempo de
-                                    servicios (CTS) y subsidio por luto y sepelio.</li>
-                                <li>Acreditar requisitos para los procesos de concursos o de evaluaciones como la institución
-                                    educativa donde
-                                    labora, nivel y modalidad educativa, cargo, jornada laboral, grado de instrucción,
-                                    experiencia y trayectoria
-                                    profesional para el caso de acceso a cargos de mayor responsabilidad, entre otros, así como
-                                    el tiempo de
-                                    servicios oficiales en la última escala, en el último cargo, en la institución educativa u
-                                    otros.</li>
-                                <li>Sustentar los años de servicios para el otorgamiento de pensiones.</li>
+                                <!-- PHP AQUI -->
+                                <?php foreach ($res_bene as $data_bene) { ?>
+                                    <!-- PARA ALMACENAR EN VARIABLE -->
+                                    <?php 
+                                        $text = $data_bene['bn_text'];
+                                    ?>
+
+                                    <li><?php echo $text; ?></li>
+                                <?php } ?>
                             </ul>
-                            <p><strong>Resumen: </strong> La documentación contenida en el legajo personal constituye la única
-                                fuente oficial de
-                                información para todos los procesos de evaluación, de la trayectoria docente pública y
-                                profesional dentro de la CPD
-                                y para el reconocimiento de beneficios, asignaciones, subsidios y otros derechos que le pudiera
-                                corresponder de
+                            <p><strong>Resumen: </strong> La documentación contenida en el legajo personal constituye la única fuente oficial de
+                                información para todos los procesos de evaluación, de la trayectoria docente pública y profesional dentro de la CPD
+                                y para el reconocimiento de beneficios, asignaciones, subsidios y otros derechos que le pudiera corresponder de
                                 acuerdo a lo que establece la Ley N° 30512.</p>
                         </small>
-        
+                        
                     </div>
                     <div class="col-md-6 text-center mb-n5 d-none d-md-block">
                         <img class="img-fluid mt-5" style="max-height: 250px;" src="../../plantilla2/img/newsletter.png">
@@ -145,49 +139,24 @@
 
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s"
-            style="margin-top: 6rem;">
+        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Encuéntranos En:</h5>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso - Puno</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>(51) 366170 - 357005</p>
+                        <p><i class="fa fa-envelope me-3"></i>yachay@drepuno.gob.pe</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Quick Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit
-                            non vulpu</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Ubícanos aquí</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1567.7043810777395!2d-70.01074918453399!3d-15.861455905793738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d6a296aefc16d%3A0xbe20f3b1dcddbd21!2sDirecci%C3%B3n%20Regional%20de%20Educaci%C3%B3n%20Puno!5e0!3m2!1ses!2spe!4v1644341088001!5m2!1ses!2spe" width="100%" height="300" style="border:0;" class="position-sticky" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -195,19 +164,14 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                                target="_blank">ThemeWagon</a>
+                            &copy; <a class="border-bottom" href="#">ESCALAFÓN - DRE PUNO</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
                             </div>
                         </div>
                     </div>

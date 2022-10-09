@@ -7,7 +7,8 @@
     $font_ico   = htmlspecialchars($_POST['fi'],ENT_QUOTES, 'UTF-8');
     $id_usuario = htmlspecialchars($_POST['iu'],ENT_QUOTES, 'UTF-8');
     $id_ley     = htmlspecialchars($_POST['id'],ENT_QUOTES, 'UTF-8');
+    $link       = htmlspecialchars($_POST['ll'],ENT_QUOTES, 'UTF-8');
     
-    $consulta = $MU->Editar_Ley($ley,$texto,$font_name,$font_ico,$id_usuario,$id_ley);
+    $consulta = $MU->Editar_Ley($ley,$texto,$font_name,$font_ico,$id_usuario,$id_ley,$link);
     echo $consulta;
 ?>

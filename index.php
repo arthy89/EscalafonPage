@@ -1,6 +1,6 @@
 <!-- LISTAR LOS COMUNICADOS -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -11,7 +11,7 @@
 
 <!-- LISTAR CONTACTOS -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -22,7 +22,7 @@
 
 <!-- LISTAR IMGS -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -33,7 +33,7 @@
 
 <!-- LISTAR LOS BENEFICIOS -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -44,7 +44,7 @@
 
 <!-- LISTAR LAS LEYES -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -55,7 +55,7 @@
 
 <!-- LISTAR LOS FORMATOS -->
 <?php
-  require_once '../modelo/modelo_conexion.php';
+  require_once 'modelo/modelo_conexion.php';
 
   $db = new conexionBD();
   $con = $db->conexionPDO();
@@ -124,12 +124,12 @@
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
                         <a href="index.php" class="nav-item nav-link active">Inicio</a>
-                        <a href="links/secciones.php" class="nav-item nav-link">Secciones</a>
-                        <a href="links/apertura.php" class="nav-item nav-link">Apertura</a>
-                        <a href="links/marco.php" class="nav-item nav-link">Normas</a>
-                        <a href="links/formatos.php" class="nav-item nav-link">Formatos</a>
-                        <a href="links/informe.php" class="nav-item nav-link">Informe</a>
-                        <a href="links/contacto.php" class="nav-item nav-link">Contactos</a>
+                        <a href="vista/links/secciones.php" class="nav-item nav-link">Secciones</a>
+                        <a href="vista/links/apertura.php" class="nav-item nav-link">Apertura</a>
+                        <a href="vista/links/marco.php" class="nav-item nav-link">Normas</a>
+                        <a href="vista/links/formatos.php" class="nav-item nav-link">Formatos</a>
+                        <a href="vista/links/informe.php" class="nav-item nav-link">Informe</a>
+                        <a href="vista/links/contacto.php" class="nav-item nav-link">Contactos</a>
                     </div>
                     <a href="../login.php" class="btn btn-light rounded-pill text-primary py-2 px-4 ms-lg-5">Ingresar</a>
                 </div>

@@ -82,6 +82,12 @@
             <div class="form-group">
               <label for="">Ícono</label><br>
               <select class="select2-icon" id="com_ico_new_val" name="icon">
+                <option value="fa-cubes" data-icon="fa-cubes">Cubos</option>
+                <option value="fa-percent" data-icon="fa-percent">Porcentaje</option>
+                <option value="fa-award" data-icon="fa-award">Escarapela</option>
+                <option value="fa-smile-beam" data-icon="fa-smile-beam">Sonrisa</option>
+                <option value="fa-user-tie" data-icon="fa-user-tie">Terno</option>
+                <option value="fa-headset" data-icon="fa-headset">Audífonos</option>
                 <option value="fa-building" data-icon="fa-building">Edificio</option>
                 <option value="fa-tags" data-icon="fa-tags">Etiqueta</option>
                 <option value="fa-address-card" data-icon="fa-address-card">DNI</option>
@@ -134,6 +140,8 @@
                 <option value="fa-download" data-icon="fa-download">Descargar</option>
                 <option value="fa-paperclip" data-icon="fa-paperclip">Clip</option>
                 <option value="fa-dollar-sign" data-icon="fa-dollar-sign">Dolar</option>
+                <option value="fa-file-signature" data-icon="fa-file-signature">Firma</option>
+                <option value="fa-balance-scale" data-icon="fa-balance-scale">Balanza</option>
                 <option value="fa-map-marker-alt" data-icon="fa-map-marker-alt">Marca</option>
               </select>
             </div>
@@ -242,6 +250,12 @@
             <div class="form-group">
               <label for="">Ícono Nuevo</label><br>
               <select class="select2-icon" id="com_ico_edit_val" name="icon">
+                <option value="fa-cubes" data-icon="fa-cubes">Cubos</option>
+                <option value="fa-percent" data-icon="fa-percent">Porcentaje</option>
+                <option value="fa-award" data-icon="fa-award">Escarapela</option>
+                <option value="fa-smile-beam" data-icon="fa-smile-beam">Sonrisa</option>
+                <option value="fa-user-tie" data-icon="fa-user-tie">Terno</option>
+                <option value="fa-headset" data-icon="fa-headset">Audífonos</option>
                 <option value="fa-building" data-icon="fa-building">Edificio</option>
                 <option value="fa-tags" data-icon="fa-tags">Etiqueta</option>
                 <option value="fa-address-card" data-icon="fa-address-card">DNI</option>
@@ -294,6 +308,8 @@
                 <option value="fa-download" data-icon="fa-download">Descargar</option>
                 <option value="fa-paperclip" data-icon="fa-paperclip">Clip</option>
                 <option value="fa-dollar-sign" data-icon="fa-dollar-sign">Dolar</option>
+                <option value="fa-file-signature" data-icon="fa-file-signature">Firma</option>
+                <option value="fa-balance-scale" data-icon="fa-balance-scale">Balanza</option>
                 <option value="fa-map-marker-alt" data-icon="fa-map-marker-alt">Marca</option>
               </select>
             </div>

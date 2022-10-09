@@ -20,7 +20,7 @@ function listar_usuario_ss(){
       {"data":3}, //? Título de Link
       {"data":4,  //? Link
         render: function (data, type, row) {
-          return '<div style="text-overflow: ellipsis; width: 130px; white-space: nowrap; overflow:hidden;">'+data+'</div>';
+          return '<a href="'+data+'" target="_blank" rel="noopener noreferrer"><div style="text-overflow: ellipsis; width: 130px; white-space: nowrap; overflow:hidden;">'+data+'</div></a>';
         }
       },
       {"data":8}, //? Usuario

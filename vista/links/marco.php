@@ -1,3 +1,13 @@
+<!-- LISTAR LAS LEYES -->
+<?php
+  require_once '../../modelo/modelo_conexion.php';
+
+  $db = new conexionBD();
+  $con = $db->conexionPDO();
+  $sql = $con->prepare("CALL SP_LISTAR_LEY()"); //procedimiento almacenado 
+  $sql->execute();
+  $res_ley = $sql->fetchAll(PDO::FETCH_ASSOC);
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -82,147 +92,74 @@
 
 
         <!-- MARCO NORMATIVO -->
-        <div class="container">
+        <div class="container-xxl">
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
                     style="max-width: 1000px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Marco</div>
                     <h2 class="mb-5">Marco Normativo</h2>
-                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2"
-                        href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" id="RVM_092"
-                        target="_blank" rel="noopener noreferrer">
-                        <p><i class="fa fa-folder-open fa-2x mr-2"></i><br>RVM N° 092-2020-MINEDU</p>
-                    </a>
-        
-                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2"
-                        href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf"
-                        id="RVM_016" target="_blank" rel="noopener noreferrer">
-                        <p><i class="fa fa-copy fa-2x mr-2"></i> <br> RVM N° 016-2021-MINEDU</p>
-                    </a>
+                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" id="RVM_092" target="_blank" rel="noopener noreferrer"><p><i class="fa fa-folder-open fa-2x mr-2"></i><br>RVM N° 092-2020-MINEDU</p></a>
+
+                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer"><p><i class="fa fa-copy fa-2x mr-2"></i> <br> RVM N° 016-2021-MINEDU</p></a>
                 </div>
             </div>
         </div>
-        
+
         <div class="container-xxl" style="max-width: 1200px;"">
-                    <div class=" container">
-            <div class="row g-6">
-                <p class="py-3">
-                    <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema
-                    Integrado de
-                    Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa
-                    Descentralizada.
-                </p>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-cubes text-white"></i>
+            <div class="container">
+                <div class="row g-6">
+                    <p class="py-3">
+                        <strong>N° 017-2020-MINEDU: </strong> Decreto Supremo que Crea y dispone el Uso Obligatorio del Sistema Integrado de
+                        Gestión de Personal en el Sector Educación - Sistema AYNI, en las instancias de Gestión Educativa Descentralizada.
+                    </p>
+
+                    <!-- PHP AQUI -->
+                    <?php foreach ($res_ley as $data_ley) { ?>
+                        <!-- PARA ALMACENAR EN VARIABLE -->
+                        <?php 
+                            $nley = $data_ley['mn_title'];
+                            $text = $data_ley['mn_text'];
+                            $ico = $data_ley['mn_ico_svg'];
+                            $link = $data_ley['mn_link'];
+                        ?>
+
+                        <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s" style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
+                            <div class="d-flex align-items-center mb-3">
+                                <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
+                                    <a href="<?php echo $link ?>" target="_blank" rel="noopener noreferrer"><i class="fa <?php echo $ico ?> text-white"></i></a >
+                                </div>
+                                <a href="<?php echo $link ?>" target="_blank" rel="noopener noreferrer"><h6 class="mb-0"><?php echo $nley ?></h6></a>
+                            </div>
+                            <span><?php echo $text; ?></span>
                         </div>
-                        <h6 class="mb-0">Ley N.° 30512</h6>
-                    </div>
-                    <span>Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente</span>
-                </div>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-percent text-white"></i>
-                        </div>
-                        <h6 class="mb-0">Ley N.° 28044</h6>
-                    </div>
-                    <span>Ley General de Educación</span>
-                </div>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-award text-white"></i>
-                        </div>
-                        <h6 class="mb-0">Ley N.° 29733</h6>
-                    </div>
-                    <span>Ley de Protección de Datos Personales</span>
-                </div>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-smile-beam text-white"></i>
-                        </div>
-                        <h6 class="mb-0">Ley N.° 25323</h6>
-                    </div>
-                    <span>Ley del Sistema Nacional de Archivos</span>
-                </div>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-user-tie text-white"></i>
-                        </div>
-                        <h6 class="mb-0">Ley N.° 27806</h6>
-                    </div>
-                    <span>Ley de Transparencia y Acceso a la Información Pública</span>
-                </div>
-                <div class="col-sm-4 wow fadeIn py-3" data-wow-delay="0.1s"
-                    style="visibility: visible; animation-delay: 0.1s; animation-name: fadeIn;">
-                    <div class="d-flex align-items-center mb-3">
-                        <div class="flex-shrink-0 btn-square bg-primary rounded-circle me-3">
-                            <i class="fa fa-headset text-white"></i>
-                        </div>
-                        <h6 class="mb-0">Ley N.° 27815</h6>
-                    </div>
-                    <span>Código de Ética de la Función Pública</span>
+
+                    <?php } ?>
                 </div>
             </div>
-        </div>
         </div>
         
         <!-- MARCO NORMATIVO END -->
 
 
         <!-- Footer Start -->
-        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s"
-            style="margin-top: 6rem;">
+        <div class="container-fluid bg-dark text-light footer pt-5 wow fadeIn" data-wow-delay="0.1s" style="margin-top: 6rem;">
             <div class="container py-5">
                 <div class="row g-5">
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Get In Touch</h5>
-                        <p><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                        <p><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                        <p><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Encuéntranos En:</h5>
+                        <p><i class="fa fa-map-marker-alt me-3"></i>Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso - Puno</p>
+                        <p><i class="fa fa-phone-alt me-3"></i>(51) 366170 - 357005</p>
+                        <p><i class="fa fa-envelope me-3"></i>yachay@drepuno.gob.pe</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Quick Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Popular Link</h5>
-                        <a class="btn btn-link" href="">About Us</a>
-                        <a class="btn btn-link" href="">Contact Us</a>
-                        <a class="btn btn-link" href="">Privacy Policy</a>
-                        <a class="btn btn-link" href="">Terms & Condition</a>
-                        <a class="btn btn-link" href="">Career</a>
-                    </div>
-                    <div class="col-md-6 col-lg-3">
-                        <h5 class="text-white mb-4">Newsletter</h5>
-                        <p>Lorem ipsum dolor sit amet elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit
-                            non vulpu</p>
-                        <div class="position-relative w-100 mt-3">
-                            <input class="form-control border-0 rounded-pill w-100 ps-4 pe-5" type="text"
-                                placeholder="Your Email" style="height: 48px;">
-                            <button type="button" class="btn shadow-none position-absolute top-0 end-0 mt-1 me-2"><i
-                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
-                        </div>
+                    <div class="col-md-6 col-lg-6">
+                        <h5 class="text-white mb-4">Ubícanos aquí</h5>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1567.7043810777395!2d-70.01074918453399!3d-15.861455905793738!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x915d6a296aefc16d%3A0xbe20f3b1dcddbd21!2sDirecci%C3%B3n%20Regional%20de%20Educaci%C3%B3n%20Puno!5e0!3m2!1ses!2spe!4v1644341088001!5m2!1ses!2spe" width="100%" height="300" style="border:0;" class="position-sticky" allowfullscreen="" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
@@ -230,19 +167,14 @@
                 <div class="copyright">
                     <div class="row">
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                            &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
-
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
-                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com"
-                                target="_blank">ThemeWagon</a>
+                            &copy; <a class="border-bottom" href="#">ESCALAFÓN - DRE PUNO</a>, All Right Reserved. 
+							
+							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            <br>Distributed By: <a class="border-bottom" href="https://themewagon.com" target="_blank">ThemeWagon</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">
-                                <a href="">Home</a>
-                                <a href="">Cookies</a>
-                                <a href="">Help</a>
-                                <a href="">FQAs</a>
                             </div>
                         </div>
                     </div>

@@ -89,7 +89,7 @@
       </div>
       <div class="modal-body">
         <div class="row">
-          <div class="col-12">
+          <div class="col-12" hidden>
             <div class="form-group">
               <label for="">ID Beneficio</label>
               <input type="text" id="bene_id" class="form-control"></input>

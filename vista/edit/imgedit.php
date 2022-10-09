@@ -24,7 +24,7 @@
     <div class="card card-solid">
       <div class="card-header">
         <h1 class="card-title"><strong>Lista de Imágenes</strong></h1>
-        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i>Nueva Imágen</button>
+        <button onclick="modal_abrir();" type="button" class="btn btn-success float-right"><i class="fa fa-plus-circle mr-2"></i>Nueva Imagen</button>
       </div>
       <div class="card-body pb-0">
         <div class="row">
@@ -34,7 +34,7 @@
                   <tr>
                       <th>#</th>
                       <th>Nombre</th>
-                      <th>Imágen</th>
+                      <th>Imagen</th>
                       <th>Usuario</th>
                       <th>Acción</th>
                   </tr>
@@ -84,7 +84,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-        <button onclick="Registrar_Img();" type="button" class="btn btn-primary">Guardar Imágen</button>
+        <button onclick="Registrar_Img();" type="button" class="btn btn-primary">Guardar Imagen</button>
       </div>
     </div>
   </div>
@@ -96,13 +96,13 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Editar Foto de Usuario</h5>
+        <h5 class="modal-title" id="exampleModalLabel">Editar Imagen</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-        <div class="row" >
+        <div class="row" hidden>
           <div class="col-4">
             <label for="">IMG ID</label>
             <input type="text" id="id_img_act" class="form-control">
@@ -121,7 +121,7 @@
           <div class="col-4">
             <label for="">Foto seleccionada</label>
             <input type="text" id="foto_name" class="form-control" disabled>
-            <input type="text" id="usu_foto_actual">
+            <input type="text" id="usu_foto_actual" hidden>
           </div>
         </div>
         <div class="row">
