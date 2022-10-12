@@ -26,7 +26,7 @@
         public function Editar_Ley($ley,$texto,$font_name,$font_ico,$id_usuario,$id_ley,$link){
             $c = conexionBD::conexionPDO();
 
-            $sql = "CALL SP_MODIFICAR_LEY(?,?,?,?,?,?)"; //procedimiento almacenado 
+            $sql = "CALL SP_MODIFICAR_LEY(?,?,?,?,?,?,?)"; //procedimiento almacenado 
             $query = $c->prepare($sql);
             $query->bindParam(1,$ley);
             $query->bindParam(2,$texto);

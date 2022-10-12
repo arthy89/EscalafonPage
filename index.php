@@ -256,7 +256,7 @@
                         laboral o vida profesional de los Profesores, Docentes de Educación superior y auxiliar de educación que prestan
                         servicios al Estado, así como el personal cesante o pensionista.</p>
                     <h6><b>Nota: </b></h6>
-                    <p>Según establece la RVM. N° 092-2020-MINEDU. En <b>Disposiciones Transitorias</b> numeral 7.5. <u>Del personal de
+                    <p>La RVM. N° 092-2020-MINEDU, <b>establece en Disposiciones Transitorias</b> numeral 7.5. <u>Del personal de
                             otros regímenes laborales</u>, “En tanto SERVIR regule lo concerniente al escalafón para el personal
                         administrativo, las DRE/UGEL podrán utilizar el sistema informático de escalafón para tal fin.</p>
                 </div>
@@ -287,7 +287,7 @@
                                                 target="_blank" rel="noopener noreferrer"><i>RVM N° 092-2020-MINEDU</i></a>).</li>
                                         <li>Es una carpeta que contiene secciones específicas donde se archivan los documentos personales, profesionales,
                                             producción intelectual, cultural, social y otros, cuyo manejo es descentralizado para el ordenamiento y
-                                            conservación de los documentos de los docentes nombrados, contratados, cesantes y pensionistas de una
+                                            conservación de los documentos de los docentes nombrados, contratados de Pedagógicos, cesantes y pensionistas de una
                                             institución. (<a
                                                 href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf"
                                                 target="_blank" rel="noopener noreferrer"><i>RVM N° 016-2021-MINEDU</i></a>).</li>
@@ -318,17 +318,21 @@
                                     <h6>CLASIFICACIÓN DEL LEGAJO PERSONAL:</h6>
                                     <span>
                                         <ol>
-                                            <li><b><u>Físico</u>: </b>Es el conjunto de documentos personales, trayectoria académica y laboral del
-                                                docente, que
-                                                se incorporan en forma ordenada de acuerdo a la estructura señalada en el presente documento
-                                                normativo. Los
-                                                documentos del legajo se van incrementando a lo largo de la vida laboral hasta el cese.</li>
-                                            <li><b><u>Digital</u>: </b>Es el registro sistematizado de la información y los documentos digitalizados
-                                                contenidos
-                                                en el legajo personal físico.</li>
+                                            <li><b><i>Servidores en actividad: </i></b>Es el que corresponde a los profesores y auxiliares de educación que se encuentran ejerciendo el cargo en condición de nombrados.</li>
+                                            <li><b><i>Servidor cesante: </i></b>Es el que corresponde a los profesores y auxiliares de educación que dejaron de prestar servicios en condición de nombrados y que no perciben pensión de cesantía por encontrase comprendidos en los sistemas previsionales público (ONP) o privado (AFP). </li>
+                                            <li><b><i>Pensionista: </i></b>Es el que corresponde a los profesores y auxiliares de educación que dejaron de prestar servicios en condición de nombrados y que perciben pensión de cesantía dentro de los alcances del Decreto Ley N.° 20530, modificado por la Ley N.° 28449.</li>
                                         </ol>
-                                        <p>Según establece la RVM. N° 016-2021-MINEDU. Clases de legajo personal: <b>Legajo Personal del Docente nombrado de la
-                                                CPD, Legajo de Personal Contratado, Legajo de Personal Cesante y Legajo del Personal Pensionista.</b></p>
+                                        <p>Según establece la RVM. N° 016-2021-MINEDU. Clases de legajo personal: 
+                                            <b>
+                                                <ul>
+                                                    <li>Legajo Personal del Docente nombrado de la CPD.
+                                                    </li>
+                                                    <li>Legajo de Personal Contratado de Pedagógicos</li>
+                                                    <li>Legajo de Personal Cesante.</li>
+                                                    <li>Legajo del Personal Pensionista.</li>
+                                                </ul>
+                                            </b>
+                                        </p>
                                     </span>
                                 </div>
                             </div>
@@ -422,10 +426,9 @@
                                 </div>
                             </div>
                             <div class="p-5">
-                                <h5 class="mb-3">Trayectoria labora</h5>
+                                <h5 class="mb-3">Trayectoria laboral</h5>
                                 <span>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
-                                por destaque o encargatura, así como de la designación en cargos de mayor responsabilidad y de ascensos de escala
-                                magisterial.</span>
+                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</span>
                             </div>
                         </div>
                     </div>
@@ -444,8 +447,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Asignaciones e incentivos temporales, retenciones judiciales y pagos indebidos</h5>
-                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar del
-                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), entre otros.</span>
+                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
+                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</span>
                             </div>
                         </div>
                     </div>
@@ -464,8 +467,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Retiro y régimen pensionario</h5>
-                                <span>Se registran resoluciones que reconocen la asignación por tiempo de servicios (ATS), resolución de cese y otorgamiento
-                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión.</span>
+                                <span>Se registran resoluciones que reconocen cese, otorgamiento
+                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990)</span>
                             </div>
                         </div>
                     </div>
@@ -655,7 +658,7 @@
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Formatos</div>
-                    <h2 class="mb-5">FORMATOS QUE CORRESPONDEN AL LEGAJO PERSONAL</h2>
+                    <h2 class="mb-5">FORMATOS - LEGAJO PERSONAL</h2>
                 </div>
                 <div class="row g-4">
                         
@@ -702,7 +705,7 @@
                     style="max-width: 900px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Informe</div>
                     <h2 class="mb-5">EL INFORME ESCALAFONARIO</h2>
-                    <p>Es un documento de carácter interno que contiene información del legajo personal del servidor y ex servidor y es expedido por las DRE y UGEL a través del módulo de escalafón del sistema AYNI. Este documento es relevante para participar en concursos públicos del MINEDU, gestionar situaciones administrativas y el reconocimiento de beneficios, entre otros. El informe Escalafonario constituye el único documento oficial que acredita la formación académica, la trayectoria laboral, méritos, deméritos, incentivos, asignaciones, licencias y vacaciones a largo de la vida profesional del Docente y Administrativo de educación, que determina y asu vez puede sustentar:</p>
+                    <p>Es un documento de carácter interno que contiene información del legajo personal del servidor y ex servidor y es expedido por las DRE y UGEL a través del módulo de escalafón del sistema AYNI. Este documento es relevante para participar en concursos públicos del MINEDU, gestionar situaciones administrativas y el reconocimiento de beneficios, entre otros. El informe Escalafonario constituye el único documento oficial que acredita la formación académica, la trayectoria laboral, méritos, deméritos, incentivos, asignaciones, licencias y vacaciones a largo de la vida profesional del Docente y Administrativo de educación, que determina y a su vez puede sustentar:</p>
                 </div>
                 <div class="row g-5 align-items-center py-4">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
@@ -833,7 +836,7 @@
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/c/MinisteriodeEducacióndelPerú" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                             <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
