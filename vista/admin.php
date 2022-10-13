@@ -186,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- VER PAGINA -->
           <div class="dropdown-divider"></div>
           <li class="nav-item">
-            <a href="../vista/index.php" class="nav-link" >
+            <a href="../index.php" class="nav-link" >
               <i class="nav-icon fa fa-eye"></i>
               <p>Ver página</p>
             </a>

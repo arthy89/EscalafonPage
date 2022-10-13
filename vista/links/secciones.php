@@ -58,7 +58,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="../index.php" class="nav-item nav-link">Inicio</a>
+                        <a href="../../index.php" class="nav-item nav-link">Inicio</a>
                         <a href="secciones.php" class="nav-item nav-link active">Secciones</a>
                         <a href="apertura.php" class="nav-item nav-link">Apertura</a>
                         <a href="marco.php" class="nav-item nav-link">Normas</a>
@@ -82,24 +82,23 @@
 
 
         <!-- SECCIONES Start -->
-        <div class="container-xxl">
+        <div class="container-xxl py-6">
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Secciones del Legajo Personal</div>
                     <h2 class="mb-5">ESTRUCTURA DEL LEGAJO PERSONAL</h2>
-                    <p>El legajo personal se organiza y divide en diez (10) secciones que contienen la documentación clasificada
-                        y ordenada
-                        cronológicamente según el siguiente orden:</p>
+                    <p>El legajo personal se organiza y divide en diez (10) secciones que contienen la documentación clasificada y ordenada
+                    cronológicamente según el siguiente orden:</p>
                 </div>
                 <div class="row g-4">
-        
+
                     <!-- SECCION I -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-user-tie fa-2x"></i>
-        
+                                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección I</h5>
@@ -107,20 +106,19 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Filiación e identificación Personal</h5>
-                                <span>Se registran los datos personales del servidor, así como datos familiares, dirección,
-                                    dominio de lengua indígena u
-                                    originaria, declaraciones juradas, etc.</span>
+                                <span>Se registran los datos personales del servidor, así como datos familiares, dirección, dominio de lengua indígena u
+                                originaria, declaraciones juradas, etc.</span>
                             </div>
                         </div>
                     </div>
-        
+                    
                     <!-- SECCION II -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-user-graduate fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección II</h5>
@@ -128,20 +126,19 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Situación académica (Formación)</h5>
-                                <span>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios
-                                    de posgrado (maestrías y
-                                    doctorados) y especializaciones, actualizaciones o capacitaciones.</span>
+                                <span>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios de posgrado (maestrías y
+                                doctorados) y especializaciones, actualizaciones o capacitaciones.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION III -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-file fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección III</h5>
@@ -153,60 +150,54 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION IV -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-file-import fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección IV</h5>
                                 </div>
                             </div>
                             <div class="p-5">
-                                <h5 class="mb-3">Trayectoria labora</h5>
-                                <span>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y
-                                    desplazamientos temporales
-                                    por destaque o encargatura, así como de la designación en cargos de mayor responsabilidad y
-                                    de ascensos de escala
-                                    magisterial.</span>
+                                <h5 class="mb-3">Trayectoria laboral</h5>
+                                <span>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
+                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION V -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-file-invoice-dollar fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección V</h5>
                                 </div>
                             </div>
                             <div class="p-5">
-                                <h5 class="mb-3">Asignaciones e incentivos temporales, retenciones judiciales y pagos indebidos
-                                </h5>
-                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el
-                                    fallecimiento de un familiar del
-                                    servidor; así como resoluciones de asignación por tiempo de servicios (ATS), entre
-                                    otros.</span>
+                                <h5 class="mb-3">Asignaciones e incentivos temporales, retenciones judiciales y pagos indebidos</h5>
+                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
+                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION VI -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-coins fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección VI</h5>
@@ -214,20 +205,19 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Retiro y régimen pensionario</h5>
-                                <span>Se registran resoluciones que reconocen la asignación por tiempo de servicios (ATS),
-                                    resolución de cese y otorgamiento
-                                    de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión.</span>
+                                <span>Se registran resoluciones que reconocen cese, otorgamiento
+                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990)</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION VII -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-gift fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección VII</h5>
@@ -235,20 +225,19 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Premios y estímulos</h5>
-                                <span>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través
-                                    de actos resolutivos u otros
-                                    documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</span>
+                                <span>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través de actos resolutivos u otros
+                                documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION VIII -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-balance-scale fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección VIII</h5>
@@ -256,19 +245,18 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Sanciones</h5>
-                                <span>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la
-                                    destitución.</span>
+                                <span>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la destitución.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION IX -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-plane-departure fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección IX</h5>
@@ -276,22 +264,20 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Licencias y vacaciones</h5>
-                                <span>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los
-                                    siguientes motivos: incapacidad
-                                    temporal, maternidad, adopción, entre otras; y licencias sin goce de remuneraciones por
-                                    motivos particulares, estudios,
-                                    entre otras razones.</span>
+                                <span>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los siguientes motivos: incapacidad
+                                temporal, maternidad, adopción, entre otras; y licencias sin goce de remuneraciones por motivos particulares, estudios,
+                                entre otras razones.</span>
                             </div>
                         </div>
                     </div>
-        
+
                     <!-- SECCION X -->
                     <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="service-item rounded h-100">
                             <div class="d-flex justify-content-between">
                                 <div class="service-icon">
                                     <i class="fa fa-folder-open fa-2x"></i>
-        
+                    
                                 </div>
                                 <div class="service-icon" style="width: 150px;">
                                     <h5 class="text-white">Sección X</h5>
@@ -299,13 +285,12 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Otros</h5>
-                                <span>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y
-                                    se anexa la ficha personal
-                                    (ficha escalafonaria).</span>
+                                <span>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y se anexa la ficha personal
+                                (ficha escalafonaria).</span>
                             </div>
                         </div>
                     </div>
-        
+                    
                 </div>
             </div>
         </div>
@@ -324,7 +309,7 @@
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/c/MinisteriodeEducacióndelPerú" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                             <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
