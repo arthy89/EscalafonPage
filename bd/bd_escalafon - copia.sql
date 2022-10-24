@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 03/10/2022 00:11:05
+ Date: 07/10/2022 22:27:29
 */
 CREATE DATABASE bd_escalafon;
 USE bd_escalafon;
@@ -123,7 +123,7 @@ CREATE TABLE `icono`  (
   `ico_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   `ico_svg` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ico_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of icono
@@ -212,6 +212,7 @@ CREATE TABLE `mnorma`  (
   `mn_id` int NOT NULL,
   `mn_title` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `mn_text` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
+  `mn_link` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `mn_ico_name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `mn_ico_svg` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NULL DEFAULT NULL,
   `usu_id` int NULL DEFAULT NULL,
@@ -223,13 +224,14 @@ CREATE TABLE `mnorma`  (
 -- ----------------------------
 -- Records of mnorma
 -- ----------------------------
-INSERT INTO `mnorma` VALUES (1, 'Ley N.° 30512', 'Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente', 'Cubos', 'fa-cubes', 1);
-INSERT INTO `mnorma` VALUES (2, 'Ley N.° 28044', 'Ley General de Educación', 'Porcentaje', 'fa-percent', 2);
-INSERT INTO `mnorma` VALUES (3, 'Ley N.° 29733', 'Ley de Protección de Datos Personales', 'Premio', 'fa-award', 3);
-INSERT INTO `mnorma` VALUES (4, 'Ley N.° 25323', 'Ley del Sistema Nacional de Archivos', 'Sonrisa', 'fa-smile-beam', 3);
-INSERT INTO `mnorma` VALUES (5, 'Ley N.° 27806', 'Ley de Transparencia y Acceso a la Información Pública', 'Terno', 'fa-user-tie', 3);
-INSERT INTO `mnorma` VALUES (6, 'Ley N.° 27815', 'Código de Ética de la Función Pública', 'Audífinos', 'fa-headset', 2);
-INSERT INTO `mnorma` VALUES (7, 'Ley 111111', 'Nueva ley para pago temprano', 'Libro', 'fa-book', 3);
+INSERT INTO `mnorma` VALUES (1, 'Ley N.° 30512', 'Ley de Institutos y Escuelas de Educación Superior y de la Carrera Pública del Docente', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Cubos', 'fa-cubes', 1);
+INSERT INTO `mnorma` VALUES (2, 'Ley N.° 28044', 'Ley General de Educación', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Porcentaje', 'fa-percent', 2);
+INSERT INTO `mnorma` VALUES (3, 'Ley N.° 29733', 'Ley de Protección de Datos Personales', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Premio', 'fa-award', 3);
+INSERT INTO `mnorma` VALUES (4, 'Ley N.° 25323', 'Ley del Sistema Nacional de Archivos', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Sonrisa', 'fa-smile-beam', 3);
+INSERT INTO `mnorma` VALUES (5, 'Ley N.° 27806', 'Ley de Transparencia y Acceso a la Información Pública', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Terno', 'fa-user-tie', 3);
+INSERT INTO `mnorma` VALUES (6, 'Ley N.° 27815', 'Código de Ética de la Función Pública', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Audífinos', 'fa-headset', 2);
+INSERT INTO `mnorma` VALUES (7, 'Ley 111111', 'Nueva ley para pago temprano', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Libro', 'fa-book', 3);
+INSERT INTO `mnorma` VALUES (8, 'Ley Prueba 111 Link', 'Ley Prueba 111 Link Ley Prueba 111 Link Ley Prueba 111 Link', 'https://www.youtube.com/watch?v=JZMGXUk23CY', 'Cubos', 'fa-cubes', 2);
 
 -- ----------------------------
 -- Table structure for rol
@@ -306,7 +308,7 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_img` AS sele
 -- View structure for view_listar_ley
 -- ----------------------------
 DROP VIEW IF EXISTS `view_listar_ley`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_ley` AS select `mnorma`.`mn_id` AS `mn_id`,`mnorma`.`mn_title` AS `mn_title`,`mnorma`.`mn_text` AS `mn_text`,`mnorma`.`mn_ico_name` AS `mn_ico_name`,`mnorma`.`mn_ico_svg` AS `mn_ico_svg`,`mnorma`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre` from (`mnorma` join `usuarios` on((`mnorma`.`usu_id` = `usuarios`.`usu_id`)));
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_ley` AS select `mnorma`.`mn_id` AS `mn_id`,`mnorma`.`mn_title` AS `mn_title`,`mnorma`.`mn_text` AS `mn_text`,`mnorma`.`mn_ico_name` AS `mn_ico_name`,`mnorma`.`mn_ico_svg` AS `mn_ico_svg`,`mnorma`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`mnorma`.`mn_link` AS `mn_link` from (`mnorma` join `usuarios` on((`mnorma`.`usu_id` = `usuarios`.`usu_id`)));
 
 -- ----------------------------
 -- View structure for view_listar_usuario
@@ -498,10 +500,10 @@ SELECT
 	mnorma.mn_id, 
 	mnorma.mn_title, 
 	mnorma.mn_text, 
-	mnorma.mn_ico_svg
+	mnorma.mn_ico_svg,
+	mnorma.mn_link
 FROM
 	mnorma
-;
 ;;
 delimiter ;
 
@@ -686,14 +688,15 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `SP_MODIFICAR_LEY`;
 delimiter ;;
-CREATE PROCEDURE `SP_MODIFICAR_LEY`(IN TITLE VARCHAR(255), IN TEXTO VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN UID INT, IN ID INT)
+CREATE PROCEDURE `SP_MODIFICAR_LEY`(IN TITLE VARCHAR(255), IN TEXTO VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN UID INT, IN ID INT, IN LLINK VARCHAR(255))
 BEGIN
 UPDATE mnorma SET 
 mn_title=TITLE,
 mn_text=TEXTO,
 mn_ico_name=FNAME,
 mn_ico_svg=FICO,
-usu_id=UID
+usu_id=UID,
+mn_link=LLINK
 WHERE mn_id=ID;
 SELECT 1;
 END
@@ -794,12 +797,12 @@ delimiter ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `SP_REGISTRAR_LEY`;
 delimiter ;;
-CREATE PROCEDURE `SP_REGISTRAR_LEY`(IN TITLE VARCHAR(255), IN TEXTO VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN UID INT)
+CREATE PROCEDURE `SP_REGISTRAR_LEY`(IN TITLE VARCHAR(255), IN TEXTO VARCHAR(255), IN FNAME VARCHAR(255), IN FICO VARCHAR(255), IN UID INT, IN LLINK VARCHAR(255))
 BEGIN
 SET @NID := (SELECT MAX(mn_id) + 1 FROM mnorma);
 INSERT INTO 
-mnorma(mn_id,mn_title,mn_text,mn_ico_name,mn_ico_svg,usu_id)
-VALUES(@NID,TITLE,TEXTO,FNAME,FICO,UID);
+mnorma(mn_id,mn_title,mn_text,mn_ico_name,mn_ico_svg,usu_id,mn_link)
+VALUES(@NID,TITLE,TEXTO,FNAME,FICO,UID,LLINK);
 SELECT 1;
 END
 ;;

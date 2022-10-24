@@ -58,7 +58,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto py-0">
-                        <a href="../index.php" class="nav-item nav-link">Inicio</a>
+                        <a href="../../index.php" class="nav-item nav-link">Inicio</a>
                         <a href="secciones.php" class="nav-item nav-link">Secciones</a>
                         <a href="apertura.php" class="nav-item nav-link">Apertura</a>
                         <a href="marco.php" class="nav-item nav-link">Normas</a>
@@ -176,7 +176,7 @@
                         <div class="d-flex pt-2">
                             <a class="btn btn-outline-light btn-social" href="https://twitter.com/drepuno" target="_blank" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a>
                             <a class="btn btn-outline-light btn-social" href="https://www.facebook.com/DREPuno/" target="_blank" rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/channel/UCMLpVSWr5B9HPvqYH72QqLA" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/c/MinisteriodeEducacióndelPerú" target="_blank" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
                             <a class="btn btn-outline-light btn-social" href="http://www.drepuno.gob.pe/" target="_blank" rel="noopener noreferrer"><i class="fa fa-globe"></i></a>
                         </div>
                     </div>
