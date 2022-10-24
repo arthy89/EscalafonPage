@@ -72,12 +72,15 @@
     <title>ESCALAFÓN | DRE PUNO</title>
     <link rel="shortcut icon" href="https://escalafon-ayni.minedu.gob.pe/minedu.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
+    <link rel="stylesheet"  href="css/2cssmy.css" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
 
     <!-- Favicon -->
     <link href="plantilla2/img/favicon.ico" rel="icon">
+ 
+ 
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -137,112 +140,120 @@
 
             <div class="container-xxl bg-primary hero-header">
                 <div class="container">
-                    <!-- titulo inicial -->
-                    <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
-                        style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
-                        <h2 class="text-white mb-5">Comunicados</h2>
-                    </div>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <!-- CARRUSEL DE IMAGENES -->
+                            <div class="bd-example">
+                                <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+                                    <div class="carousel-inner">
+                                        <!-- xd -->
+                                        
+                                        <?php
+                                        foreach ($res_img as $imagen){
+                                            if ($imagen == reset($res_img)) {
+                                                echo '<div class="carousel-item active" data-bs-interval="5000">
+                                            <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
+                                            </div>';
+                                            }       
+                                        }
+                                        ?>
 
+                                        <?php 
+                                        array_shift($res_img);
+                                        foreach ($res_img as $data_img) { ?>
+                                            <!-- PARA ALMACENAR EN VARIABLE -->
+                                            <?php 
+                                                $url = $data_img['img_file'];
+                                            ?>
 
-                    <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
+                                            <div class="carousel-item" data-bs-interval="5000">
+                                                <img src="<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
+                                            </div>
 
-                        <?php foreach ($resultado as $row) { ?>
-                        <!-- PARA ALMACENAR EN VARIABLE -->
-                        <?php 
-                          $icon = $row['ico_svg'];
-                          $titulo = $row['com_title'];
-                          $contenido = $row['com_cont'];
-                          $tlink = $row['com_tlink'];
-                          $link = $row['com_link'];
-                          $fecha = $row['com_f'];
-                          $hora = $row['com_h'];
-                          $estado = $row['est_name'];
-                          $color = $row['est_color'];
-                        ?>
-
-                        <div class="testimonial-item rounded p-4" style="background-color:#F3F6F8;">
-                            <div class="row g-5 align-items-left">
-                                <div class="col-3">
-                                    <i class="fa <?php echo $icon ?> fa-2x text-primary mb-3"></i>
+                                        <?php } ?>
+                                        
+                                        
+                                        <!-- <div class="carousel-item" data-bs-interval="5000">
+                                            <img src="plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
+                                        </div>
+                                        <div class="carousel-item" data-bs-interval="5000">
+                                            <img src="plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
+                                        </div> -->
+                                    </div>
+                                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </button>
+                                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </button>
                                 </div>
-                                <div class="col-6 align-items-left" >
-                                    <h5 class="mb-3 text-primary"><?php echo $titulo ?></h5>
-                                </div>
-                                <div class="col-3 align-items-center">
-                                    <div class="service-icon" >
-                                        <!-- style="color:#F3F6F8" -->
-                                        <h5 style="color:<?php echo $color ?>; margin-top:-10px"><?php echo $estado ?></h5>
+                            </div>
+                            <!-- END CARRUSEL DE IMAGEN-->
+                        </div>
+                        
+                        <div class="col-md-3">
+                            <div class="slider-wrap">
+                                <div id="card-slider" class="slider">
+                                    <div class="slider-item">
+                                        <div class="animation-card_image">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                                        </div>
+                                        <div class="animation-card_content">
+                                            <h4 class="animation-card_content_title title-2">Charlize Theron 1</h4>
+                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
+                                            <p class="animation-card_content_city">New York, NY</p>
+                                        </div>
+                                    </div>
+                                    <div class="slider-item">
+                                        <div class="animation-card_image">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                                        </div>
+                                        <div class="animation-card_content">
+                                            <h4 class="animation-card_content_title title-2">Charlize Theron 2</h4>
+                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
+                                            <p class="animation-card_content_city">New York, NY</p>
+                                        </div>
+                                    </div>
+                                    <div class="slider-item">
+                                        <div class="animation-card_image">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                                        </div>
+                                        <div class="animation-card_content">
+                                            <h4 class="animation-card_content_title title-2">Charlize Theron 3</h4>
+                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
+                                            <p class="animation-card_content_city">New York, NY</p>
+                                        </div>
+                                    </div>
+                                    <div class="slider-item">
+                                        <div class="animation-card_image">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                                        </div>
+                                        <div class="animation-card_content">
+                                            <h4 class="animation-card_content_title title-2">Charlize Theron 4</h4>
+                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
+                                            <p class="animation-card_content_city">New York, NY</p>
+                                        </div>
+                                    </div>
+                                    <div class="slider-item">
+                                        <div class="animation-card_image">
+                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                                        </div>
+                                        <div class="animation-card_content">
+                                            <h4 class="animation-card_content_title title-2">Charlize Theron 5</h4>
+                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
+                                            <p class="animation-card_content_city">New York, NY</p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            
-                            <p><?php echo $contenido ?></p>
-                            <div class="d-flex align-items-center">
-                                <div class="col-12">
-                                    <h6 class="mb-1"><a class="enlace" href="<?php echo $link ?>" target="_blank" rel="noopener noreferrer"><?php echo $tlink ?> </a></h6>
-                                    <small><?php echo $hora ?> - <?php echo $fecha ?></small>
                                 </div>
-                            </div>
                         </div>
-
-                        <?php } ?>
-                        
-                        
                     </div>
                 </div>
             </div>
         </div>
         <!-- Navbar & Hero End -->
-
-        <!-- CARRUSEL DE IMAGENES -->
-        <div class="bd-example">
-            <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
-                <div class="carousel-inner">
-                    <!-- xd -->
-                    
-                    <?php
-                    foreach ($res_img as $imagen){
-                        if ($imagen == reset($res_img)) {
-                            echo '<div class="carousel-item active" data-bs-interval="5000">
-                        <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
-                        </div>';
-                        }       
-                    }
-                    ?>
-
-                    <?php 
-                    array_shift($res_img);
-                    foreach ($res_img as $data_img) { ?>
-                        <!-- PARA ALMACENAR EN VARIABLE -->
-                        <?php 
-                            $url = $data_img['img_file'];
-                        ?>
-
-                        <div class="carousel-item" data-bs-interval="5000">
-                            <img src="<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
-                        </div>
-
-                    <?php } ?>
-                    
-                    
-                    <!-- <div class="carousel-item" data-bs-interval="5000">
-                        <img src="plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
-                    </div>
-                    <div class="carousel-item" data-bs-interval="5000">
-                        <img src="plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
-                    </div> -->
-                </div>
-                <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Previous</span>
-                </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="visually-hidden">Next</span>
-                </button>
-            </div>
-        </div>
-        <!-- END CARRUSEL DE IMAGEN-->
 
         <!-- ESCALAFON INIT -->
         <div class="container-xxl py-6">
@@ -881,6 +892,7 @@
 
     <!-- Template Javascript -->
     <script src="plantilla2/js/main.js"></script>
+    <script src="js/tc.js"></script>
 </body>
 
 </html>
