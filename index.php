@@ -159,7 +159,8 @@
                                         foreach ($res_img as $imagen){
                                             if ($imagen == reset($res_img)) {
                                                 echo '<div class="carousel-item active" data-bs-interval="5000">
-                                            <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;">
+                                                <a href="'.$imagen['img_name'].'" target="_blank" rel="noopener noreferrer">
+                                            <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;"></a>
                                             </div>';
                                             }       
                                         }
@@ -171,21 +172,15 @@
                                             <!-- PARA ALMACENAR EN VARIABLE -->
                                             <?php 
                                                 $url = $data_img['img_file'];
+                                                $link = $data_img['img_name'];
                                             ?>
 
                                             <div class="carousel-item" data-bs-interval="5000">
-                                                <img src="<?php echo $url ?>" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;">
+                                                <a href="<?php echo $link ?>" target="_blank" rel="noopener noreferrer"><img src="<?php echo $url ?>" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;"></a>
                                             </div>
 
                                         <?php } ?>
                                         
-                                        
-                                        <!-- <div class="carousel-item" data-bs-interval="5000">
-                                            <img src="plantilla2/img/esca.png" class="d-block w-100" alt="..." height="500" >
-                                        </div>
-                                        <div class="carousel-item" data-bs-interval="5000">
-                                            <img src="plantilla2/img/requisitos.png" class="d-block w-100" alt="..." height="500" >
-                                        </div> -->
                                     </div>
                                     <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>

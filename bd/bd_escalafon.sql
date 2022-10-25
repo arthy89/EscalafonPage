@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 25/10/2022 01:01:30
+ Date: 25/10/2022 11:39:51
 */
 
 SET NAMES utf8mb4;
@@ -122,7 +122,7 @@ CREATE TABLE `icono`  (
   `ico_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   `ico_svg` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ico_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of icono
@@ -198,9 +198,9 @@ CREATE TABLE `imagenes`  (
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
-INSERT INTO `imagenes` VALUES (1, 'img2', 'controlador/imgs/descripcion.png', 4);
-INSERT INTO `imagenes` VALUES (2, 'img1', 'controlador/imgs/esca.png', 1);
-INSERT INTO `imagenes` VALUES (3, 'img3', 'controlador/imgs/requisitos.png', 3);
+INSERT INTO `imagenes` VALUES (1, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG251020221127863.png', 2);
+INSERT INTO `imagenes` VALUES (2, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG25102022112785.png', 2);
+INSERT INTO `imagenes` VALUES (3, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG251020221128355.png', 2);
 
 -- ----------------------------
 -- Table structure for mnorma
@@ -324,6 +324,7 @@ CREATE PROCEDURE `SP_ACTIVAR_USUARIO`(IN ID INT)
 UPDATE usuarios SET 
 usu_est="ACTIVO"
 WHERE usu_id=ID
+;
 ;;
 delimiter ;
 
@@ -396,6 +397,7 @@ CREATE PROCEDURE `SP_ELIMINAR_USUARIO`(IN ID INT)
 UPDATE usuarios SET 
 usu_est="INACTIVO"
 WHERE usu_id=ID
+;
 ;;
 delimiter ;
 
@@ -439,6 +441,7 @@ FROM
 		comunicado.est_id = estado.est_id
 ORDER BY
 	comunicado.com_id DESC
+;
 ;;
 delimiter ;
 
@@ -494,10 +497,10 @@ delimiter ;;
 CREATE PROCEDURE `SP_LISTAR_IMG`()
 SELECT
 	imagenes.id_img, 
-	imagenes.img_file
+	imagenes.img_file,
+	imagenes.img_name
 FROM
 	imagenes
-;
 ;;
 delimiter ;
 
@@ -515,6 +518,7 @@ SELECT
 	mnorma.mn_link
 FROM
 	mnorma
+;
 ;;
 delimiter ;
 
@@ -553,6 +557,7 @@ FROM
 		usuarios.rol_id = rol.rol_id
 WHERE
 usu_est="ACTIVO"
+;
 ;;
 delimiter ;
 

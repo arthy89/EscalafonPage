@@ -33,7 +33,7 @@
               <thead>
                   <tr>
                       <th>#</th>
-                      <th>Nombre</th>
+                      <th>Link</th>
                       <th>Imagen</th>
                       <th>Usuario</th>
                       <th>Acción</th>
