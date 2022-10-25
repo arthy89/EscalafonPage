@@ -11,10 +11,9 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 07/10/2022 22:27:29
+ Date: 25/10/2022 01:01:30
 */
--- CREATE DATABASE epiz_32748213_bd_escalafon;
--- USE epiz_32748213_bd_escalafon;
+
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
@@ -267,6 +266,7 @@ CREATE TABLE `usuarios`  (
   `rol_id` int NULL DEFAULT NULL,
   `usu_direccion` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   `usu_log` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
+  `usu_est` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`usu_id`) USING BTREE,
   INDEX `rol_id_fk1`(`rol_id` ASC) USING BTREE,
   CONSTRAINT `rol_id_fk1` FOREIGN KEY (`rol_id`) REFERENCES `rol` (`rol_id`) ON DELETE RESTRICT ON UPDATE RESTRICT
@@ -275,10 +275,10 @@ CREATE TABLE `usuarios`  (
 -- ----------------------------
 -- Records of usuarios
 -- ----------------------------
-INSERT INTO `usuarios` VALUES (1, 'Elba María', 'Romero', 'Ortiz', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'elba@mail.com', 'controlador/usuario/foto/7.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'elba');
-INSERT INTO `usuarios` VALUES (2, 'Alan Max', 'Fernandez', 'Candia', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'alan@mail.com', 'controlador/usuario/foto/4.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'alan');
-INSERT INTO `usuarios` VALUES (3, 'Arhyel Philippe', 'Ramos', 'Flores', '$2y$12$wo5fn3.gkNHHvWSiQ3SiPud9UZGbhzcAw9w8HB650xyvwMWkKKAHm', 'arhyel@mail.com', 'controlador/usuario/foto/IMG189202223535.png', 'Practicante Ing Sistemas', 4, 'Jr. Ingaricona 129', 'arhyel');
-INSERT INTO `usuarios` VALUES (4, 'Vero', 'Para prueba', 'En la página Nueva', '$2y$12$FxDZZjW/lgMkCGFbhFtVdOYbfdbLbAbFXTjw/sbKwoTlX46EE9Xnm', 'pu2@mail.com', 'controlador/usuario/foto/IMG992022535221.png', 'CAS 2', 3, 'jr drep', 'persona1');
+INSERT INTO `usuarios` VALUES (1, 'Elba María', 'Romero', 'Ortiz', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'elba@mail.com', 'controlador/usuario/foto/7.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'elba', 'ACTIVO');
+INSERT INTO `usuarios` VALUES (2, 'Alan Max', 'Fernandez', 'Candia', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'alan@mail.com', 'controlador/usuario/foto/4.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'alan', 'ACTIVO');
+INSERT INTO `usuarios` VALUES (3, 'Arhyel Philippe', 'Ramos', 'Flores', '$2y$12$wo5fn3.gkNHHvWSiQ3SiPud9UZGbhzcAw9w8HB650xyvwMWkKKAHm', 'arhyel@mail.com', 'controlador/usuario/foto/IMG189202223535.png', 'Practicante Ing Sistemas', 4, 'Jr. Ingaricona 129', 'arhyel', 'ACTIVO');
+INSERT INTO `usuarios` VALUES (4, 'Vero', 'Para prueba', 'En la página Nueva', '$2y$12$FxDZZjW/lgMkCGFbhFtVdOYbfdbLbAbFXTjw/sbKwoTlX46EE9Xnm', 'pu2@mail.com', 'controlador/usuario/foto/IMG992022535221.png', 'CAS 2', 3, 'jr drep', 'persona1', 'ACTIVO');
 
 -- ----------------------------
 -- View structure for view_listar_bene
@@ -314,7 +314,19 @@ CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_ley` AS sele
 -- View structure for view_listar_usuario
 -- ----------------------------
 DROP VIEW IF EXISTS `view_listar_usuario`;
-CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_usuario` AS select `usuarios`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno`,`usuarios`.`usu_amaterno` AS `usu_amaterno`,`usuarios`.`usu_contrasena` AS `usu_contrasena`,`usuarios`.`usu_email` AS `usu_email`,`usuarios`.`usu_foto` AS `usu_foto`,`usuarios`.`usu_detalle` AS `usu_detalle`,`usuarios`.`rol_id` AS `rol_id`,`usuarios`.`usu_direccion` AS `usu_direccion`,`rol`.`rol_nombre` AS `rol_nombre`,`usuarios`.`usu_log` AS `usu_log` from (`usuarios` join `rol` on((`usuarios`.`rol_id` = `rol`.`rol_id`)));
+CREATE ALGORITHM = UNDEFINED SQL SECURITY DEFINER VIEW `view_listar_usuario` AS select `usuarios`.`usu_id` AS `usu_id`,`usuarios`.`usu_nombre` AS `usu_nombre`,`usuarios`.`usu_apaterno` AS `usu_apaterno`,`usuarios`.`usu_amaterno` AS `usu_amaterno`,`usuarios`.`usu_contrasena` AS `usu_contrasena`,`usuarios`.`usu_email` AS `usu_email`,`usuarios`.`usu_foto` AS `usu_foto`,`usuarios`.`usu_detalle` AS `usu_detalle`,`usuarios`.`rol_id` AS `rol_id`,`usuarios`.`usu_direccion` AS `usu_direccion`,`rol`.`rol_nombre` AS `rol_nombre`,`usuarios`.`usu_log` AS `usu_log`,`usuarios`.`usu_est` AS `usu_est` from (`usuarios` join `rol` on((`usuarios`.`rol_id` = `rol`.`rol_id`)));
+
+-- ----------------------------
+-- Procedure structure for SP_ACTIVAR_USUARIO
+-- ----------------------------
+DROP PROCEDURE IF EXISTS `SP_ACTIVAR_USUARIO`;
+delimiter ;;
+CREATE PROCEDURE `SP_ACTIVAR_USUARIO`(IN ID INT)
+UPDATE usuarios SET 
+usu_est="ACTIVO"
+WHERE usu_id=ID
+;;
+delimiter ;
 
 -- ----------------------------
 -- Procedure structure for SP_ELIMINAR_BENE
@@ -382,9 +394,9 @@ delimiter ;
 DROP PROCEDURE IF EXISTS `SP_ELIMINAR_USUARIO`;
 delimiter ;;
 CREATE PROCEDURE `SP_ELIMINAR_USUARIO`(IN ID INT)
-DELETE FROM usuarios
+UPDATE usuarios SET 
+usu_est="INACTIVO"
 WHERE usu_id=ID
-;
 ;;
 delimiter ;
 
@@ -540,7 +552,8 @@ FROM
 	rol
 	ON 
 		usuarios.rol_id = rol.rol_id
-;
+WHERE
+usu_est="ACTIVO"
 ;;
 delimiter ;
 

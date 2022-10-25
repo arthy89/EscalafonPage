@@ -72,7 +72,6 @@
     <title>ESCALAFÓN | DRE PUNO</title>
     <link rel="shortcut icon" href="https://escalafon-ayni.minedu.gob.pe/minedu.ico">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/blog/">
-    <link rel="stylesheet"  href="css/2cssmy.css" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta content="" name="keywords">
     <meta content="" name="description">
@@ -80,7 +79,11 @@
     <!-- Favicon -->
     <link href="plantilla2/img/favicon.ico" rel="icon">
  
- 
+    <!-- Swiper CSS-->
+    <link rel="stylesheet" href="recursos/swiper/swiper-bundle.min.css">
+
+    <!-- MyCSS -->
+    <link rel="stylesheet" href="css/2cssmy.css">
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -118,7 +121,7 @@
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
                 <a href="index.php" class="navbar-brand p-0">
-                    <h1 class="m-0">Escalafón - DRE Puno</h1>
+                    <h1 class="m-0">ESCALAFÓN - DRE PUNO</h1>
                     <!-- <img src="plantilla2/img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -142,6 +145,10 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-md-9">
+                            <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
+                            style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <h2 class="text-white mb-5">Anuncios</h2>
+                            </div>
                             <!-- CARRUSEL DE IMAGENES -->
                             <div class="bd-example">
                                 <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
@@ -152,7 +159,7 @@
                                         foreach ($res_img as $imagen){
                                             if ($imagen == reset($res_img)) {
                                                 echo '<div class="carousel-item active" data-bs-interval="5000">
-                                            <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." height="500" >
+                                            <img src="'.$imagen['img_file'].'" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;">
                                             </div>';
                                             }       
                                         }
@@ -167,7 +174,7 @@
                                             ?>
 
                                             <div class="carousel-item" data-bs-interval="5000">
-                                                <img src="<?php echo $url ?>" class="d-block w-100" alt="..." height="500" >
+                                                <img src="<?php echo $url ?>" class="d-block w-100" alt="..." style="border-radius: 25px; border:4px solid #00B98E;">
                                             </div>
 
                                         <?php } ?>
@@ -190,64 +197,70 @@
                                     </button>
                                 </div>
                             </div>
+                            <br>
                             <!-- END CARRUSEL DE IMAGEN-->
                         </div>
                         
                         <div class="col-md-3">
-                            <div class="slider-wrap">
-                                <div id="card-slider" class="slider">
-                                    <div class="slider-item">
-                                        <div class="animation-card_image">
-                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
+                            <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
+                            style="max-width: 600px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
+                                <h2 class="text-white mb-5">Comunicados</h2>
+                            </div>
+
+                            <div class="swiper mySwiper">
+                            <div class="swiper-wrapper">
+
+                                <?php foreach ($resultado as $row) { ?>
+                                    <!-- PARA ALMACENAR EN VARIABLE -->
+                                    <?php 
+                                    $icon = $row['ico_svg'];
+                                    $titulo = $row['com_title'];
+                                    $contenido = $row['com_cont'];
+                                    $tlink = $row['com_tlink'];
+                                    $link = $row['com_link'];
+                                    $fecha = $row['com_f'];
+                                    $hora = $row['com_h'];
+                                    $estado = $row['est_name'];
+                                    $color = $row['est_color'];
+                                    ?>
+                                
+                                <div class="swiper-slide">
+                                    
+                                    <div class="testimonial-item rounded p-4" style="background-color:#F3F6F8;">
+                                        <div class="row g-5 align-items-left">
+                                            <div class="col-3">
+                                                <i class="fa <?php echo $icon ?> fa-2x text-primary mb-3"></i>
+                                            </div>
+                                            <div class="col-6 align-items-left" >
+                                                <h5 class="mb-3 text-primary"><?php echo $titulo ?></h5>
+                                            </div>
+                                            <div class="col-3 align-items-center">
+                                                <div class="service-icon" >
+                                                    <!-- style="color:#F3F6F8" -->
+                                                    <h5 style="margin-left:-25px;color:<?php echo $color ?>; margin-top:-15px"><?php echo $estado ?></h5>
+                                                </div>
+                                            </div>
                                         </div>
-                                        <div class="animation-card_content">
-                                            <h4 class="animation-card_content_title title-2">Charlize Theron 1</h4>
-                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
-                                            <p class="animation-card_content_city">New York, NY</p>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item">
-                                        <div class="animation-card_image">
-                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
-                                        </div>
-                                        <div class="animation-card_content">
-                                            <h4 class="animation-card_content_title title-2">Charlize Theron 2</h4>
-                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
-                                            <p class="animation-card_content_city">New York, NY</p>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item">
-                                        <div class="animation-card_image">
-                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
-                                        </div>
-                                        <div class="animation-card_content">
-                                            <h4 class="animation-card_content_title title-2">Charlize Theron 3</h4>
-                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
-                                            <p class="animation-card_content_city">New York, NY</p>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item">
-                                        <div class="animation-card_image">
-                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
-                                        </div>
-                                        <div class="animation-card_content">
-                                            <h4 class="animation-card_content_title title-2">Charlize Theron 4</h4>
-                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
-                                            <p class="animation-card_content_city">New York, NY</p>
-                                        </div>
-                                    </div>
-                                    <div class="slider-item">
-                                        <div class="animation-card_image">
-                                            <img src="https://m.media-amazon.com/images/M/MV5BMTk5Mzc4ODU0Ml5BMl5BanBnXkFtZTcwNjU1NTI0Mw@@._V1_UY317_CR12,0,214,317_AL_.jpg" alt="">
-                                        </div>
-                                        <div class="animation-card_content">
-                                            <h4 class="animation-card_content_title title-2">Charlize Theron 5</h4>
-                                            <p class="animation-card_content_description p-2">With no contractual commitments comes the freedom of having top notch content created whenever.</p>
-                                            <p class="animation-card_content_city">New York, NY</p>
+                                        
+                                        <p><?php echo $contenido ?></p>
+                                        <div class="d-flex align-items-center">
+                                            <div class="col-12">
+                                                <h6 class="mb-1"><a class="enlace" href="<?php echo $link ?>" target="_blank" rel="noopener noreferrer"><?php echo $tlink ?> </a></h6>
+                                                <small><?php echo $hora ?> - <?php echo $fecha ?></small>
+                                            </div>
                                         </div>
                                     </div>
+                                    
                                 </div>
-                                </div>
+
+                                <?php } ?>
+                                
+
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                            <div class="swiper-pagination"></div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -277,7 +290,7 @@
         
 
         <!-- INICIO DE ESCALAFON -->
-        <div class="container-xl py-1">
+        <div class="container-xl py-1 justificar">
             <div class="container">
                 <div class="row g-5 align-items-center">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
@@ -291,7 +304,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <h6>LEGAJO PERSONAL:</h6>
-                                    <span><ol>
+                                    <span><ol class="justificar">
                                         <li>Es una carpeta oficial e individual (documentación físico y digital), donde se archivan los documentos
                                             personales y administrativos del servidor y ex servidor, debidamente clasificados y ordenados de acuerdo a la
                                             estructura vigente. (<a href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf"
@@ -311,7 +324,7 @@
                                 </div>
                                 <div class="ms-4">
                                     <h6>TIPO DE LEGAJO PERSONAL:</h6>
-                                    <span><ol>
+                                    <span><ol class="justificar">
                                         <li><b><u>Físico</u>: </b>Es el conjunto de documentos personales, trayectoria académica y laboral del docente, que
                                             se incorporan en forma ordenada de acuerdo a la estructura señalada en el presente documento normativo. Los
                                             documentos del legajo se van incrementando a lo largo de la vida laboral hasta el cese.</li>
@@ -379,8 +392,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Filiación e identificación Personal</h5>
-                                <span>Se registran los datos personales del servidor, así como datos familiares, dirección, dominio de lengua indígena u
-                                originaria, declaraciones juradas, etc.</span>
+                                <span><p>Se registran los datos personales del servidor, así como datos familiares, dirección, dominio de lengua indígena u
+                                originaria, declaraciones juradas, etc.</p></span>
                             </div>
                         </div>
                     </div>
@@ -399,8 +412,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Situación académica (Formación)</h5>
-                                <span>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios de posgrado (maestrías y
-                                doctorados) y especializaciones, actualizaciones o capacitaciones.</span>
+                                <span><p>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios de posgrado (maestrías y
+                                doctorados) y especializaciones, actualizaciones o capacitaciones.</p></span>
                             </div>
                         </div>
                     </div>
@@ -419,7 +432,7 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Ingreso o reingreso</h5>
-                                <span>Se registran los actos resolutivos de contratos, de nombramiento o de reingreso.</span>
+                                <span><p>Se registran los actos resolutivos de contratos, de nombramiento o de reingreso.</p></span>
                             </div>
                         </div>
                     </div>
@@ -438,8 +451,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Trayectoria laboral</h5>
-                                <span>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
-                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</span>
+                                <span><p>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
+                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</p></span>
                             </div>
                         </div>
                     </div>
@@ -458,8 +471,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Asignaciones e incentivos temporales, retenciones judiciales y pagos indebidos</h5>
-                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
-                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</span>
+                                <span><p>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
+                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</p></span>
                             </div>
                         </div>
                     </div>
@@ -478,8 +491,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Retiro y régimen pensionario</h5>
-                                <span>Se registran resoluciones que reconocen cese, otorgamiento
-                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990)</span>
+                                <span><p>Se registran resoluciones que reconocen cese, otorgamiento
+                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990).</p></span>
                             </div>
                         </div>
                     </div>
@@ -498,8 +511,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Premios y estímulos</h5>
-                                <span>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través de actos resolutivos u otros
-                                documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</span>
+                                <span><p>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través de actos resolutivos u otros
+                                documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</p></span>
                             </div>
                         </div>
                     </div>
@@ -518,7 +531,7 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Sanciones</h5>
-                                <span>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la destitución.</span>
+                                <span><p>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la destitución.</p></span>
                             </div>
                         </div>
                     </div>
@@ -537,9 +550,9 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Licencias y vacaciones</h5>
-                                <span>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los siguientes motivos: incapacidad
+                                <span><p>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los siguientes motivos: incapacidad
                                 temporal, maternidad, adopción, entre otras; y licencias sin goce de remuneraciones por motivos particulares, estudios,
-                                entre otras razones.</span>
+                                entre otras razones.</p></span>
                             </div>
                         </div>
                     </div>
@@ -558,8 +571,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Otros</h5>
-                                <span>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y se anexa la ficha personal
-                                (ficha escalafonaria).</span>
+                                <span><p>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y se anexa la ficha personal
+                                (ficha escalafonaria).</p></span>
                             </div>
                         </div>
                     </div>
@@ -576,20 +589,18 @@
                     <div class="col-12 col-md-6">
                         <br>
                         <h3 class="text-white">APERTURA DE LEGAJO PERSONAL</h3>
-                        <small class="text-white">La apertura del legajo personal se encuentra a cargo del equipo de escalafón y legajos (ESLE), y se realiza de oficio
+                        <small class="text-white"><p>La apertura del legajo personal se encuentra a cargo del equipo de escalafón y legajos (ESLE), y se realiza de oficio
                         con la resolución de nombramiento o de contrato que da inicio a la relación laboral. El servidor que inicia el vínculo
                         con la IGED y que ha sido notificado con su resolución, debe presentar ante mesa de partes de la DRE o UGEL de su
                         jurisdicción, la documentación correspondiente dentro de los diez (10) días hábiles desde la notificación. En caso de
                         que la documentación se encuentre incompleta, deteriorada o tenga enmendaduras, la DRE o UGEL observará dichos
                         documentos y otorgará un plazo adicional de cinco (5) días hábiles para que el servidor realice la subsanación
-                        correspondiente. (Ver Instructivo).</small>
-                        <br>
-                        <br>
+                        correspondiente. (Ver Instructivo).</p></small>
                         <h3 class="text-white">BENEFICIOS DE MANTENER ACTUALIZADO EL LEGAJO PERSONAL:</h3>
-                        <small class="text-white">La actualización del legajo personal facilitará al docente de educación superior y administrativo que través de los
-                        informes escalafonarios que se expidan se puedan:</small>
+                        <small class="text-white"><p>La actualización del legajo personal facilitará al docente de educación superior y administrativo que través de los
+                        informes escalafonarios que se expidan se puedan:</p></small>
                         <small class="text-white">
-                            <ul>
+                            <ul class="justificar">
                                 <!-- PHP AQUI -->
                                 <?php foreach ($res_bene as $data_bene) { ?>
                                     <!-- PARA ALMACENAR EN VARIABLE -->
@@ -723,7 +734,7 @@
                         <img class="img-fluid" src="plantilla2/img/file.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="row g-3 mb-4">
+                        <div class="row g-3 mb-4 justificar">
                             <div class="col-12 d-flex align-items-center mb-3">
                                 <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
                                     <i class="fa fa-cubes text-white"></i>
@@ -812,9 +823,9 @@
                     <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="team-item">
                             <h5><?php echo $nombre, " ", $apepaterno," ", $apematerno; ?></h5>
-                            <p class="mb-4"><?php echo $row_2['rol_nombre']; ?></p>
+                            <p class="mb-4" style="text-align: center;"><?php echo $row_2['rol_nombre']; ?></p>
                             <img class="img-fluid rounded-circle w-100 mb-4" src="<?php echo $foto ?>" alt="">
-                            <p class="mb-4">
+                            <p class="mb-4" style="text-align: center;">
                                 <b>
                                     Detalles:
                                 </b>
@@ -892,7 +903,8 @@
 
     <!-- Template Javascript -->
     <script src="plantilla2/js/main.js"></script>
-    <script src="js/tc.js"></script>
+    <script src="recursos/swiper/swiper-bundle.min.js"></script>
+    <script src="recursos/swiper/main.js"></script>
 </body>
 
 </html>

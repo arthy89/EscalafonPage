@@ -147,9 +147,23 @@ function listar_usuario_ss(){
       {"data":7}, //? detalle
       {"data":8}, //? direccion
       {"data":10}, //? rol_nombre
-      {"data":null,
+      {"data":12,
         render: function (data, type, row) {
-          return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='editar_foto btn btn-primary btn-sm'><i class='fa fa-image'></i></button>&nbsp;<button id='editarx' class='editar_contra btn btn-info btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>"
+          if(data=='ACTIVO'){
+            return '<span class="badge bg-success">ACTIVO</span>';
+          }else{
+            return '<span class="badge bg-danger">INACTIVO</span>';
+          }
+        }
+      }, //? Estado
+      {"data":12,
+        render: function (data, type, row) {
+          if(data=='ACTIVO'){
+            return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='editar_foto btn btn-primary btn-sm'><i class='fa fa-image'></i></button>&nbsp;<button id='editarx' class='editar_contra btn btn-info btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button id='editarx' class='borrar btn btn-danger btn-sm'><i class='fa fa-trash'></i></button>";
+          }else{
+            return "<button id='editar' class='editar btn btn-warning btn-sm'><i class='fa fa-pen'></i></button>&nbsp;<button id='editarx' class='editar_foto btn btn-primary btn-sm'><i class='fa fa-image'></i></button>&nbsp;<button id='editarx' class='editar_contra btn btn-info btn-sm'><i class='fa fa-key'></i></button>&nbsp;<button id='editarx' class='activar btn btn-success btn-sm'><i class='fa fa-check'></i></button>";
+          }
+          
         }
       },
       // {"defaultContent":"<button class='editar btn btn-warning'><i class='fa fa-edit'></i></button>"}
@@ -540,14 +554,37 @@ function Eliminar_Usuario(id){
         if(resp>0){
                 Swal.fire(
                   "Mensaje de Confirmacion",
-                  "Usuario eliminado exitosamente",
+                  "Usuario deshabilitado exitosamente",
                   "success"
                   ).then((value)=>{
                     tbl_usuarios.ajax.reload();
                 });
 
         }else{
-            Swal.fire("Mensaje de Error", "No se pudo eliminar a usuario","error")
+            Swal.fire("Mensaje de Error", "No se pudo deshabilitar al usuario","error")
+        }
+    })
+}
+
+function Activar_Usuario(id){
+    $.ajax({
+        url:'../controlador/usuario/control_activar_usuario.php',
+        type:'POST',
+        data:{
+            id:id,
+        }
+    }).done(function(resp){
+        if(resp>0){
+                Swal.fire(
+                  "Mensaje de Confirmacion",
+                  "Usuario habilitado exitosamente",
+                  "success"
+                  ).then((value)=>{
+                    tbl_usuarios.ajax.reload();
+                });
+
+        }else{
+            Swal.fire("Mensaje de Error", "No se pudo habilitar al usuario","error")
         }
     })
 }

@@ -23,6 +23,9 @@
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
 
+    <!-- MyCSS -->
+    <link rel="stylesheet" href="../../css/2cssmy.css">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -98,20 +101,18 @@
                     <div class="col-12 col-md-6">
                         <br>
                         <h3 class="text-white">APERTURA DE LEGAJO PERSONAL</h3>
-                        <small class="text-white">La apertura del legajo personal se encuentra a cargo del equipo de escalafón y legajos (ESLE), y se realiza de oficio
+                        <small class="text-white"><p>La apertura del legajo personal se encuentra a cargo del equipo de escalafón y legajos (ESLE), y se realiza de oficio
                         con la resolución de nombramiento o de contrato que da inicio a la relación laboral. El servidor que inicia el vínculo
                         con la IGED y que ha sido notificado con su resolución, debe presentar ante mesa de partes de la DRE o UGEL de su
                         jurisdicción, la documentación correspondiente dentro de los diez (10) días hábiles desde la notificación. En caso de
                         que la documentación se encuentre incompleta, deteriorada o tenga enmendaduras, la DRE o UGEL observará dichos
                         documentos y otorgará un plazo adicional de cinco (5) días hábiles para que el servidor realice la subsanación
-                        correspondiente. (Ver Instructivo).</small>
-                        <br>
-                        <br>
+                        correspondiente. (Ver Instructivo).</p></small>
                         <h3 class="text-white">BENEFICIOS DE MANTENER ACTUALIZADO EL LEGAJO PERSONAL:</h3>
-                        <small class="text-white">La actualización del legajo personal facilitará al docente de educación superior y administrativo que través de los
-                        informes escalafonarios que se expidan se puedan:</small>
+                        <small class="text-white"><p>La actualización del legajo personal facilitará al docente de educación superior y administrativo que través de los
+                        informes escalafonarios que se expidan se puedan:</p></small>
                         <small class="text-white">
-                            <ul>
+                            <ul class="justificar">
                                 <!-- PHP AQUI -->
                                 <?php foreach ($res_bene as $data_bene) { ?>
                                     <!-- PARA ALMACENAR EN VARIABLE -->

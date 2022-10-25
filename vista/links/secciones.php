@@ -13,6 +13,9 @@
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
 
+    <!-- MyCSS -->
+    <link rel="stylesheet" href="../../css/2cssmy.css">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +85,7 @@
 
 
         <!-- SECCIONES Start -->
-        <div class="container-xxl py-6">
+        <div class="container-xxl py-0">
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s" style="max-width: 900px;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Secciones del Legajo Personal</div>
@@ -106,8 +109,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Filiación e identificación Personal</h5>
-                                <span>Se registran los datos personales del servidor, así como datos familiares, dirección, dominio de lengua indígena u
-                                originaria, declaraciones juradas, etc.</span>
+                                <span><p>Se registran los datos personales del servidor, así como datos familiares, dirección, dominio de lengua indígena u
+                                originaria, declaraciones juradas, etc.</p></span>
                             </div>
                         </div>
                     </div>
@@ -126,8 +129,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Situación académica (Formación)</h5>
-                                <span>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios de posgrado (maestrías y
-                                doctorados) y especializaciones, actualizaciones o capacitaciones.</span>
+                                <span><p>Se registran el grado de bachiller, título profesional y de segunda especialidad, estudios de posgrado (maestrías y
+                                doctorados) y especializaciones, actualizaciones o capacitaciones.</p></span>
                             </div>
                         </div>
                     </div>
@@ -146,7 +149,7 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Ingreso o reingreso</h5>
-                                <span>Se registran los actos resolutivos de contratos, de nombramiento o de reingreso.</span>
+                                <span><p>Se registran los actos resolutivos de contratos, de nombramiento o de reingreso.</p></span>
                             </div>
                         </div>
                     </div>
@@ -165,8 +168,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Trayectoria laboral</h5>
-                                <span>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
-                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</span>
+                                <span><p>Se registran actos resolutivos de desplazamientos definitivos por reasignación o permuta y desplazamientos temporales
+                                por destaque, encargatura, así como designación en cargos de mayor responsabilidad, de ascensos de escala magisterial, reubicaciones, ubicación, adecuación de cargo (o plaza), incorporación, incrementar, retornar.</p></span>
                             </div>
                         </div>
                     </div>
@@ -185,8 +188,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Asignaciones e incentivos temporales, retenciones judiciales y pagos indebidos</h5>
-                                <span>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
-                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</span>
+                                <span><p>Se registran, las resoluciones que otorgan el subsidio por luto y sepelio ante el fallecimiento de un familiar y/o del
+                                servidor; así como resoluciones de asignación por tiempo de servicios (ATS), retenciones judiciales, crédito devengado.</p></span>
                             </div>
                         </div>
                     </div>
@@ -205,8 +208,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Retiro y régimen pensionario</h5>
-                                <span>Se registran resoluciones que reconocen cese, otorgamiento
-                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990)</span>
+                                <span><p>Se registran resoluciones que reconocen cese, otorgamiento
+                                de compensación por tiempo de servicios (CTS), así como de otorgamiento de pensión y tipo de pensión. Datos de sistema pensionario (D.L. 20530, D.L 25897, D.L. 19990).</p></span>
                             </div>
                         </div>
                     </div>
@@ -225,8 +228,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Premios y estímulos</h5>
-                                <span>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través de actos resolutivos u otros
-                                documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</span>
+                                <span><p>Se registran los reconocimientos o felicitaciones que haya recibido el servidor, a través de actos resolutivos u otros
+                                documentos. Asimismo, aquellas resoluciones que conceden la Palmas Magisteriales.</p></span>
                             </div>
                         </div>
                     </div>
@@ -245,7 +248,7 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Sanciones</h5>
-                                <span>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la destitución.</span>
+                                <span><p>Se registran las sanciones impuestas al servidor como la suspensión, el cese temporal o la destitución.</p></span>
                             </div>
                         </div>
                     </div>
@@ -264,9 +267,9 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Licencias y vacaciones</h5>
-                                <span>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los siguientes motivos: incapacidad
+                                <span><p>Se registran las resoluciones que otorgan licencias con goce de remuneraciones, por los siguientes motivos: incapacidad
                                 temporal, maternidad, adopción, entre otras; y licencias sin goce de remuneraciones por motivos particulares, estudios,
-                                entre otras razones.</span>
+                                entre otras razones.</p></span>
                             </div>
                         </div>
                     </div>
@@ -285,8 +288,8 @@
                             </div>
                             <div class="p-5">
                                 <h5 class="mb-3">Otros</h5>
-                                <span>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y se anexa la ficha personal
-                                (ficha escalafonaria).</span>
+                                <span><p>Se registra aquella documentación que no pueda ser ubicada en las secciones anteriores y se anexa la ficha personal
+                                (ficha escalafonaria).</p></span>
                             </div>
                         </div>
                     </div>

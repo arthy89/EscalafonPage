@@ -89,7 +89,7 @@
           </div>
           <!-- /.col -->
           <div class="col-3">
-            <a href="vista/index.php" class="btn btn-primary btn-block" >Volver</a>
+            <a href="index.php" class="btn btn-primary btn-block" >Volver</a>
           </div>
           <!-- ./col -->
           <div class="col-4">

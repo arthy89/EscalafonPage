@@ -13,6 +13,9 @@
     <!-- Favicon -->
     <link href="../img/favicon.ico" rel="icon">
 
+    <!-- MyCSS -->
+    <link rel="stylesheet" href="../../css/2cssmy.css">
+
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -82,7 +85,7 @@
 
 
         <!-- INICIO DE ESCALAFON -->
-        <div class="container-xl">
+        <div class="container-xxl">
             <div class="container">
                 <div class="mx-auto text-center wow fadeInUp" data-wow-delay="0.1s"
                     style="max-width: 900px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
@@ -95,7 +98,7 @@
                         <img class="img-fluid" src="../../plantilla2/img/file.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                        <div class="row g-3 mb-4">
+                        <div class="row g-3 mb-4 justificar">
                             <div class="col-12 d-flex align-items-center mb-3">
                                 <div class="flex-shrink-0 btn-lg-square rounded-circle bg-primary me-3">
                                     <i class="fa fa-cubes text-white"></i>

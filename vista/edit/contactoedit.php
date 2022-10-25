@@ -41,6 +41,7 @@
                       <th>Detalles</th>
                       <th>Dirección</th>
                       <th>Rol</th>
+                      <th>Estado</th>
                       <th>Acción</th>
                   </tr>
               </thead>
@@ -472,7 +473,7 @@ $('#tabla_usuario_simple').on('click','.editar_contra',function(){
 })
 </script>
 
-<!-- PARA ELIMINAR USUARIO -->
+<!-- PARA DESHABILITAR USUARIO -->
 <script>
 $('#tabla_usuario_simple').on('click','.borrar',function(){
   var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
@@ -480,16 +481,39 @@ $('#tabla_usuario_simple').on('click','.borrar',function(){
     var data = tbl_usuarios.row(this).data();
   }
   Swal.fire({
-        title: '¿Estás seguro de eliminar a '+data[1] +'?',
-        icon: 'warning',
+        title: '¿Estás seguro de Deshabilitar a '+data[1] +'?',
+        icon: 'question',
         showCancelButton: true,
         confirmButtonColor: '#3085d6',
         cancelButtonColor: '#d33',
-        confirmButtonText: 'Si, eliminar',
+        confirmButtonText: 'Si, deshabilitar',
         cancelButtonText: 'Cancelar'
       }).then((result) => {
         if (result.isConfirmed) {
             Eliminar_Usuario(data[0]);
+        }
+      })
+})
+</script>
+
+<!-- PARA ACTIVAR USUARIO -->
+<script>
+$('#tabla_usuario_simple').on('click','.activar',function(){
+  var data = tbl_usuarios.row($(this).parents('tr')).data(); //tamaño escritorio
+  if(tbl_usuarios.row(this).child.isShown()){
+    var data = tbl_usuarios.row(this).data();
+  }
+  Swal.fire({
+        title: '¿Estás seguro de Habilitar a '+data[1] +'?',
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Si, habilitar',
+        cancelButtonText: 'Cancelar'
+      }).then((result) => {
+        if (result.isConfirmed) {
+            Activar_Usuario(data[0]);
         }
       })
 })
