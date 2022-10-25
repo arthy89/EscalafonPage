@@ -7,3 +7,40 @@ p{
     text-align: justify;
     text-justify: inter-word;
 }
+
+.arch input[type="file"]{
+    appearance: none;
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.arch {
+    display: inline-block;
+    position: relative;
+    background-color: #28a745;
+    color: white;
+    border: 0;
+    padding: 20px 20px 20px 25px;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0, 0, 0, .15);
+    overflow:hidden;
+    transition: ease-out 120ms background-color;
+}
+
+.arch:hover {
+    background-color: #155624;
+}
+
+.arch > i {
+    margin-right: 15px;
+}
+
+.arch label {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 30%;
+    z-index: 1;
+    cursor: pointer;
+}

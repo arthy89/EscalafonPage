@@ -201,7 +201,6 @@ CREATE TABLE `imagenes`  (
 INSERT INTO `imagenes` VALUES (1, 'img2', 'controlador/imgs/descripcion.png', 4);
 INSERT INTO `imagenes` VALUES (2, 'img1', 'controlador/imgs/esca.png', 1);
 INSERT INTO `imagenes` VALUES (3, 'img3', 'controlador/imgs/requisitos.png', 3);
-INSERT INTO `imagenes` VALUES (4, 'asdfsadf', 'controlador/imgs/IMG3102022010665.jpg', 2);
 
 -- ----------------------------
 -- Table structure for mnorma

@@ -41,7 +41,7 @@
                                 <span class="info-box-icon bg-info"><i class="far fa-user"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-number">Contactos</span>
-                                    <span class="info-box-text">Editar los usuarios y contactos existentes o agregar</span>
+                                    <span class="info-box-text">Editar, agregar usuarios</span>
                                 </div>
 
                             </div>
@@ -69,7 +69,7 @@
                                 <span class="info-box-icon bg-warning"><i class="far fa-images"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-number">Imágenes</span>
-                                    <span class="info-box-text">Agregar, editar o eliminar las imágenes de la página principal</span>
+                                    <span class="info-box-text">Agregar, editar o eliminar imágenes</span>
                                 </div>
 
                             </div>
@@ -84,7 +84,7 @@
                                 <span class="info-box-icon bg-danger"><i class="far fa-folder-open"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-number">Formatos</span>
-                                    <span class="info-box-text">Agregar o editar los formatos de docentes</span>
+                                    <span class="info-box-text">Editar o agregar formatos</span>
                                 </div>
 
                             </div>
@@ -114,7 +114,7 @@
                                 <span class="info-box-icon bg-success"><i class="fa fa-gift"></i></span>
                                 <div class="info-box-content">
                                     <span class="info-box-number">Beneficios</span>
-                                    <span class="info-box-text">Editar los beneficios de la <b>Apertura de Legajo</b></span>
+                                    <span class="info-box-text">Beneficios de la <b>Apertura de Legajo</b></span>
                                 </div>
 
                             </div>

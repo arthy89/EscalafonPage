@@ -66,7 +66,6 @@
             <input type="text" id="usu_nombre_foto_new" class="form-control" disabled>
           </div>
           <div class="col-4 arch">
-            <label for="">Foto</label>
             <label for="usu_foto_new" id="archivo"><span class="fas fa-image mr-1"></span> Nueva  Foto</label>
             <input type="file" id="usu_foto_new">
           </div>
@@ -114,7 +113,6 @@
             <input type="text" id="usu_nombre_foto" class="form-control" disabled>
           </div>
           <div class="col-4 arch">
-            <label for="">Foto</label>
             <label for="usu_foto_nueva" id="archivo"><span class="fas fa-image mr-1"></span> Nueva  Foto</label>
             <input type="file" id="usu_foto_nueva">
           </div>
