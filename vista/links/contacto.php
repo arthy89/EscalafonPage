@@ -122,8 +122,6 @@
                             </p>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square text-primary bg-white m-1" href="mailto:<?php echo $row_2['usu_email']; ?>"><i class="fab fa-google"></i></a>
-                                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

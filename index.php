@@ -628,9 +628,9 @@
                     style="max-width: 1000px; visibility: visible; animation-delay: 0.1s; animation-name: fadeInUp;">
                     <div class="d-inline-block border rounded-pill text-primary px-4 mb-3">Marco</div>
                     <h2 class="mb-5">Marco Normativo</h2>
-                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" id="RVM_092" target="_blank" rel="noopener noreferrer"><p><i class="fa fa-folder-open fa-2x mr-2"></i><br>RVM N° 092-2020-MINEDU</p></a>
+                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/582443/RVM_N__092-2020-MINEDU.pdf" id="RVM_092" target="_blank" rel="noopener noreferrer"><p style="text-align: center;"><i class="fa fa-folder-open fa-2x mr-2"></i><br>RVM N° 092-2020-MINEDU</p></a>
 
-                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer"><p><i class="fa fa-copy fa-2x mr-2"></i> <br> RVM N° 016-2021-MINEDU</p></a>
+                    <a class="btn btn-primary rounded-pill py-2 px-5 mt-2" href="https://cdn.www.gob.pe/uploads/document/file/1577954/RVM%20N%C2%B0%20016-2021-MINEDU.pdf.pdf" id="RVM_016" target="_blank" rel="noopener noreferrer"><p style="text-align: center;"><i class="fa fa-copy fa-2x mr-2"></i> <br> RVM N° 016-2021-MINEDU</p></a>
                 </div>
             </div>
         </div>
@@ -828,8 +828,6 @@
                             </p>
                             <div class="d-flex justify-content-center">
                                 <a class="btn btn-square text-primary bg-white m-1" href="mailto:<?php echo $row_2['usu_email']; ?>"><i class="fab fa-google"></i></a>
-                                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square text-primary bg-white m-1" href=""><i class="fab fa-linkedin-in"></i></a>
                             </div>
                         </div>
                     </div>

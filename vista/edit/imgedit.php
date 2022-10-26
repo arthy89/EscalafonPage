@@ -62,7 +62,7 @@
       <div class="modal-body">
         <div class="row">
           <div class="col-4">
-            <label for="">Nombre de Usuario</label>
+            <label for="">Usuario</label>
             <input type="text" id="usu_nombre_foto_new" class="form-control" disabled>
           </div>
           <div class="col-4 arch">
@@ -76,7 +76,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <label for="">Nombre de la Foto</label>
+            <label for="">Enlace</label>
             <input type="text" id="img_file_new" class="form-control" >
           </div>
         </div>
@@ -109,7 +109,7 @@
         </div>
         <div class="row">
           <div class="col-4">
-            <label for="">Nombre de Usuario</label>
+            <label for="">Usuario</label>
             <input type="text" id="usu_nombre_foto" class="form-control" disabled>
           </div>
           <div class="col-4 arch">
@@ -124,7 +124,7 @@
         </div>
         <div class="row">
           <div class="col-12">
-            <label for="">Nombre de la Foto</label>
+            <label for="">Enlace</label>
             <input type="text" id="img_file_act" class="form-control" >
           </div>
         </div>
