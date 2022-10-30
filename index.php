@@ -726,7 +726,7 @@
                 </div>
                 <div class="row g-5 align-items-center py-4">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-                        <img class="img-fluid" src="plantilla2/img/file.png">
+                        <img class="img-fluid" src="controlador/imgs/Legajo.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row g-3 mb-4 justificar">

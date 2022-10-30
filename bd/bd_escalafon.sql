@@ -11,7 +11,7 @@
  Target Server Version : 80030
  File Encoding         : 65001
 
- Date: 25/10/2022 11:39:51
+ Date: 30/10/2022 00:35:38
 */
 
 SET NAMES utf8mb4;
@@ -122,7 +122,7 @@ CREATE TABLE `icono`  (
   `ico_name` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   `ico_svg` varchar(255) CHARACTER SET utf8mb3 COLLATE utf8mb3_spanish_ci NULL DEFAULT NULL,
   PRIMARY KEY (`ico_id`) USING BTREE
-) ENGINE = InnoDB AUTO_INCREMENT = 54 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
+) ENGINE = InnoDB AUTO_INCREMENT = 53 CHARACTER SET = utf8mb3 COLLATE = utf8mb3_spanish_ci ROW_FORMAT = DYNAMIC;
 
 -- ----------------------------
 -- Records of icono
@@ -198,9 +198,9 @@ CREATE TABLE `imagenes`  (
 -- ----------------------------
 -- Records of imagenes
 -- ----------------------------
-INSERT INTO `imagenes` VALUES (1, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG251020221127863.png', 2);
-INSERT INTO `imagenes` VALUES (2, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG25102022112785.png', 2);
-INSERT INTO `imagenes` VALUES (3, 'https://www.youtube.com/c/MinisteriodeEducacióndelPerú', 'controlador/imgs/IMG251020221128355.png', 2);
+INSERT INTO `imagenes` VALUES (1, 'img2', 'controlador/imgs/IMG251020221127863.png', 4);
+INSERT INTO `imagenes` VALUES (2, 'img1', 'controlador/imgs/IMG25102022112785.png', 1);
+INSERT INTO `imagenes` VALUES (3, 'img3', 'controlador/imgs/IMG251020221128355.png', 3);
 
 -- ----------------------------
 -- Table structure for mnorma
@@ -276,7 +276,7 @@ CREATE TABLE `usuarios`  (
 -- ----------------------------
 INSERT INTO `usuarios` VALUES (1, 'Elba María', 'Romero', 'Ortiz', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'elba@mail.com', 'controlador/usuario/foto/7.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'elba', 'ACTIVO');
 INSERT INTO `usuarios` VALUES (2, 'Alan Max', 'Fernandez', 'Candia', '$2y$12$3IqMNkcLM5x6sYwWxmwjjuJxbmYlW30KE3awNxkjziVBPLqK3RUEC', 'alan@mail.com', 'controlador/usuario/foto/4.png', 'Administrativo de Escalafón / DRE Puno / OAD./ Escafón', 1, 'Jr. Bustamante Dueñas 881 - Chanu chanu II - 2do piso', 'alan', 'ACTIVO');
-INSERT INTO `usuarios` VALUES (3, 'Arhyel Philippe', 'Ramos', 'Flores', '$2y$12$wo5fn3.gkNHHvWSiQ3SiPud9UZGbhzcAw9w8HB650xyvwMWkKKAHm', 'arhyel@mail.com', 'controlador/usuario/foto/IMG189202223535.png', 'Practicante Ing Sistemas', 4, 'Jr. Ingaricona 129', 'arhyel', 'ACTIVO');
+INSERT INTO `usuarios` VALUES (3, 'Arhyel Philippe', 'Ramos', 'Flores', '$2y$12$wo5fn3.gkNHHvWSiQ3SiPud9UZGbhzcAw9w8HB650xyvwMWkKKAHm', 'arhyel@mail.com', 'controlador/usuario/foto/IMG8920221346114.png', 'Practicante Ing Sistemas', 4, 'Jr. Ingaricona 129', 'arhyel', 'ACTIVO');
 INSERT INTO `usuarios` VALUES (4, 'Vero', 'Para prueba', 'En la página Nueva', '$2y$12$FxDZZjW/lgMkCGFbhFtVdOYbfdbLbAbFXTjw/sbKwoTlX46EE9Xnm', 'pu2@mail.com', 'controlador/usuario/foto/IMG992022535221.png', 'CAS 2', 3, 'jr drep', 'persona1', 'ACTIVO');
 
 -- ----------------------------
@@ -324,7 +324,6 @@ CREATE PROCEDURE `SP_ACTIVAR_USUARIO`(IN ID INT)
 UPDATE usuarios SET 
 usu_est="ACTIVO"
 WHERE usu_id=ID
-;
 ;;
 delimiter ;
 
@@ -397,7 +396,6 @@ CREATE PROCEDURE `SP_ELIMINAR_USUARIO`(IN ID INT)
 UPDATE usuarios SET 
 usu_est="INACTIVO"
 WHERE usu_id=ID
-;
 ;;
 delimiter ;
 
@@ -441,7 +439,6 @@ FROM
 		comunicado.est_id = estado.est_id
 ORDER BY
 	comunicado.com_id DESC
-;
 ;;
 delimiter ;
 
@@ -518,7 +515,6 @@ SELECT
 	mnorma.mn_link
 FROM
 	mnorma
-;
 ;;
 delimiter ;
 
@@ -557,7 +553,6 @@ FROM
 		usuarios.rol_id = rol.rol_id
 WHERE
 usu_est="ACTIVO"
-;
 ;;
 delimiter ;
 
