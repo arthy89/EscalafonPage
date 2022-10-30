@@ -52,8 +52,8 @@
         <!-- Navbar & Hero Start -->
         <div class="container-xxl position-relative p-0">
             <nav class="navbar navbar-expand-lg navbar-light px-4 px-lg-5 py-3 py-lg-0">
-                <a href="index.php" class="navbar-brand p-0">
-                    <h1 class="m-0">Escalafón - DRE Puno</h1>
+                <a href="../../index.php" class="navbar-brand p-0">
+                    <h1 class="m-0">ESCALAFÓN - DRE PUNO</h1>
                     <!-- <img src="img/logo.png" alt="Logo"> -->
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
@@ -95,7 +95,7 @@
                 </div>
                 <div class="row g-5 align-items-center py-4">
                     <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-                        <img class="img-fluid" src="../../plantilla2/img/file.png">
+                        <img class="img-fluid" src="../../controlador/imgs/Legajo.png">
                     </div>
                     <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
                         <div class="row g-3 mb-4 justificar">
